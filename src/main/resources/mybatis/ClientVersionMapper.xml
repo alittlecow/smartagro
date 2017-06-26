@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.dao.ClientVersionMapper" >
+  <resultMap id="BaseResultMap" type="com.sywl.domain.ClientVersion" >
+    <id column="client_id" property="clientId" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="version_name" property="versionName" jdbcType="VARCHAR" />
+    <result column="c_time" property="cTime" jdbcType="TIMESTAMP" />
+    <result column="download_url" property="downloadUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    client_id, version, version_name, c_time, download_url
+  </sql>
+  <select id="selectByVersionCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_version
+    where version > #{versionCode}
+  </select>
+</mapper>

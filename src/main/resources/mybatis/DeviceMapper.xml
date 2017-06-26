@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.dao.DeviceMapper" >
+  <resultMap id="DeviceBaseResultMap" type="com.sywl.domain.DeviceDomain" >
+    <id column="device_id" property="deviceId" jdbcType="INTEGER" />
+    <result column="device_code" property="deviceCode" jdbcType="VARCHAR" />
+    <result column="device_name" property="deviceName" jdbcType="VARCHAR" />
+    <result column="device_type" property="deviceType" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_token" property="userToken" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="queryDeviceByUserName" resultMap="DeviceBaseResultMap" parameterType="java.lang.String" >
+    select 
+    *
+    from t_device
+    where user_token = #{userToken}
+  </select>
+  <insert id="insert" parameterType="com.sywl.domain.DeviceDomain" useGeneratedKeys="true"
+		keyProperty="userId">
+    insert into t_device (device_code, device_name, 
+      device_type, user_token)
+    values (#{deviceCode,jdbcType=VARCHAR}, #{deviceName,jdbcType=VARCHAR}, #{deviceType,jdbcType=VARCHAR}, 
+      #{userToken,jdbcType=VARCHAR})
+  </insert>
+</mapper>
