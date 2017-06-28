@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -59,7 +62,17 @@ public class DeviceController {
 	
 	@Autowired
 	private TempHumiService tempHumiService;
-	
+
+	@ApiOperation(value="新增设备", notes="添加一个新的设备")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "action", value = "action", required = true, dataType = "String"),
+			@ApiImplicitParam(name = "deviceCode", value = "deviceCode", required = true, dataType = "String"),
+			@ApiImplicitParam(name = "deviceName", value = "deviceName", required = true, dataType = "String"),
+			@ApiImplicitParam(name = "sceneId", value = "sceneId", required = true, dataType = "String"),
+			@ApiImplicitParam(name = "token", value = "token", required = true, dataType = "String"),
+			@ApiImplicitParam(name = "parentId", value = "parentId", required = true, dataType = "String"),
+			@ApiImplicitParam(name = "type", value = "type", required = true, dataType = "String")
+	})
 	@RequestMapping(value = "/addDevice", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> addDevice(String action, @RequestParam String deviceCode,
 			@RequestParam String deviceName, @RequestParam String sceneId, @RequestParam String token,
