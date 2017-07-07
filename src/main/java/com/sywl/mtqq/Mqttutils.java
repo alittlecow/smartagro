@@ -18,25 +18,12 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sywl.domain.DeviceTHDomain;
-import com.sywl.domain.DeviceVersion;
-import com.sywl.domain.MqttReq;
-import com.sywl.domain.THRelayDomain;
 import com.sywl.domain.MqttReq.HistoryBean;
-import com.sywl.domain.TempHumiDomain;
-import com.sywl.service.DeviceRelayService;
-import com.sywl.service.DeviceService;
-import com.sywl.service.DeviceTHService;
-import com.sywl.service.DeviceVersionService;
-import com.sywl.service.THRelayService;
-import com.sywl.service.TempHumiService;
 import com.sywl.utils.DateUtils;
-import com.sywl.utils.EncodedUtils;
 import com.sywl.utils.UUIDUtil;
 
 @Component
