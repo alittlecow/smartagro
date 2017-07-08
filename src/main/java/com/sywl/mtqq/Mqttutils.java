@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.sywl.domain.MqttReq;
+import com.sywl.service.DeviceService;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -33,22 +35,6 @@ public class Mqttutils {
 	public static MqttClient client;
 	private MqttConnectOptions options;
 	private static final Logger logger=LoggerFactory.getLogger(Mqttutils.class);
-	
-	@Autowired
-	DeviceVersionService deviceVersionService;
-	
-	@Autowired
-	DeviceRelayService deviceRelayService;
-	
-	@Autowired
-	DeviceTHService deviceTHService;
-	
-	@Autowired
-	TempHumiService tempHumiService;
-	
-	@Autowired
-	THRelayService thRelayService;
-	
 
 	@Autowired
 	DeviceService deviceService;
@@ -170,7 +156,7 @@ public class Mqttutils {
 				 publish(deviceCode+"/pubsd",map);
 			 }
 			 
-			 if(mqttReq.getAction().equals("reqOTA")){
+			 /*if(mqttReq.getAction().equals("reqOTA")){
 				 DeviceVersion deviceVersion = deviceVersionService.selectByDeviceCode(deviceCode);
 				 Map map = new HashMap();
 				 map.put("action", "reqOTA");
@@ -217,7 +203,7 @@ public class Mqttutils {
 					 map.put("relay", state);
 					 publish(thRelayDomains.get(i).getDeviceCode()+"/pubsd",map);
 				 }
-			 }
+			 }*/
 			 
 		}
 	}

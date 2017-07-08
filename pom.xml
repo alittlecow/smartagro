@@ -6,7 +6,7 @@
 	<groupId>com.sywl</groupId>
 	<artifactId>SmartAgro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>smartagro</name>
 	<description>SmartAgro project for Spring Boot</description>
@@ -56,6 +56,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -72,11 +78,13 @@
 			<artifactId>spring-boot-starter-log4j</artifactId>
 			<version>1.3.8.RELEASE</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
-			<artifactId>fastJson</artifactId>
-			<version>1.2.24</version>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.34</version>
 		</dependency>
+
 		<!--mybatis end -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
