@@ -9,21 +9,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.sywl.mtqq.Mqttutils;
 
 @SpringBootApplication
-public class SmartagroApplication {
+public class Application {
 
 	@Autowired
 	private Mqttutils mqttutils;
 
-	private static SmartagroApplication smartagroApplication;
+	private static Application application;
 
 	@PostConstruct
 	public void init()
 
 	{
 
-		smartagroApplication = this;
+		application = this;
 
-		smartagroApplication.mqttutils = this.mqttutils;
+		application.mqttutils = this.mqttutils;
 
 	}
 
@@ -32,7 +32,7 @@ public class SmartagroApplication {
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(SmartagroApplication.class, args);
-		smartagroApplication.mqttutils.connection();
+		SpringApplication.run(Application.class, args);
+		application.mqttutils.connection();
 	}
 }

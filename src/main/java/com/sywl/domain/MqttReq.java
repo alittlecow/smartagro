@@ -2,6 +2,10 @@ package com.sywl.domain;
 
 import java.util.List;
 
+/**
+ * Created by zhanglj on 2017/7/8.
+ */
+
 public class MqttReq {
 
 	/**

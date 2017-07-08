@@ -5,11 +5,14 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.security.Key;
 import java.util.Date;
+/**
+ * Created by zhanglj on 2017/7/8.
+ */
 
 public class TokenUtils {
 	
-	public static String getJWTString(String tel,Date expires,Key key){
-		if (tel == null) {
+	public static String getJWTString(String userName,Date expires,Key key){
+		if (userName == null) {
 		throw new NullPointerException("null username is illegal");
 		}
 
@@ -23,7 +26,7 @@ public class TokenUtils {
 		SignatureAlgorithm signatureAlgorithm =SignatureAlgorithm.HS256;
 		String jwtString = Jwts.builder()
 		.setIssuer("Jersey-Security-Basic")//设置发行人
-		.setSubject(tel)//设置抽象主题
+		.setSubject(userName)//设置抽象主题
 		.setAudience("user")//设置角色
 		.setExpiration(expires)//过期时间
 		.setIssuedAt(new Date())//设置现在时间

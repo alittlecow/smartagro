@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sywl.dao.UserMapper" >
-  <resultMap id="UserBaseResultMap" type="com.sywl.domain.UserDomain" >
-    <id column="user_id" property="userId" jdbcType="INTEGER" />
+  <resultMap id="UserResultMap" type="com.sywl.domain.UserDomain" >
+    <id column="id" property="id" jdbcType="BIGINT" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
-    <result column="user_mobile" property="userMobile" jdbcType="VARCHAR" />
-    <result column="user_mail" property="userMail" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="sharing_proportion" property="sharingProportion" jdbcType="DOUBLE" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="is_withdraw_cash" property="isWithdrawCash" jdbcType="TINYINT" />
+    <result column="account_balance" property="accountBalance" jdbcType="DOUBLE" />
   </resultMap>
   <resultMap id="ReturnMap" type="java.util.HashMap" >
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="user_mobile" property="userMobile" jdbcType="VARCHAR" />
     <result column="user_mail" property="userMail" jdbcType="VARCHAR" />
   </resultMap>
-  <select id="queryUserByUserName" resultMap="UserBaseResultMap" parameterType="java.lang.String" >
-    select 
+  <select id="queryUserByName" resultMap="UserResultMap" parameterType="java.lang.String" >
+    select
     *
-    from t_user
-    where user_mobile = #{userMobile} and user_pwd = #{userPwd}
+    from user
+    where user_name = #{userName}
   </select>
   <insert id="insert" parameterType="com.sywl.domain.UserDomain" useGeneratedKeys="true"
 		keyProperty="userId">
-    insert into t_user (user_id,user_name, user_pwd, 
+    insert into t_user (user_id,user_name, user_pwd,
       user_mobile, user_mail)
-    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR},
       #{userMail,jdbcType=TIMESTAMP})
   </insert>
-  <select id="queryUserByMobile" resultMap="UserBaseResultMap" parameterType="java.lang.String" >
+  <select id="queryUserByMobile" resultMap="UserResultMap" parameterType="java.lang.String" >
     select 
     *
     from t_user
@@ -34,12 +42,12 @@
   </select>
   
   <select id="queryMapByUserName" resultMap="ReturnMap" parameterType="java.lang.String" >
-    select 
-    user_name,user_mobile,user_mail 
+    select
+    user_name,user_mobile,user_mail
     from t_user
     where user_mobile = #{userMobile}
   </select>
-  
+
   <update id="updateUserById" parameterType="java.lang.String" >
     update t_user
     <set >
