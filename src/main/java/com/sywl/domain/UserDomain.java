@@ -1,8 +1,10 @@
 package com.sywl.domain;
 
+import java.util.Date;
+
 public class UserDomain {
 	
-	private long id;
+	private String id;
 	
 	private String userName;
 	
@@ -14,7 +16,7 @@ public class UserDomain {
 
 	private byte sex;
 
-	private int age;
+	private Date birthday;
 
 	private String realName;
 
@@ -28,11 +30,11 @@ public class UserDomain {
 
 	private double accountBalance;
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -76,12 +78,12 @@ public class UserDomain {
 		this.sex = sex;
 	}
 
-	public int getAge() {
-		return age;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getRealName() {

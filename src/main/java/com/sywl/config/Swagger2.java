@@ -29,8 +29,8 @@ public class Swagger2 {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring Boot中使用Swagger2构建RESTful APIs")
-                .description("更多Spring Boot相关文章请关注：http://blog.didispace.com/")
+                .title("钜柏医疗科技远程控制系统--后端接口")
+                .description("----created by Zhanglj")
                 .termsOfServiceUrl("http://blog.didispace.com/")
                 .version("1.0")
                 .build();

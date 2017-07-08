@@ -2,24 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sywl.dao.UserMapper" >
   <resultMap id="UserResultMap" type="com.sywl.domain.UserDomain" >
-    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="role" property="role" jdbcType="VARCHAR" />
-    <result column="sharing_proportion" property="sharingProportion" jdbcType="DOUBLE" />
     <result column="sex" property="sex" jdbcType="TINYINT" />
-    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
     <result column="real_name" property="realName" jdbcType="VARCHAR" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="is_withdraw_cash" property="isWithdrawCash" jdbcType="TINYINT" />
     <result column="account_balance" property="accountBalance" jdbcType="DOUBLE" />
   </resultMap>
   <resultMap id="ReturnMap" type="java.util.HashMap" >
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="user_mobile" property="userMobile" jdbcType="VARCHAR" />
-    <result column="user_mail" property="userMail" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="account_balance" property="accountBalance" jdbcType="DOUBLE" />
   </resultMap>
   <select id="queryUserByName" resultMap="UserResultMap" parameterType="java.lang.String" >
     select
@@ -28,27 +31,21 @@
     where user_name = #{userName}
   </select>
   <insert id="insert" parameterType="com.sywl.domain.UserDomain" useGeneratedKeys="true"
-		keyProperty="userId">
-    insert into t_user (user_id,user_name, user_pwd,
-      user_mobile, user_mail)
-    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR},
-      #{userMail,jdbcType=TIMESTAMP})
+		keyProperty="id">
+    insert into user (id, user_name, password, role, real_name,sex, birthday, mobile, email)
+    values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR},
+      #{realName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{birthday,jdbcType=TIMESTAMP}, #{mobile,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR})
   </insert>
-  <select id="queryUserByMobile" resultMap="UserResultMap" parameterType="java.lang.String" >
-    select 
-    *
-    from t_user
-    where user_mobile = #{userMobile}
-  </select>
   
   <select id="queryMapByUserName" resultMap="ReturnMap" parameterType="java.lang.String" >
     select
-    user_name,user_mobile,user_mail
-    from t_user
-    where user_mobile = #{userMobile}
+    id,user_name,password,role,sex,birthday,real_name,mobile,email,account_balance
+    from user
+    where user_name = #{userName}
   </select>
 
-  <update id="updateUserById" parameterType="java.lang.String" >
+  <!--<update id="updateUserById" parameterType="java.lang.String" >
     update t_user
     <set >
       <if test="userName != ''" >
@@ -62,5 +59,5 @@
       </if>
     </set>
     where user_id = #{userId}
-  </update>
+  </update>-->
 </mapper>
