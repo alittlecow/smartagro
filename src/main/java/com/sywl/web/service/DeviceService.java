@@ -1,5 +1,4 @@
-package com.sywl.service;
-import org.springframework.beans.factory.annotation.Autowired;
+package com.sywl.web.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

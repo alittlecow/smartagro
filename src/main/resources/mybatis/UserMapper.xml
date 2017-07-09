@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sywl.dao.UserMapper" >
-  <resultMap id="UserResultMap" type="com.sywl.domain.UserDomain" >
+<mapper namespace="com.sywl.web.dao.UserMapper" >
+  <resultMap id="UserResultMap" type="com.sywl.web.domain.UserDomain" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -30,8 +30,8 @@
     from user
     where user_name = #{userName}
   </select>
-  <insert id="insert" parameterType="com.sywl.domain.UserDomain" useGeneratedKeys="true"
-		keyProperty="id">
+  <insert id="insert" parameterType="com.sywl.web.domain.UserDomain" useGeneratedKeys="true"
+          keyProperty="id">
     insert into user (id, user_name, password, role, real_name,sex, birthday, mobile, email)
     values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR},
       #{realName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{birthday,jdbcType=TIMESTAMP}, #{mobile,jdbcType=VARCHAR},

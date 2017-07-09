@@ -1,7 +1,7 @@
-package com.sywl.service;
+package com.sywl.web.service;
 
-import com.sywl.dao.UserMapper;
-import com.sywl.domain.UserDomain;
+import com.sywl.web.dao.UserMapper;
+import com.sywl.web.domain.UserDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

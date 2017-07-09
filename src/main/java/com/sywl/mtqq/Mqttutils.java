@@ -1,12 +1,11 @@
 package com.sywl.mtqq;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.sywl.domain.MqttReq;
-import com.sywl.service.DeviceService;
+import com.sywl.web.domain.MqttReq;
+import com.sywl.web.service.DeviceService;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -24,9 +23,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sywl.domain.MqttReq.HistoryBean;
 import com.sywl.utils.DateUtils;
-import com.sywl.utils.UUIDUtil;
 
 @Component
 public class Mqttutils {

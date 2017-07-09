@@ -1,4 +1,4 @@
-package com.sywl.domain;
+package com.sywl.web.domain;
 
 public class SysinfoBean {
 	/**

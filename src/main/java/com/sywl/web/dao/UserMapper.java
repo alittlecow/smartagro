@@ -1,6 +1,6 @@
-package com.sywl.dao;
+package com.sywl.web.dao;
 
-import com.sywl.domain.UserDomain;
+import com.sywl.web.domain.UserDomain;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Map;

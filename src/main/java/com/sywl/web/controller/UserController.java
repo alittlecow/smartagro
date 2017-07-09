@@ -1,7 +1,9 @@
-package com.sywl.controller;
+package com.sywl.web.controller;
 
-import com.sywl.domain.UserDomain;
-import com.sywl.service.UserService;
+import com.sywl.common.enums.BooleanEnum;
+import com.sywl.common.enums.RoleEnum;
+import com.sywl.web.domain.UserDomain;
+import com.sywl.web.service.UserService;
 import com.sywl.utils.DateUtils;
 import com.sywl.utils.RedisUtil;
 import com.sywl.utils.TokenUtils;
@@ -10,7 +12,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Key;
@@ -61,41 +62,64 @@ public class UserController {
         Map<String,Object> map = new HashMap<String,Object>();
 
         //非空校验
-        if(userName.equals("")||userName==null){
+        if(userName==null || userName.equals("")){
             map.put("result", "error");
             map.put("message", "用户名不能为空");
             return map;
         }
-        if(password.equals("")||password==null){
+        if(password==null || password.equals("")){
             map.put("result", "error");
             map.put("message", "密码不能为空");
             return map;
         }
-        if(role.equals("")||role==null){
+        if(role==null || role.equals("")){
             map.put("result", "error");
             map.put("message", "角色不能为空");
             return map;
         }
         //格式校验
-        String passwordRegex = "^\\d{6,18}$";
+        String passwordRegex = "^[a-zA-Z0-9]{6,20}$";
         if (!Pattern.matches(passwordRegex, password)) {
             map.put("result", "error");
-            map.put("message", "密码长度错误");
+            map.put("message", "密码格式错误");
             return map;
         }
-
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date birthday = null;
-        try {
-            birthday = format.parse(birthdayStr);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if (!(role==null) && !role.equals("") && !RoleEnum.contain(role)) {
             map.put("result", "error");
-            map.put("message", "出生日期格式错误");
+            map.put("message", "角色格式错误");
+            return map;
+        }
+        if (!(sex==null) && !sex.equals("") && !BooleanEnum.contain(sex)) {
+            map.put("result", "error");
+            map.put("message", "性别格式错误");
+            return map;
+        }
+        Date birthday = null;
+        if (!(birthdayStr==null) && !birthdayStr.equals("")) {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                birthday = format.parse(birthdayStr);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                map.put("result", "error");
+                map.put("message", "出生日期格式错误");
+                return map;
+            }
+        }
+        String mobileRegex = "^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$";
+        if (!(mobile==null) && !mobile.equals("") && !Pattern.matches(mobileRegex, mobile)) {
+            map.put("result", "error");
+            map.put("message", "手机格式错误");
+            return map;
+        }
+        String emialRegex = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+        if (!(email==null) && !email.equals("") && !Pattern.matches(emialRegex, email)) {
+            map.put("result", "error");
+            map.put("message", "邮箱格式错误");
             return map;
         }
 
-        //内容校验
+        //其他校验
         UserDomain user = userService.queryUserByName(userName);
         if(user!=null){
             map.put("result", "error");
