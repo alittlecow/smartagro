@@ -1,40 +1,79 @@
 package com.sywl.support;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.pagehelper.Page;
+import org.apache.commons.lang3.ClassUtils;
 
 /**
  * @author Huzl
  * @version 1.0.0
  */
 public class BaseResponse<T> {
-    @JsonProperty("result")
     private String result = "success";
     private String message = "";
-    private int totalRecordNum; //总记录数
+    private long totalRecordNum; //总记录数
     private int pages;//总页数
     private int pageNo;//第几页
     private T data;
 
-//
-//    public BaseResponse(T detail) {
-//        this.detail = detail;
-//        if (ClassUtils.isAssignable(detail.getClass(), Pagination.class)) {
-//            //如果返回的是分页的对象，则吧分页的数据提前放到response
-//            Pagination p = (Pagination) detail;
-//            this.totalRecordNum = p.getTotalRecordNum();
-//            this.pageNo = p.getPageNo();
-//            this.pages = p.getPages();
-//
-//            List<T> dataList = p.getList() != null ? p.getList() : new ArrayList<T>();
-//            Map<String, Object> dataListMap = new HashMap<String, Object>();
-//            dataListMap.putAll(p.getAttrs());
-//            dataListMap.put("list", dataList);
-//            this.detail = (T) dataListMap;
-//        }
-//    }
+    public BaseResponse(T data) {
+        this.data = data;
+        if (ClassUtils.isAssignable(data.getClass(), Page.class)) {
+            Page p = (Page) data;
+            this.totalRecordNum = p.getTotal();
+            this.pages = p.getPages();
+            this.pageNo = p.getPageNum();
+        }
+    }
+
 
     public BaseResponse() {
     }
 
+    public String getResult() {
+        return result;
+    }
 
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public long getTotalRecordNum() {
+        return totalRecordNum;
+    }
+
+    public void setTotalRecordNum(long totalRecordNum) {
+        this.totalRecordNum = totalRecordNum;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public int getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(int pageNo) {
+        this.pageNo = pageNo;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 }

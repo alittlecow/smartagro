@@ -46,3 +46,51 @@
 2017-07-10 07:23:44,250 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
 2017-07-10 07:23:44,597 [main] INFO  [com.pageHelper] - Started pageHelper in 11.629 seconds (JVM running for 13.164)
 2017-07-10 07:23:46,011 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-10 07:31:37,941 [main] INFO  [com.pageHelper] - Starting pageHelper on LAPTOP-M484PB5F with PID 7068 (started by pengxiao in C:\Users\pengxiao\Desktop\WEB服务器\smartagro)
+2017-07-10 07:31:37,943 [main] INFO  [com.pageHelper] - No active profile set, falling back to default profiles: default
+2017-07-10 07:31:39,021 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-10 07:31:43,459 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-10 07:31:43,807 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:31:44,191 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:31:45,824 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-10 07:31:47,674 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-10 07:31:47,754 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-10 07:31:47,898 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-10 07:31:48,139 [main] INFO  [com.pageHelper] - Started pageHelper in 11.544 seconds (JVM running for 13.447)
+2017-07-10 07:35:57,828 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-10 07:39:02,055 [main] INFO  [com.pageHelper] - Starting pageHelper on LAPTOP-M484PB5F with PID 16416 (started by pengxiao in C:\Users\pengxiao\Desktop\WEB服务器\smartagro)
+2017-07-10 07:39:02,057 [main] INFO  [com.pageHelper] - No active profile set, falling back to default profiles: default
+2017-07-10 07:39:02,850 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-10 07:39:07,440 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-10 07:39:07,799 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:39:08,200 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:39:10,447 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-10 07:39:12,378 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-10 07:39:12,426 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-10 07:39:12,546 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-10 07:39:12,797 [main] INFO  [com.pageHelper] - Started pageHelper in 11.842 seconds (JVM running for 14.243)
+2017-07-10 07:39:14,657 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-10 07:39:37,372 [main] INFO  [com.pageHelper] - Starting pageHelper on LAPTOP-M484PB5F with PID 16928 (started by pengxiao in C:\Users\pengxiao\Desktop\WEB服务器\smartagro)
+2017-07-10 07:39:37,373 [main] INFO  [com.pageHelper] - No active profile set, falling back to default profiles: default
+2017-07-10 07:39:38,486 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-10 07:39:43,343 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-10 07:39:43,680 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:39:44,165 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:39:46,181 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-10 07:39:50,638 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-10 07:39:50,752 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-10 07:39:50,839 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-10 07:39:51,112 [main] INFO  [com.pageHelper] - Started pageHelper in 14.908 seconds (JVM running for 16.559)
+2017-07-10 07:42:07,064 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-10 07:44:25,201 [main] INFO  [com.pageHelper] - Starting pageHelper on LAPTOP-M484PB5F with PID 13996 (started by pengxiao in C:\Users\pengxiao\Desktop\WEB服务器\smartagro)
+2017-07-10 07:44:25,206 [main] INFO  [com.pageHelper] - No active profile set, falling back to default profiles: default
+2017-07-10 07:44:25,836 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-10 07:44:29,998 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-10 07:44:30,403 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:44:30,805 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-10 07:44:32,988 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-10 07:44:34,659 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-10 07:44:34,703 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-10 07:44:34,777 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-10 07:44:34,978 [main] INFO  [com.pageHelper] - Started pageHelper in 11.152 seconds (JVM running for 12.693)
+2017-07-10 07:45:18,733 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
