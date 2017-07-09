@@ -2,19 +2,18 @@ package com.sywl.web.controller;
 
 import com.sywl.common.enums.BooleanEnum;
 import com.sywl.common.enums.RoleEnum;
+import com.sywl.utils.*;
 import com.sywl.web.domain.UserDomain;
 import com.sywl.web.service.UserService;
-import com.sywl.utils.DateUtils;
-import com.sywl.utils.RedisUtil;
-import com.sywl.utils.TokenUtils;
-import com.sywl.utils.UUIDUtil;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
 import java.security.Key;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +38,7 @@ public class UserController {
 
     @ApiOperation(value="注册用户", notes="注册用户")
     @ApiImplicitParams({
-            @ApiImplicitParam(paramType="query",name = "userName", value = "用户名称", required = true, dataType = "String",defaultValue="defaultValue01",access="access01",example="example01"),
+            @ApiImplicitParam(paramType="query",name = "userName", value = "用户名称", required = true, dataType = "String"),
             @ApiImplicitParam(paramType="query",name = "password", value = "密码", required = true, dataType = "String"),
             @ApiImplicitParam(paramType="query",name = "role", value = "角色", required = true, dataType = "String",allowableValues="admin,distributor,user,financial"),
             @ApiImplicitParam(paramType="query",name = "realName", value = "真实姓名", required = false, dataType = "String"),
@@ -62,24 +61,24 @@ public class UserController {
         Map<String,Object> map = new HashMap<String,Object>();
 
         //非空校验
-        if(userName==null || userName.equals("")){
+        if(RequestParamVerifyUtils.isEmpty(userName)){
             map.put("result", "error");
             map.put("message", "用户名不能为空");
             return map;
         }
-        if(password==null || password.equals("")){
+        if(RequestParamVerifyUtils.isEmpty(password)){
             map.put("result", "error");
             map.put("message", "密码不能为空");
             return map;
         }
-        if(role==null || role.equals("")){
+        if(RequestParamVerifyUtils.isEmpty(role)){
             map.put("result", "error");
             map.put("message", "角色不能为空");
             return map;
         }
         //格式校验
         String passwordRegex = "^[a-zA-Z0-9]{6,20}$";
-        if (!Pattern.matches(passwordRegex, password)) {
+        if (!RequestParamVerifyUtils.regexMatches(passwordRegex, password)) {
             map.put("result", "error");
             map.put("message", "密码格式错误");
             return map;
@@ -95,25 +94,19 @@ public class UserController {
             return map;
         }
         Date birthday = null;
-        if (!(birthdayStr==null) && !birthdayStr.equals("")) {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            try {
-                birthday = format.parse(birthdayStr);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                map.put("result", "error");
-                map.put("message", "出生日期格式错误");
-                return map;
-            }
+        if (!(birthdayStr==null) && !birthdayStr.equals("") && !RequestParamVerifyUtils.isDateFormated(birthdayStr)) {
+            map.put("result", "error");
+            map.put("message", "出生日期格式错误");
+            return map;
         }
         String mobileRegex = "^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$";
-        if (!(mobile==null) && !mobile.equals("") && !Pattern.matches(mobileRegex, mobile)) {
+        if (!(mobile==null) && !mobile.equals("") && !RequestParamVerifyUtils.regexMatches(mobileRegex, mobile)) {
             map.put("result", "error");
             map.put("message", "手机格式错误");
             return map;
         }
         String emialRegex = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
-        if (!(email==null) && !email.equals("") && !Pattern.matches(emialRegex, email)) {
+        if (!(email==null) && !email.equals("") && !RequestParamVerifyUtils.regexMatches(emialRegex, email)) {
             map.put("result", "error");
             map.put("message", "邮箱格式错误");
             return map;
@@ -134,29 +127,30 @@ public class UserController {
         UserDomain userDomain = new UserDomain();
         userDomain.setId(UUIDUtil.getUUId());
         userDomain.setUserName(userName);
-        userDomain.setPassword(password);
+        userDomain.setPassword(MD5Util.getEncryptedPwd(password));
         userDomain.setRole(role);
         userDomain.setRealName(realName);
-        userDomain.setSex(Byte.parseByte(sex));
+        if (!(sex==null) && !sex.equals("")) {
+            userDomain.setSex(Byte.parseByte(sex)); //如果不加非空判断可能会出现数据转换异常
+        }
         userDomain.setBirthday(birthday);
         userDomain.setMobile(mobile);
         userDomain.setEmail(email);
         userService.insert(userDomain);
         Map userMap = userService.queryMapByUserName(userName);
+        try {
+            System.out.println(MD5Util.validPassword(password,(String)userMap.get("password")));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         map.put("result", "success");
         map.put("message", "注册成功");
         map.put("token", jwtString);
         map.put("body", userMap);
         redisUtil.set(jwtString, id);
         return map;
-    }
-
-    @ApiOperation(value="创建用户", notes="根据User对象创建用户")
-    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "UserDomain")
-    @RequestMapping(value="", method=RequestMethod.POST)
-    public String postUser(@RequestBody UserDomain user) {
-        System.out.print(user.getUserName());
-        return "success";
     }
 }
 
