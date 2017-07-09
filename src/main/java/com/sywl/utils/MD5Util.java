@@ -14,13 +14,11 @@ public class MD5Util {
     private static final Integer SALT_LENGTH = 12;
 
     /**
-     * 获得加密后的16进制形式口令
-     * @param password
+     * 获得加密后的16进制形式字符串
+     * @param str
      * @return
-     * @throws NoSuchAlgorithmException
-     * @throws UnsupportedEncodingException
      */
-    public static String getEncryptedPwd(String password) {
+    public static String getEncryptedStr(String str) {
         //声明加密后的口令数组变量
         byte[] pwd = null;
         //随机数生成器
@@ -38,7 +36,7 @@ public class MD5Util {
             //将盐数据传入消息摘要对象
             md.update(salt);
             //将口令的数据传给消息摘要对象
-            md.update(password.getBytes("UTF-8"));
+            md.update(str.getBytes("UTF-8"));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
@@ -58,17 +56,15 @@ public class MD5Util {
     }
 
     /**
-     * 验证口令是否合法
-     * @param password
-     * @param passwordInDb
+     * 验证是否匹配
+     * @param str
+     * @param md5Str
      * @return
-     * @throws NoSuchAlgorithmException
-     * @throws UnsupportedEncodingException
      */
-    public static boolean validPassword(String password, String passwordInDb)
+    public static boolean valid(String str, String md5Str)
             throws NoSuchAlgorithmException, UnsupportedEncodingException {
         //将16进制字符串格式口令转换成字节数组
-        byte[] pwdInDb = hexStringToByte(passwordInDb);
+        byte[] pwdInDb = hexStringToByte(md5Str);
         //声明盐变量
         byte[] salt = new byte[SALT_LENGTH];
         //将盐从数据库中保存的口令字节数组中提取出来
@@ -78,7 +74,7 @@ public class MD5Util {
         //将盐数据传入消息摘要对象
         md.update(salt);
         //将口令的数据传给消息摘要对象
-        md.update(password.getBytes("UTF-8"));
+        md.update(str.getBytes("UTF-8"));
         //生成输入口令的消息摘要
         byte[] digest = md.digest();
         //声明一个保存数据库中口令消息摘要的变量

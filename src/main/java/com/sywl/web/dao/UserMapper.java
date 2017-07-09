@@ -14,5 +14,4 @@ public interface UserMapper {
 
 	UserDomain queryUserByName(@Param("userName") String userName);
 
-	Map queryMapByUserName(@Param("userName")String userName);
 }

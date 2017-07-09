@@ -22,21 +22,9 @@ public class UserService {
     	return userMapper.insert(userDomain);
     };
 	
-    public Map queryMapByUserName(String userName){
-		Map userMap = userMapper.queryMapByUserName(userName);
-    	return userMap;
-	};
-	
 	public UserDomain queryUserByName(String userName){
 		return userMapper.queryUserByName(userName);
 	};
-	
-	/*public Map queryMapByUserName(String userMobile){
-		return userMapper.queryMapByUserName(userMobile);
-	};
-	
-	public int updateUserById(String userName,String userMobile,String userMail,String userId){
-		return userMapper.updateUserById(userName, userMobile, userMail, userId);
-	};*/
+
 	
 }

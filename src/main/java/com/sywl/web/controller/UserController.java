@@ -125,9 +125,9 @@ public class UserController {
         String jwtString = TokenUtils.getJWTString(userName, expiry, key);
         String id = UUIDUtil.getUUId();
         UserDomain userDomain = new UserDomain();
-        userDomain.setId(UUIDUtil.getUUId());
+        userDomain.setId(id);
         userDomain.setUserName(userName);
-        userDomain.setPassword(MD5Util.getEncryptedPwd(password));
+        userDomain.setPassword(MD5Util.getEncryptedStr(password));
         userDomain.setRole(role);
         userDomain.setRealName(realName);
         if (!(sex==null) && !sex.equals("")) {
@@ -136,19 +136,12 @@ public class UserController {
         userDomain.setBirthday(birthday);
         userDomain.setMobile(mobile);
         userDomain.setEmail(email);
+
         userService.insert(userDomain);
-        Map userMap = userService.queryMapByUserName(userName);
-        try {
-            System.out.println(MD5Util.validPassword(password,(String)userMap.get("password")));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+
         map.put("result", "success");
         map.put("message", "注册成功");
         map.put("token", jwtString);
-        map.put("body", userMap);
         redisUtil.set(jwtString, id);
         return map;
     }
