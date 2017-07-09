@@ -26,4 +26,8 @@
       #{realName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{birthday,jdbcType=TIMESTAMP}, #{mobile,jdbcType=VARCHAR},
       #{email,jdbcType=VARCHAR})
   </insert>
+
+  <select id="selectAllUser" resultMap="UserMap">
+    SELECT  * FROM user
+  </select>
 </mapper>

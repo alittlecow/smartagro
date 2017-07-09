@@ -2,6 +2,8 @@ package com.sywl.config;
 
 import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
+import com.github.pagehelper.PageHelper;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -21,26 +23,27 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  * Created by sunc on 2017/4/11.
  */
 @Configuration
-@ConditionalOnClass({ EnableTransactionManagement.class})
-@AutoConfigureAfter({ DataSourceConfiguration.class })
-@MapperScan(basePackages={"com.sywl.web.dao"})
+@ConditionalOnClass({EnableTransactionManagement.class})
+@AutoConfigureAfter({DataSourceConfiguration.class})
+@MapperScan(basePackages = {"com.sywl.web.dao"})
 public class MybatisConfiguration implements EnvironmentAware {
 
     private static Log logger = LogFactory.getLog(MybatisConfiguration.class);
 
     private RelaxedPropertyResolver propertyResolver;
 
-    @Resource(name="baseDataSource")
+    @Resource(name = "baseDataSource")
     private DataSource baseDataSource;
 
     @Override
     public void setEnvironment(Environment environment) {
-        this.propertyResolver = new RelaxedPropertyResolver(environment,"mybatis.");
+        this.propertyResolver = new RelaxedPropertyResolver(environment, "mybatis.");
     }
 
     @ConditionalOnMissingBean
@@ -59,7 +62,7 @@ public class MybatisConfiguration implements EnvironmentAware {
                     .setConfigLocation(new DefaultResourceLoader()
                             .getResource(propertyResolver
                                     .getProperty("configLocation")));
-
+            sessionFactory.setPlugins(new Interceptor[]{pageHelper()});
             return sessionFactory.getObject();
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,4 +83,19 @@ public class MybatisConfiguration implements EnvironmentAware {
         return new DataSourceTransactionManager(baseDataSource);
     }
 
+    /**
+     * 分页插件
+     *
+     * @return
+     */
+    private PageHelper pageHelper() {
+        System.out.println("MyBatisConfiguration.pageHelper()");
+        PageHelper pageHelper = new PageHelper();
+        Properties p = new Properties();
+        p.setProperty("offsetAsPageNum", "true");
+        p.setProperty("rowBoundsWithCount", "true");
+        p.setProperty("reasonable", "true");
+        pageHelper.setProperties(p);
+        return pageHelper;
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 /**
  * Created by zhanglj on 2017/7/8.
@@ -26,5 +27,9 @@ public class UserService {
 		return userMapper.queryUserByName(userName);
 	};
 
-	
+	public List<UserDomain> selectAllUser(){
+		return userMapper.selectAllUser();
+	}
+
+
 }
