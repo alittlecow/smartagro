@@ -4,26 +4,23 @@ import com.sywl.common.enums.BooleanEnum;
 import com.sywl.common.enums.RoleEnum;
 import com.sywl.utils.*;
 import com.sywl.web.domain.UserDomain;
+import com.sywl.web.service.UseRuleService;
 import com.sywl.web.service.UserService;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.impl.crypto.MacProvider;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.UnsupportedEncodingException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 /**
  * Created by zhanglj on 2017/7/8.
+ *
  */
+
 @Api("与用户相关")
 @RestController
 @RequestMapping("/user")
@@ -35,6 +32,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private UseRuleService useRuleService;
 
     @ApiOperation(value="注册用户", notes="注册用户")
     @ApiImplicitParams({
@@ -45,19 +44,17 @@ public class UserController {
             @ApiImplicitParam(paramType="query",name = "sex", value = "性别", required = false, dataType = "String",allowableValues="0,1"),
             @ApiImplicitParam(paramType="query",name = "birthday", value = "出生日期", required = false, dataType = "String"),
             @ApiImplicitParam(paramType="query",name = "mobile", value = "手机号", required = false, dataType = "String"),
-            @ApiImplicitParam(paramType="query",name = "email", value = "邮件", required = false, dataType = "String"),
-            @ApiImplicitParam(paramType="query",name = "code", value = "验证码", required = false, dataType = "String")
+            @ApiImplicitParam(paramType="query",name = "email", value = "邮件", required = false, dataType = "String")
     })
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
-    public @ResponseBody Map<String, Object> regiest(@RequestParam(value = "userName",required = true) String userName,
+    public @ResponseBody Map<String, Object> register(@RequestParam(value = "userName",required = true) String userName,
                                 @RequestParam(value = "password",required = true) String password,
                                 @RequestParam(value = "role",required = true) String role,
                                 @RequestParam(value = "realName",required = false) String realName,
                                 @RequestParam(value = "sex",required = false,defaultValue="0") String sex,
                                 @RequestParam(value = "birthday",required = false) String birthdayStr,
                                 @RequestParam(value = "mobile",required = false) String mobile,
-                                @RequestParam(value = "email",required = false) String email,
-                                @RequestParam(value = "code",required = false) String code) {
+                                @RequestParam(value = "email",required = false) String email) {
         Map<String,Object> map = new HashMap<String,Object>();
 
         //非空校验
@@ -120,9 +117,9 @@ public class UserController {
             return map;
         }
 
-        Date expiry = DateUtils.getExpiryDate(30 * 24 * 60);
-        Key key = MacProvider.generateKey(SignatureAlgorithm.HS512);
-        String jwtString = TokenUtils.getJWTString(userName, expiry, key);
+//        Date expiry = DateUtils.getExpiryDate(30 * 24 * 60);
+//        Key key = MacProvider.generateKey(SignatureAlgorithm.HS512);
+//        String jwtString = TokenUtils.getJWTString(userName, expiry, key);
         String id = UUIDUtil.getUUId();
         UserDomain userDomain = new UserDomain();
         userDomain.setId(id);
@@ -141,9 +138,124 @@ public class UserController {
 
         map.put("result", "success");
         map.put("message", "注册成功");
-        map.put("token", jwtString);
-        redisUtil.set(jwtString, id);
+        //map.put("token", jwtString);
+        //redisUtil.set(jwtString, id);
         return map;
     }
+
+
+    @ApiOperation(value="账户充值", notes="APP用户账户充值")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name = "id", value = "用户ID", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType="query",name = "value", value = "充值金额", required = true, dataType = "String")
+    })
+    @RequestMapping(value = "/recharge", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> register(@RequestParam(value = "id",required = true) String id,
+                                                      @RequestParam(value = "value",required = true) String value) {
+        //String userId = (String) redisUtil.get(token);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if (id == null || id.equals("")) {
+            map.put("result", "error");
+            map.put("message", "用户ID不能为空");
+        } else {
+            UserDomain user = userService.queryUserById(id);
+            //实际转账预留
+
+            //在原有的账户余额基础上添加金额
+            double newValue = user.getAccountBalance() + Double.parseDouble(value);
+            //userService.queryUserByName()
+            userService.updateUserById(id, null, null,null,null,null,null,null,null,newValue);
+            map.put("result", "success");
+            map.put("message", "账户充值成功");
+        }
+        return map;
+    }
+
+    @ApiOperation(value="用户退款", notes="APP用户退款")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name = "id", value = "用户ID", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType="query",name = "value", value = "充值金额", required = true, dataType = "String")
+    })
+    @RequestMapping(value = "/refund", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> refund(@RequestParam(value = "id",required = true) String id,
+                                                      @RequestParam(value = "value",required = true) String value) {
+        //String userId = (String) redisUtil.get(token);
+        Map<String,Object> map = new HashMap<String,Object>();
+        if (id == null || id.equals("")) {
+            map.put("result", "error");
+            map.put("message", "用户ID不能为空");
+        } else {
+            UserDomain user = userService.queryUserById(id);
+            if (Double.parseDouble(value) > user.getAccountBalance()) {
+                map.put("result", "error");
+                map.put("message", "用户退款失败，账户余额不足");
+                return map;
+            }
+            //实际转账预留
+
+            //在原有的账户余额基础上减金额
+            double newValue = user.getAccountBalance() - Double.parseDouble(value);
+            //userService.queryUserByName()
+            userService.updateUserById(id, null, null,null,null,null,null,null,null,newValue);
+            map.put("result", "success");
+            map.put("message", "用户退款成功");
+        }
+        return map;
+    }
+
+    @ApiOperation(value="用户消费", notes="APP用户消费")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name = "deviceId", value = "设备ID", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType="query",name = "userId", value = "用户ID", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType="query",name = "startTime", value = "开始时间", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType="query",name = "endTime", value = "结束时间", required = true, dataType = "String")
+    })
+    @RequestMapping(value = "/consume", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> consume(@RequestParam(value = "deviceId",required = true) String deviceId,
+                                                    @RequestParam(value = "userId",required = true) String userId,
+                                                     @RequestParam(value = "startTime",required = true) String startTime,
+                                                     @RequestParam(value = "endTime",required = true) String endTime) {
+        Map<String,Object> map = new HashMap<String,Object>();
+        //参数校验
+        if (!RequestParamVerifyUtils.isDateTimeFormated(startTime) || !RequestParamVerifyUtils.isDateTimeFormated(endTime)) {
+            map.put("result", "error");
+            map.put("message", "消费失败，时间格式错误");
+            return map;
+        }
+        UserDomain user = userService.queryUserById(userId);
+        if (user == null) {
+            map.put("result", "error");
+            map.put("message", "消费失败，用户不存在");
+        }
+
+        //记录设备数据到消费历史表中
+
+        //计算消费额
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date startDate = null;
+        Date endDate = null;
+        try {
+            startDate = format.parse(startTime);
+            endDate = format.parse(endTime);
+        } catch (ParseException e) {
+            map.put("result", "error");
+            map.put("message", "消费失败，时间格式错误");
+            return map;
+        }
+        long consumeMinuts = (endDate.getTime()-startDate.getTime())/(60*1000);
+        //设备计费规则
+        double useRuleValue = useRuleService.queryRuleById("1").getFee();
+        double consumeValue = useRuleValue * consumeMinuts;
+
+        //实际转账预留
+
+        //在原有的账户余额基础上减金额
+        double newValue = user.getAccountBalance() - consumeValue;
+        userService.updateUserById(userId, null, null,null,null,null,null,null,null,newValue);
+        map.put("result", "success");
+        map.put("message", "消费成功");
+        return map;
+    }
+
 }
 

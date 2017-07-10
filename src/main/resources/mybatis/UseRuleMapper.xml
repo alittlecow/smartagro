@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.UseRuleMapper" >
+  <resultMap id="RuleMap" type="com.sywl.web.domain.UseRuleDomain" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="fee" property="fee" jdbcType="DOUBLE" />
+  </resultMap>
+
+  <select id="queryRuleById" resultMap="RuleMap" parameterType="java.lang.String" >
+    select
+    *
+    from data_use_rule
+    where id = #{id}
+  </select>
+
+</mapper>
