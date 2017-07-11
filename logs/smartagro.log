@@ -94,3 +94,57 @@
 2017-07-10 07:44:34,777 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
 2017-07-10 07:44:34,978 [main] INFO  [com.pageHelper] - Started pageHelper in 11.152 seconds (JVM running for 12.693)
 2017-07-10 07:45:18,733 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-11 08:57:49,171 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on ≤˙∆∑∂˛≤ø-’≈¡ÙΩ® with PID 6044 (started by Administrator in F:\sywl\smartagro)
+2017-07-11 08:57:49,171 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-11 08:57:49,889 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-11 08:57:52,095 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-11 08:57:52,449 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-11 08:57:52,878 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-11 08:57:54,394 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-11 08:57:55,415 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-11 08:57:55,445 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-11 08:57:55,497 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-11 08:57:55,630 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.863 seconds (JVM running for 7.715)
+2017-07-11 08:57:57,587 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-11 08:58:28,232 [main] INFO  [com.sywl.Application] - Starting Application on ‰∫ßÂìÅ‰∫åÈÉ®-Âº†ÁïôÂª∫ with PID 2792 (F:\sywl\smartagro\target\classes started by Administrator in F:\sywl\smartagro)
+2017-07-11 08:58:28,233 [main] INFO  [com.sywl.Application] - No active profile set, falling back to default profiles: default
+2017-07-11 08:58:28,648 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-11 08:58:30,832 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-11 08:58:31,134 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-11 08:58:31,548 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-11 08:58:32,171 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-11 08:58:32,182 [main] ERROR [org.springframework.boot.SpringApplication] - Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'documentationPluginsBootstrapper': Resolution of declared constructors on bean Class [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] from ClassLoader [sun.misc.Launcher$AppClassLoader@58644d46] failed; nested exception is java.lang.NoClassDefFoundError: javax/servlet/ServletContext
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:289)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1091)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.sywl.Application.main(Application.java:35)
+Caused by: java.lang.NoClassDefFoundError: javax/servlet/ServletContext
+	at java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.lang.Class.privateGetDeclaredConstructors(Class.java:2663)
+	at java.lang.Class.getDeclaredConstructors(Class.java:2012)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 17 more
+Caused by: java.lang.ClassNotFoundException: javax.servlet.ServletContext
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:372)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:361)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:360)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 21 more
