@@ -6,7 +6,7 @@ server:
 # DATASOURCE
 jdbc:
     dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-    url: jdbc:mysql://119.23.248.130:3306/smartagro?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://119.23.248.130:3306/wanweitan?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
     databaseName: smartagro
     serverName: 119.23.248.130
     username: mysql
@@ -27,7 +27,7 @@ spring:
 # MyBatis
 mybatis:
     typeAliasesPackage: com.sywl.domain
-    mapperLocations: classpath:/mybatis/*.xml
+    mapperLocations: classpath:/mybatis/mapper/*.xml
     configLocation: classpath:/mybatis-config.xml
 
 # LOGGING

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<incule src="header.html"></incule>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <!-- 日期框 -->
+    <link rel="stylesheet" href="/public/plugins/ace/css/datepicker.css"/>
+</head>
+<style>
+    .index_ul {
+
+    }
+
+    .index_ul_right li {
+        float: right;
+        margin: 10px;
+        list-style: none;
+    }
+
+    .index_ul li {
+        margin: 10px;
+        list-style: none;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="row">
+
+            <div class="col-sm-8 col-md-8">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default ">&nbsp;&nbsp;汇总&nbsp;&nbsp;</span></button>
+
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown">
+                        渠道来源 <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">闪电借款</a></li>
+                        <li><a href="#">现金速递</a></li>
+                    </ul>
+                </div>
+
+                <!--<ul class="index_ul">-->
+                <!--<li style="float: left">-->
+                <!--<button class="btn  btn-sm" type="button">汇总</button>-->
+                <!--</li>-->
+                <!--<li style="float: left">-->
+                <!--<select id="channel" name="channel" class="chosen-select form-control">-->
+                <!--<option value="">-请选择渠道-</option>-->
+                <!--<option value="">闪电借款</option>-->
+                <!--<option value="">现金速递</option>-->
+                <!--</select>-->
+                <!--</li>-->
+                <!--<li style="float: left">-->
+                <!--<input class=" date-picker" name="date"-->
+                <!--id="startTime" value=""-->
+                <!--type="text" data-date-format="yyyy-mm-dd"-->
+                <!--readonly="readonly" style="width: 120px; text-align: center" ;-->
+                <!--placeholder="请选择开始日期" title="开始日期"/>-->
+                <!--</li>-->
+
+
+                <!--</ul>-->
+
+
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <ul class="index_ul_right">
+                    <li>
+                        <button class="btn btn-info" type="button" onclick="addChart()">添加</button>
+                    </li>
+                    <li>
+                        <a class="btn btn-info" type="button" href="/index.html#pages/index/index_manage.html">管理</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row" id="charts">
+                <div class="col-sm-6 col-md-6">
+                    <div style="height: 400px" id="chart_1"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/libs/jquery.min.js"></script>
+
+
+<!-- 日期框 -->
+<script src="/public/plugins/ace/js/date-time/bootstrap-datepicker.js"></script>
+
+<script src="/public/libs/bootstrap.min.js"></script>
+
+<script src="/public/plugins/echarts3/echarts.min.js"></script>
+
+<script src="js/index.js"></script>
+
+
+</body>
+</html>
