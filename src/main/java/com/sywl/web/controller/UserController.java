@@ -150,7 +150,7 @@ public class UserController {
             @ApiImplicitParam(paramType="query",name = "value", value = "充值金额", required = true, dataType = "String")
     })
     @RequestMapping(value = "/recharge", method = RequestMethod.POST)
-    public @ResponseBody Map<String, Object> register(@RequestParam(value = "id",required = true) String id,
+    public @ResponseBody Map<String, Object> recharge(@RequestParam(value = "id",required = true) String id,
                                                       @RequestParam(value = "value",required = true) String value) {
         //String userId = (String) redisUtil.get(token);
         Map<String,Object> map = new HashMap<String,Object>();
