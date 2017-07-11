@@ -27,7 +27,7 @@ spring:
 # MyBatis
 mybatis:
     typeAliasesPackage: com.sywl.domain
-    mapperLocations: classpath:/mybatis/mapper/*.xml
+    mapperLocations: classpath:/mybatis/*.xml
     configLocation: classpath:/mybatis-config.xml
 
 # LOGGING

@@ -2,6 +2,7 @@ $(function () {
     $("#jqGrid").jqGrid({
         url: '../sys/menu/list',
         datatype: "json",
+         postData:'name=px',
         colModel: [
             {label: '菜单ID', name: 'menuId', index: "menu_id", width: 40, key: true},
             {label: '菜单名称', name: 'name', width: 60},
@@ -30,7 +31,7 @@ $(function () {
         viewrecords: true,
         height: 385,
         rowNum: 10,
-        rowList: [10, 30, 50],
+        rowList: [10, 20, 30],
         rownumbers: true,
         rownumWidth: 25,
         autowidth: true,
@@ -44,8 +45,8 @@ $(function () {
         },
         prmNames: {
             //请求参数
-            pageNo: 1,
-            pageSize: 7
+            page: 'pageNo',
+            rows: 'onePageNum'
         },
         gridComplete: function () {
             //隐藏grid底部滚动条
@@ -108,7 +109,7 @@ var vm = new Vue({
             $.get("../sys/menu/info/" + menuId, function (r) {
                 vm.showList = false;
                 vm.title = "修改";
-                vm.menu = r.menu;
+                vm.menu = r.data;
 
                 vm.getMenu();
             });

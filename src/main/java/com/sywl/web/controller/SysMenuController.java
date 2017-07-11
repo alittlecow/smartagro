@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.sywl.support.BaseResponse;
 import com.sywl.web.domain.SysMenu;
 import com.sywl.web.service.SysMenuService;
+import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,13 @@ public class SysMenuController {
      * 所有菜单列表
      */
     @RequestMapping("/menu/list")
-    public BaseResponse list(@RequestParam Map<String, Object> params) {
+    public BaseResponse list(@RequestParam Map params) {
         logger.info("SysMenuController | list  method enter");
-        //查询列表数据
-        PageHelper.startPage(1, 10);
+
+        //查询列表分页数据
+        int pageNo = MapUtils.getInteger(params, "pageNo", 1);
+        int onePageNum = MapUtils.getInteger(params, "onePageNum", 10);
+        PageHelper.startPage(pageNo, onePageNum);
         Page<SysMenu> menuList = (Page<SysMenu>) sysMenuService.queryList(params);
         logger.info("SysMenuController | list  method quit");
         return new BaseResponse(menuList);
