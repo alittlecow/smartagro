@@ -249,11 +249,40 @@ public class UserController {
 
         //实际转账预留
 
+
         //在原有的账户余额基础上减金额
         double newValue = user.getAccountBalance() - consumeValue;
         userService.updateUserById(userId, null, null,null,null,null,null,null,null,newValue);
         map.put("result", "success");
         map.put("message", "消费成功");
+        return map;
+    }
+
+    @ApiOperation(value="申请退款", notes="用户申请将账户中的余额提现")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name = "userId", value = "用户名称", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType="query",name = "value", value = "金额", required = true, dataType = "String")
+    })
+    @RequestMapping(value = "/applyForRefund", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> applyForRefund(@RequestParam(value = "userId",required = true) String userId,
+                                                      @RequestParam(value = "value",required = true) String value) {
+        Map<String,Object> map = new HashMap<String,Object>();
+        if (userId == null || userId.equals("")) {
+            map.put("result", "error");
+            map.put("message", "用户ID不能为空");
+        } else {
+            UserDomain user = userService.queryUserById(userId);
+            if (Double.parseDouble(value) > user.getAccountBalance()) {
+                map.put("result", "error");
+                map.put("message", "用户退款失败，账户余额不足");
+                return map;
+            }
+            //新增申请记录
+
+
+            map.put("result", "success");
+            map.put("message", "用户退款成功");
+        }
         return map;
     }
 
