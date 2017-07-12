@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.AccountInfoMapper">
+
+
+    <insert id="save" parameterType="com.sywl.web.domain.AccountInfoDomain">
+        INSERT INTO goods (
+            id,
+            type,
+            device_id,
+            user_id,
+            start_time,
+            end_time,
+            cost_money
+        )
+        VALUES
+            (#{id},#{type},#{deviceId},#{userId},#{startTime},#{endTime},#{costMoney})
+    </insert>
+
+    <update id="update" parameterType="com.sywl.web.domain.AccountInfoDomain">
+
+
+    </update>
+
+
+
+</mapper>

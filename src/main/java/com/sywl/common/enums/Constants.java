@@ -33,17 +33,17 @@ public class Constants {
 
     public enum GoodsType {
         //设备使用
-        DEVICE_USE(1),
+        DEVICE_USE(new Byte("1")),
         //账户充值
-        ACCOUNT_CHARGE(2);
+        ACCOUNT_RECHARGE(new Byte("2"));
 
-        private int value;
+        private Byte value;
 
-        private GoodsType(int value) {
+        private GoodsType(Byte value) {
             this.value = value;
         }
 
-        public int getValue() {
+        public Byte getValue() {
             return value;
         }
     }
