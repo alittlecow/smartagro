@@ -87,7 +87,7 @@ var vm = new Vue({
         getMenu: function (menuId) {
             //加载菜单树
             $.get("../sys/menu/select", function (r) {
-                ztree = $.fn.zTree.init($("#menuTree"), setting, r.menuList);
+                ztree = $.fn.zTree.init($("#menuTree"), setting, r.data);
                 var node = ztree.getNodeByParam("menuId", vm.menu.parentId);
                 ztree.selectNode(node);
 
@@ -162,7 +162,7 @@ var vm = new Vue({
             layer.open({
                 type: 1,
                 offset: '50px',
-                skin: 'layui-layer-molv',
+                skin: 'layui-layer-lan',
                 title: "选择菜单",
                 area: ['300px', '450px'],
                 shade: 0,

@@ -2,6 +2,7 @@ package com.sywl.web.controller;
 
 import com.sywl.common.enums.BooleanEnum;
 import com.sywl.common.enums.RoleEnum;
+import com.sywl.support.BaseResponse;
 import com.sywl.utils.*;
 import com.sywl.web.domain.UserDomain;
 import com.sywl.web.service.UseRuleService;
@@ -249,7 +250,6 @@ public class UserController {
 
         //实际转账预留
 
-
         //在原有的账户余额基础上减金额
         double newValue = user.getAccountBalance() - consumeValue;
         userService.updateUserById(userId, null, null,null,null,null,null,null,null,newValue);
@@ -284,6 +284,21 @@ public class UserController {
             map.put("message", "用户退款成功");
         }
         return map;
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/info")
+    public BaseResponse<UserDomain> queryUserById(String id) {
+        UserDomain user = userService.queryUserById("1");
+        return new BaseResponse<>(user);
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/resetPassword")
+    public BaseResponse resetPassword(String password, String newPassword){
+        return new BaseResponse();
     }
 
 }
