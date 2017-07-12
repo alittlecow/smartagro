@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 /**
@@ -26,6 +27,15 @@ public class UserService {
 	public UserDomain queryUserByName(String userName){
 		return userMapper.queryUserByName(userName);
 	};
+
+	public UserDomain queryUserById(String id){
+		return userMapper.queryUserById(id);
+	};
+
+	public int updateUserById(String userId, String userName, String password, String role, String realName, Byte sex, Date birthday, String mobile, String email, double accountBalance){
+		return userMapper.updateUserById(userId, userName, password,role,realName,sex,birthday,mobile,email,accountBalance);
+	};
+
 
 	public List<UserDomain> selectAllUser(){
 		return userMapper.selectAllUser();
