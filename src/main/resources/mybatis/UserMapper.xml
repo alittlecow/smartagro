@@ -13,12 +13,21 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="account_balance" property="accountBalance" jdbcType="DOUBLE" />
   </resultMap>
+
   <select id="queryUserByName" resultMap="UserMap" parameterType="java.lang.String" >
     select
     *
     from user
     where user_name = #{userName}
   </select>
+
+  <select id="queryUserById" resultMap="UserMap" parameterType="java.lang.String" >
+    select
+    *
+    from user
+    where id = #{id}
+  </select>
+
   <insert id="insert" parameterType="com.sywl.web.domain.UserDomain" useGeneratedKeys="true"
           keyProperty="id">
     insert into user (id, user_name, password, role, real_name,sex, birthday, mobile, email)
@@ -30,4 +39,38 @@
   <select id="selectAllUser" resultMap="UserMap">
     SELECT  * FROM user
   </select>
+
+  <update id="updateUserById" parameterType="java.lang.String" >
+    update user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName},
+      </if>
+      <if test="password != null" >
+        password = #{password},
+      </if>
+      <if test="role != null" >
+        role = #{role},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile},
+      </if>
+      <if test="email != null" >
+        email = #{email},
+      </if>
+      <if test="accountBalance != null" >
+        account_balance = #{accountBalance},
+      </if>
+    </set>
+    where id = #{userId}
+  </update>
 </mapper>
