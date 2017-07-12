@@ -1,6 +1,6 @@
 package com.sywl.web.controller;
 
-import com.sywl.web.domain.PayNoticeParam;
+import com.sywl.bean.PayNoticeParam;
 import com.sywl.web.service.CallBackService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

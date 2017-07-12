@@ -1,27 +1,27 @@
 package com.sywl.web.dao;
 
 
-import com.sywl.web.domain.SysMenu;
+import com.sywl.web.domain.SysMenuDomain;
 
 import java.util.List;
 import java.util.Map;
 
 public interface SysMenuMapper {
 
-    int insert(SysMenu record);
+    int insert(SysMenuDomain record);
 
 
-    SysMenu selectByPrimaryKey(Long menuId);
+    SysMenuDomain selectByPrimaryKey(Long menuId);
 
 
-    int updateByPrimaryKeySelective(SysMenu record);
+    int updateByPrimaryKeySelective(SysMenuDomain record);
 
 
     /**
      * 根据父菜单，查询子菜单
      * @param parentId 父菜单ID
      */
-    List<SysMenu> queryListParentId(Long parentId);
+    List<SysMenuDomain> queryListParentId(Long parentId);
 
 
     /**
@@ -30,7 +30,7 @@ public interface SysMenuMapper {
     List<Long> queryAllMenuId(Long userId);
 
 
-    List<SysMenu> queryList(Map<String, Object> map);
+    List<SysMenuDomain> queryList(Map<String, Object> map);
 
     /**
      * 总条数
@@ -40,7 +40,7 @@ public interface SysMenuMapper {
     /**
      * 获取不包含按钮的菜单列表
      */
-    List<SysMenu> queryNotButtonList();
+    List<SysMenuDomain> queryNotButtonList();
 
 
     void deleteBatch(Long[] menuIds);

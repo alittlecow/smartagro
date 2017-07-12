@@ -31,4 +31,21 @@ public class Constants {
         }
     }
 
+    public enum GoodsType {
+        //设备使用
+        DEVICE_USE(1),
+        //账户充值
+        ACCOUNT_CHARGE(2);
+
+        private int value;
+
+        private GoodsType(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
 }

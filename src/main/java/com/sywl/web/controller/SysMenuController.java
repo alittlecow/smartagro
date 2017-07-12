@@ -3,7 +3,7 @@ package com.sywl.web.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sywl.support.BaseResponse;
-import com.sywl.web.domain.SysMenu;
+import com.sywl.web.domain.SysMenuDomain;
 import com.sywl.web.service.SysMenuService;
 import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author pengxiao
+ * @date 2017/7/12
+ *  用户菜单管理
+ */
 @RestController
 @RequestMapping("/sys")
 public class SysMenuController {
@@ -26,7 +31,7 @@ public class SysMenuController {
      */
     @RequestMapping("/menu/user")
     public BaseResponse user() {
-        List<SysMenu> menuList = sysMenuService.getUserMenuList(1l);
+        List<SysMenuDomain> menuList = sysMenuService.getUserMenuList(1l);
         return new BaseResponse(menuList);
     }
 
@@ -42,7 +47,7 @@ public class SysMenuController {
         int pageNo = MapUtils.getInteger(params, "pageNo", 1);
         int onePageNum = MapUtils.getInteger(params, "onePageNum", 10);
         PageHelper.startPage(pageNo, onePageNum);
-        Page<SysMenu> menuList = (Page<SysMenu>) sysMenuService.queryList(params);
+        Page<SysMenuDomain> menuList = (Page<SysMenuDomain>) sysMenuService.queryList(params);
         logger.info("SysMenuController | list  method quit");
         return new BaseResponse(menuList);
     }
@@ -51,7 +56,7 @@ public class SysMenuController {
      * 保存
      */
     @RequestMapping("/menu/save")
-    public BaseResponse save(@RequestBody SysMenu menu) {
+    public BaseResponse save(@RequestBody SysMenuDomain menu) {
         logger.info("SysMenuController | save  method enter | menu:{}", menu);
 
         sysMenuService.save(menu);
@@ -68,10 +73,10 @@ public class SysMenuController {
     public BaseResponse select() {
         logger.info("SysMenuController | select  method enter");
         //查询列表数据
-        List<SysMenu> menuList = sysMenuService.queryNotButtonList();
+        List<SysMenuDomain> menuList = sysMenuService.queryNotButtonList();
 
         //添加顶级菜单
-        SysMenu root = new SysMenu();
+        SysMenuDomain root = new SysMenuDomain();
         root.setMenuId(0L);
         root.setName("一级菜单");
         root.setParentId(-1L);
@@ -89,7 +94,7 @@ public class SysMenuController {
     @RequestMapping("/menu/info/{menuId}")
     public BaseResponse info(@PathVariable("menuId") Long menuId) {
         logger.info("SysMenuController | info  method enter | menuId:{}", menuId);
-        SysMenu menu = null;
+        SysMenuDomain menu = null;
         if (menuId != null) {
             menu = sysMenuService.queryObject(menuId);
         }
@@ -116,7 +121,7 @@ public class SysMenuController {
      * 修改
      */
     @RequestMapping("/menu/update")
-    public BaseResponse update(@RequestBody SysMenu menu) {
+    public BaseResponse update(@RequestBody SysMenuDomain menu) {
         logger.info("SysMenuController | update method enter | menu:{}", menu);
 
         sysMenuService.update(menu);

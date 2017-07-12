@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sywl.utils.DateUtils;
+import com.sywl.utils.SywlDateUtils;
 
 @Component
 public class Mqttutils {
@@ -148,7 +148,7 @@ public class Mqttutils {
 				 Map map = new HashMap();
 				 Map timing = new HashMap();
 				 map.put("action", "reqtiming");
-				 timing.put("datetime", DateUtils.todayStr());
+				 timing.put("datetime", SywlDateUtils.todayStr());
 				 map.put("timing", timing);
 				 publish(deviceCode+"/pubsd",map);
 			 }
