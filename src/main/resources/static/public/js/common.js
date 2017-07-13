@@ -17,6 +17,11 @@ var url = function(name) {
 };
 T.p = url;
 
+var pathName=window.document.location.pathname;
+var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+//项目根路径
+T.rootPath = projectName;
+
 //全局配置
 $.ajaxSetup({
 	dataType: "json",
