@@ -1,6 +1,8 @@
 package com.sywl.utils;
 
 
+import cn.beecloud.BCCache;
+import cn.beecloud.BeeCloud;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,13 +14,18 @@ import java.io.UnsupportedEncodingException;
  * 用于验证beecloud支付回调的合法性
  */
 public class BeeCloudUtils {
-    public static final String BEECLOUD_URL = "https://api.beecloud.cn";
     public static final String BEECLOUD_APP_ID = "ce7e9291-1d25-4941-b926-367604b4ff8c";
-    public static final String BEECLOUD_MASTER_SECRET = "89d77472-ecbd-488b-8c91-1a1b0129158c";
+    public static final String BEECLOUD_TEST_SECRET = "89d77472-ecbd-488b-8c91-1a1b0129158c";
+    private static Logger log = LoggerFactory.getLogger(BeeCloudUtils.class);
 
-    Logger log = LoggerFactory.getLogger(this.getClass());
-
+    public static void initBeeCloud(){
+        // TODO: 2017/7/13  暂时没有开通对应的支付渠道,无法获取appSecret 和 MasterSecret
+        BeeCloud.registerApp(BeeCloudUtils.BEECLOUD_APP_ID,BeeCloudUtils.BEECLOUD_TEST_SECRET, null,null);
+        BeeCloud.setSandbox(true);
+        log.info("BeeCloud init success app_id = {}",BCCache.getAppID());
+    }
     public static boolean verifySign(String text,String masterKey,String signature) {
+
         boolean isVerified = verify(text, signature, masterKey, "UTF-8");
         if (!isVerified) {
             return false;

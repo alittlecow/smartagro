@@ -1,12 +1,13 @@
 package com.sywl;
 
-import javax.annotation.PostConstruct;
-
+import com.sywl.mtqq.Mqttutils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.sywl.mtqq.Mqttutils;
+import javax.annotation.PostConstruct;
+
+import static com.sywl.utils.BeeCloudUtils.initBeeCloud;
 
 @SpringBootApplication
 public class Application {
@@ -24,6 +25,8 @@ public class Application {
 		application = this;
 
 		application.mqttutils = this.mqttutils;
+
+		initBeeCloud();
 
 	}
 

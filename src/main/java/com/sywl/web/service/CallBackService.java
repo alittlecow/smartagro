@@ -21,7 +21,7 @@ public class CallBackService {
         String toSign = BeeCloudUtils.BEECLOUD_APP_ID + transactionId +
                 transactionType + channelType +
                 transactionFee;
-        boolean status = BeeCloudUtils.verifySign(toSign,BeeCloudUtils.BEECLOUD_MASTER_SECRET,signature);
+        boolean status = BeeCloudUtils.verifySign(toSign,BeeCloudUtils.BEECLOUD_TEST_SECRET,signature);
         if (status) { //验证成功
             // TODO: 2017/7/12
             // 此处需要验证购买的产品与订单金额是否匹配:
