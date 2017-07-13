@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.DeviceMapper" >
+  <resultMap id="DeviceMap" type="com.sywl.web.domain.DeviceDomain" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="use_status" property="useStatus" jdbcType="TINYINT" />
+    <result column="is_breakdown" property="isBreakdown" jdbcType="TINYINT" />
+    <result column="total_money" property="totalMoney" jdbcType="DOUBLE" />
+    <result column="total_time" property="totalTime" jdbcType="DOUBLE" />
+  </resultMap>
+  <resultMap id="DeviceBindMap" type="com.sywl.web.domain.DeviceBindDomain" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
+    <result column="dealer_id" property="dealerId" jdbcType="VARCHAR" />
+    <result column="bind_time" property="bindTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="DeviceDataHistoryMap" type="com.sywl.web.domain.DeviceDataHistoryDomain" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="TINYINT" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="device_id" property="deviceId" jdbcType="VARCHAR"/>
+    <result column="report_time" property="reportTime" jdbcType="TIMESTAMP" />
+    <result column="value" property="value" jdbcType="DOUBLE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+  </resultMap>
+
+  <select id="queryListDevice" resultMap="DeviceMap">
+    SELECT  * FROM device
+  </select>
+
+  <insert id="insert" parameterType="com.sywl.web.domain.DeviceDomain" useGeneratedKeys="true"
+          keyProperty="id">
+    insert into device (id, code)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="queryDeviceById" resultMap="DeviceMap" parameterType="java.lang.String" >
+    select
+    *
+    from device
+    where id = #{id}
+  </select>
+
+  <update id="update" parameterType="java.lang.String" >
+    update device
+    <set >
+      <if test="code != null" >
+        code = #{code},
+      </if>
+      <if test="useStatus != null" >
+        use_status = #{useStatus},
+      </if>
+      <if test="isBreakdown != null" >
+        is_breakdown = #{isBreakdown},
+      </if>
+      <if test="totalMoney != null" >
+        total_money = #{totalMoney},
+      </if>
+      <if test="totalTime != null" >
+        total_time = #{totalTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <select id="queryBoundedDeviceByDeviceId" resultMap="DeviceBindMap" parameterType="java.lang.String" >
+    select
+    *
+    from device_bind
+    where device_id = #{deviceId}
+  </select>
+
+  <insert id="bindDevice" parameterType="com.sywl.web.domain.DeviceBindDomain" useGeneratedKeys="true"
+          keyProperty="id">
+    insert into device_bind (id, device_id, dealer_id,bind_time)
+    values (#{id,jdbcType=VARCHAR}, #{deviceId,jdbcType=VARCHAR}, #{dealerId,jdbcType=VARCHAR}, #{bindTime,jdbcType=TIMESTAMP})
+  </insert>
+
+  <delete id="unbindDevice" parameterType="java.lang.String" >
+    delete from device_bind
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="queryListDeviceData" resultMap="DeviceDataHistoryMap">
+    SELECT * FROM device_data_history
+  </select>
+
+</mapper>

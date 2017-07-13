@@ -40,21 +40,21 @@ public class UserController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType="query",name = "userName", value = "用户名称", required = true, dataType = "String"),
             @ApiImplicitParam(paramType="query",name = "password", value = "密码", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType="query",name = "mobile", value = "手机号", required = false, dataType = "String"),
             @ApiImplicitParam(paramType="query",name = "role", value = "角色", required = true, dataType = "String",allowableValues="admin,distributor,user,financial"),
             @ApiImplicitParam(paramType="query",name = "realName", value = "真实姓名", required = false, dataType = "String"),
             @ApiImplicitParam(paramType="query",name = "sex", value = "性别", required = false, dataType = "String",allowableValues="0,1"),
             @ApiImplicitParam(paramType="query",name = "birthday", value = "出生日期", required = false, dataType = "String"),
-            @ApiImplicitParam(paramType="query",name = "mobile", value = "手机号", required = false, dataType = "String"),
             @ApiImplicitParam(paramType="query",name = "email", value = "邮件", required = false, dataType = "String")
     })
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
     public @ResponseBody Map<String, Object> register(@RequestParam(value = "userName",required = true) String userName,
                                 @RequestParam(value = "password",required = true) String password,
+                                @RequestParam(value = "mobile",required = true) String mobile,
                                 @RequestParam(value = "role",required = true) String role,
                                 @RequestParam(value = "realName",required = false) String realName,
                                 @RequestParam(value = "sex",required = false,defaultValue="0") String sex,
                                 @RequestParam(value = "birthday",required = false) String birthdayStr,
-                                @RequestParam(value = "mobile",required = false) String mobile,
                                 @RequestParam(value = "email",required = false) String email) {
         Map<String,Object> map = new HashMap<String,Object>();
 

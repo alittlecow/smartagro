@@ -40,7 +40,7 @@
     SELECT  * FROM user
   </select>
 
-  <update id="updateUserById" parameterType="java.lang.String" >
+  <update id="update" parameterType="java.lang.String" >
     update user
     <set >
       <if test="userName != null" >
