@@ -27,47 +27,6 @@ public class GoodsService {
         return goodsMapper.save(goods);
     }
 
-
-    public GoodsDomain buildRechargeGoods(String userId, BigDecimal money) {
-        //生成商品
-        GoodsDomain goods = produceRechargeGoods(userId, money);
-        //保存商品
-        save(goods);
-        return goods;
-    }
-
-
-    /**
-     * 生成充值商品
-     *
-     * @return
-     */
-    public GoodsDomain produceRechargeGoods(String userId, BigDecimal costMoney) {
-        GoodsDomain goods = new GoodsDomain();
-        goods.setUserId(userId);
-        goods.setStartTime(new Date());
-        goods.setType(Constants.GoodsType.ACCOUNT_RECHARGE.getValue());
-        goods.setCostMoney(costMoney);
-        goods.setId(UUIDUtil.getUUId());
-        return goods;
-    }
-
-    /**
-     * 生成设备使用结算商品
-     *
-     * @return
-     */
-    public GoodsDomain produceDeviceUseGoods(String userId, BigDecimal costMoney, String deviceId) {
-        GoodsDomain goods = new GoodsDomain();
-        goods.setUserId(userId);
-        goods.setStartTime(new Date());
-        goods.setType(Constants.GoodsType.DEVICE_USE.getValue());
-        goods.setDeviceId(deviceId);
-        goods.setCostMoney(costMoney);
-        goods.setId(UUIDUtil.getUUId());
-        return goods;
-    }
-
 }
 
 

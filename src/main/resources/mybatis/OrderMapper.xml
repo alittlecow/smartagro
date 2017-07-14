@@ -19,9 +19,40 @@
     </insert>
 
     <update id="update" parameterType="com.sywl.web.domain.OrderDomain">
-
+        update `order`
+        <set>
+        <if test="payTime != null" >
+            pay_time = #{payTime},
+        </if>
+        <if test="payType != null" >
+            pay_type = #{payType},
+        </if>
+        <if test="payStatus != null" >
+            pay_status = #{payStatus},
+        </if>
+        </set>
+        WHERE id=#{id}
 
     </update>
 
+    <select id="queryOrderById" parameterType="java.lang.String" resultType="com.sywl.web.domain.OrderDomain">
+        SELECT
+        t.id,
+        t.user_id AS userId,
+        t.create_time AS createTime,
+        t.pay_time AS payTime,
+        t.pay_type AS payType,
+        t.goods_id AS goodsId,
+        t.order_money AS orderMoney,
+        t.pay_status AS payStatus
+        FROM
+        `order` AS t
+        <where>
+            <if test="id != null and id != ''">
+                t.id=#{id}
+            </if>
+        </where>
+
+    </select>
 
 </mapper>

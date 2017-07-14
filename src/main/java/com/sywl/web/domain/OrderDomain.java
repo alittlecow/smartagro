@@ -14,7 +14,7 @@ public class OrderDomain {
     private Date payTime;
     private Byte payType;
     private String goodsId;
-    private BigDecimal orderMoney;
+    private Double orderMoney;
     private Byte payStatus;
 
     public Byte getPayStatus() {
@@ -73,11 +73,11 @@ public class OrderDomain {
         this.goodsId = goodsId;
     }
 
-    public BigDecimal getOrderMoney() {
+    public Double getOrderMoney() {
         return orderMoney;
     }
 
-    public void setOrderMoney(BigDecimal orderMoney) {
+    public void setOrderMoney(Double orderMoney) {
         this.orderMoney = orderMoney;
     }
 

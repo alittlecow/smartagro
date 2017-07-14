@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.RootAccountTransactionMapper">
+
+
+    <insert id="save" parameterType="com.sywl.web.domain.RootAccountTransactionHistoryDomain">
+        INSERT INTO root_account_transaction_history (
+            id,
+            adjust_money,
+            adjust_type,
+            create_time,
+            order_id
+        )
+        VALUES
+            (#{id},#{adjustMoney},#{adjustType},#{createTime},#{orderId})
+    </insert>
+
+    <update id="update" parameterType="com.sywl.web.domain.RootAccountTransactionHistoryDomain">
+
+
+    </update>
+
+    <select id="queryAccountById" parameterType="java.lang.String"
+            resultType="com.sywl.web.domain.RootAccountTransactionHistoryDomain">
+
+        <where>
+            <if test="id != null and id != ''">
+                t.id=#{id}
+            </if>
+        </where>
+
+    </select>
+
+    <select id="queryAccountByUserId" parameterType="java.lang.String"
+            resultType="com.sywl.web.domain.RootAccountTransactionHistoryDomain">
+
+        <where>
+            <if test="userId != null and userId != ''">
+                t.user_id=#{userId}
+            </if>
+        </where>
+
+    </select>
+
+
+</mapper>

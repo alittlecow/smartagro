@@ -7,14 +7,13 @@
         INSERT INTO goods (
             id,
             type,
-            device_id,
-            user_id,
-            start_time,
-            end_time,
-            cost_money
+            `value`,
+            money,
+            create_time,
+            `status`
         )
         VALUES
-            (#{id},#{type},#{deviceId},#{userId},#{startTime},#{endTime},#{costMoney})
+            (#{id},#{type},#{value},#{money},#{createTime},#{status})
     </insert>
 
     <update id="update" parameterType="com.sywl.web.domain.GoodsDomain">

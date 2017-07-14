@@ -18,9 +18,81 @@
     </insert>
 
     <update id="update" parameterType="com.sywl.web.domain.AccountInfoDomain">
-
+        update `account_info`
+        <set>
+            <if test="balance != null" >
+                balance = #{balance},
+            </if>
+            <if test="updateTime != null" >
+                update_time = #{updateTime},
+            </if>
+        </set>
+        WHERE id=#{id}
 
     </update>
+
+    <select id="queryAccountById" parameterType="java.lang.String" resultType="com.sywl.web.domain.AccountInfoDomain">
+        SELECT
+        t.id,
+        t.user_id AS userId,
+        t.balance,
+        t.create_time AS createTime,
+        t.update_time AS updateTime
+        FROM
+        account_info AS t
+        <where>
+            <if test="id != null and id != ''">
+                t.id=#{id}
+            </if>
+        </where>
+
+    </select>
+
+    <select id="queryAccountByUserId" parameterType="java.lang.String" resultType="com.sywl.web.domain.AccountInfoDomain">
+        SELECT
+        t.id,
+        t.user_id AS userId,
+        t.balance,
+        t.create_time AS createTime,
+        t.update_time AS updateTime
+        FROM
+        account_info AS t
+        <where>
+            <if test="userId != null and userId != ''">
+                t.user_id=#{userId}
+            </if>
+        </where>
+
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

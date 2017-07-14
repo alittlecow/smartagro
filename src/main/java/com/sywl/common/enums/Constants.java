@@ -32,10 +32,12 @@ public class Constants {
     }
 
     public enum GoodsType {
-        //设备使用
-        DEVICE_USE(new Byte("1")),
-        //账户充值
-        ACCOUNT_RECHARGE(new Byte("2"));
+        //设备使用次数类型
+        DEVICE_USE_COUNT(new Byte("1")),
+        //设备使用时间类型
+        DEVICE_USE_TIME(new Byte("2")),
+        //账户充值类型
+        ACCOUNT_RECHARGE_TIME(new Byte("3"));
 
         private Byte value;
 
@@ -84,5 +86,29 @@ public class Constants {
         public Byte getValue() {
             return value;
         }
+    }
+
+    public enum AccountAdjustType {
+        //用户充值
+        USER_RECHARGE(new Byte("0")),
+        //用户消费
+        USER_CONSUME(new Byte("1")),
+        //分销商结算
+        DEALER_SETTLEMENT(new Byte("2"));
+
+        private Byte value;
+
+        private AccountAdjustType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
+
+    public static void main(String[] args) {
+        Byte b1 = new Byte("20");
+        Byte b2 = new Byte("20");
     }
 }

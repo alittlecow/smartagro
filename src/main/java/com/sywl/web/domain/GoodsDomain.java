@@ -10,11 +10,19 @@ import java.util.Date;
 public class GoodsDomain {
     private String id;
     private Byte type;
-    private String deviceId;
-    private String userId;
-    private Date startTime;
-    private Date endTime;
-    private BigDecimal costMoney;
+    private Date createTime;
+    private BigDecimal money;
+    private BigDecimal value;
+    private Byte status;
+
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
 
     public String getId() {
         return id;
@@ -32,43 +40,27 @@ public class GoodsDomain {
         this.type = type;
     }
 
-    public String getDeviceId() {
-        return deviceId;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public String getUserId() {
-        return userId;
+    public BigDecimal getMoney() {
+        return money;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setMoney(BigDecimal money) {
+        this.money = money;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public BigDecimal getValue() {
+        return value;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public BigDecimal getCostMoney() {
-        return costMoney;
-    }
-
-    public void setCostMoney(BigDecimal costMoney) {
-        this.costMoney = costMoney;
+    public void setValue(BigDecimal value) {
+        this.value = value;
     }
 }
