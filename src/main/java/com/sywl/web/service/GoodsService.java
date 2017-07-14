@@ -28,8 +28,10 @@ public class GoodsService {
     }
 
 
-    public GoodsDomain build(String userId, BigDecimal money) {
-        GoodsDomain goods = buildRechargeGoods(userId, money);
+    public GoodsDomain buildRechargeGoods(String userId, BigDecimal money) {
+        //生成商品
+        GoodsDomain goods = produceRechargeGoods(userId, money);
+        //保存商品
         save(goods);
         return goods;
     }
@@ -40,7 +42,7 @@ public class GoodsService {
      *
      * @return
      */
-    public GoodsDomain buildRechargeGoods(String userId, BigDecimal costMoney) {
+    public GoodsDomain produceRechargeGoods(String userId, BigDecimal costMoney) {
         GoodsDomain goods = new GoodsDomain();
         goods.setUserId(userId);
         goods.setStartTime(new Date());
@@ -55,7 +57,7 @@ public class GoodsService {
      *
      * @return
      */
-    public GoodsDomain buildDeviceUseGoods(String userId, BigDecimal costMoney, String deviceId) {
+    public GoodsDomain produceDeviceUseGoods(String userId, BigDecimal costMoney, String deviceId) {
         GoodsDomain goods = new GoodsDomain();
         goods.setUserId(userId);
         goods.setStartTime(new Date());

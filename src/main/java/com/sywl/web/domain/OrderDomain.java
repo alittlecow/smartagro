@@ -1,5 +1,6 @@
 package com.sywl.web.domain;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -9,16 +10,20 @@ import java.util.Date;
 public class OrderDomain {
     private String id;
     private String userId;
-    private Date createAt;
-    private Date payAt;
+    private Date createTime;
+    private Date payTime;
     private Byte payType;
-    private String dealerId;
-    private String transId;
     private String goodsId;
-    private String orderMoney;
-    private String memo;
-    private Byte isDeleted;
-    private String refundId;
+    private BigDecimal orderMoney;
+    private Byte payStatus;
+
+    public Byte getPayStatus() {
+        return payStatus;
+    }
+
+    public void setPayStatus(Byte payStatus) {
+        this.payStatus = payStatus;
+    }
 
     public String getId() {
         return id;
@@ -36,20 +41,20 @@ public class OrderDomain {
         this.userId = userId;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getPayAt() {
-        return payAt;
+    public Date getPayTime() {
+        return payTime;
     }
 
-    public void setPayAt(Date payAt) {
-        this.payAt = payAt;
+    public void setPayTime(Date payTime) {
+        this.payTime = payTime;
     }
 
     public Byte getPayType() {
@@ -60,22 +65,6 @@ public class OrderDomain {
         this.payType = payType;
     }
 
-    public String getDealerId() {
-        return dealerId;
-    }
-
-    public void setDealerId(String dealerId) {
-        this.dealerId = dealerId;
-    }
-
-    public String getTransId() {
-        return transId;
-    }
-
-    public void setTransId(String transId) {
-        this.transId = transId;
-    }
-
     public String getGoodsId() {
         return goodsId;
     }
@@ -84,35 +73,13 @@ public class OrderDomain {
         this.goodsId = goodsId;
     }
 
-    public String getOrderMoney() {
+    public BigDecimal getOrderMoney() {
         return orderMoney;
     }
 
-    public void setOrderMoney(String orderMoney) {
+    public void setOrderMoney(BigDecimal orderMoney) {
         this.orderMoney = orderMoney;
     }
 
-    public String getMemo() {
-        return memo;
-    }
 
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
-
-    public Byte getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Byte isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public String getRefundId() {
-        return refundId;
-    }
-
-    public void setRefundId(String refundId) {
-        this.refundId = refundId;
-    }
 }

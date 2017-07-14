@@ -4,17 +4,18 @@
 
 
     <insert id="save" parameterType="com.sywl.web.domain.OrderDomain">
-        INSERT INTO goods (
+        INSERT INTO `order` (
             id,
-            type,
-            device_id,
             user_id,
-            start_time,
-            end_time,
-            cost_money
+            create_time,
+            pay_time,
+            pay_type,
+            goods_id,
+            order_money,
+            pay_status
         )
         VALUES
-            (#{id},#{type},#{deviceId},#{userId},#{startTime},#{endTime},#{costMoney})
+            (#{id},#{userId},#{createTime},#{payTime},#{payType},#{goodsId},#{orderMoney},#{payStatus})
     </insert>
 
     <update id="update" parameterType="com.sywl.web.domain.OrderDomain">

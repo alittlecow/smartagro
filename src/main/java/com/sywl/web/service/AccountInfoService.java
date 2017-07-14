@@ -2,6 +2,7 @@ package com.sywl.web.service;
 
 import com.sywl.web.dao.AccountInfoMapper;
 import com.sywl.web.domain.GoodsDomain;
+import com.sywl.web.domain.OrderDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,21 @@ public class AccountInfoService {
     @Autowired
     private AccountInfoMapper accountInfoMapper;
 
-    public void recharge(String userId, BigDecimal money) {
-        GoodsDomain goodsDomain = goodsService.build(userId, money);
+
+    /**
+     * 根据充值信息生成待支付订单
+     *
+     * @param userId
+     * @param money
+     * @return 待支付订单号
+     */
+    public String recharge(String userId, BigDecimal money) {
+        //生成商品
+        GoodsDomain goodsDomain = goodsService.buildRechargeGoods(userId, money);
+
         String goodsId = goodsDomain.getId();
+        //生成待支付订单
+        OrderDomain orderDomain = orderService.buildOrder(userId, goodsId, money);
+        return orderDomain.getId();
     }
 }
