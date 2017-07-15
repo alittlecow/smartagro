@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.AccountEnchashmentMapper">
+
+
+    <insert id="save" parameterType="com.sywl.web.domain.AccountEnchashmentDomain">
+        INSERT INTO account_enchashment (
+            id,
+            user_id,
+            total_fee,
+            bank_full_name,
+            card_type,
+            account_type,
+            account_no,
+            account_name,
+            create_at,
+            status,
+            pay_at,
+        )
+        VALUES
+            (#{id},#{userId},#{totalFee},#{bankFullName},#{cardType},#{accountType},#{accountNo},#{accountName},#{createAt},#{status},#{payAt})
+    </insert>
+
+    <update id="update" parameterType="com.sywl.web.domain.AccountInfoDomain">
+        update `account_enchashment`
+        <set>
+            <if test="payAt != null" >
+                pay_at = #{payAt},
+            </if>
+            <if test="status != null" >
+                status = #{status},
+            </if>
+        </set>
+        WHERE id=#{id} AND  status = ${@com.sywl.common.dict.Consts@WAITED_ENCHASHMENT}
+
+    </update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

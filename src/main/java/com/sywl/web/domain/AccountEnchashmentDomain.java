@@ -1,5 +1,7 @@
 package com.sywl.web.domain;
 
+import java.util.Date;
+
 /**
  * Created by Administrator on 2017/7/15.
  */
@@ -20,6 +22,36 @@ public class AccountEnchashmentDomain {
     private String accountNo;
     // 收款方的姓名或者单位名
     private String accountName;
+    //提现状态
+    private Byte status;
+    //创建时间
+    private Date createAt;
+    //支付时间
+    private Date payAt;
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public Date getPayAt() {
+        return payAt;
+    }
+
+    public void setPayAt(Date payAt) {
+        this.payAt = payAt;
+    }
 
     public String getId() {
         return id;
