@@ -26,9 +26,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-    @Autowired
-    private RedisUtil redisUtil;
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -44,17 +41,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         }
         //需要登陆的接口
         String token = request.getParameter("token");
-        if (StringUtils.isBlank(token)) {
-            throw new BusinessException("登录失效,请重新登陆");
-        }
         // TODO: 2017/7/15
         //校验token是否过期
-        boolean isExpiration = TokenUtils.isExpiration(token);
-        String userId = (String) redisUtil.get(token);
-        if (isExpiration || StringUtils.isBlank(userId)) {
+        if (StringUtils.isBlank(token) || TokenUtils.isExpiration(token)) {
             throw new BusinessException("登录失效,请重新登陆");
         }
-        request.setAttribute(Constants.USER_ID, userId);
         return true;
     }
 

@@ -12,6 +12,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -148,7 +149,7 @@ public class UserController {
         return userService.update(userDomain);
     }
 
-    @RequestMapping(value = "info", method = RequestMethod.POST)
+    @RequestMapping(value = "info", method = {RequestMethod.POST, RequestMethod.GET})
     public BaseResponse<UserDomain> queryUserById(String id) {
         UserDomain user = userService.queryUserById("1");
         return new BaseResponse<>(user);
@@ -156,8 +157,11 @@ public class UserController {
 
     @Login(needLogin = true)
     @RequestMapping(value = "resetPassword", method = RequestMethod.POST)
-    public BaseResponse resetPassword(String password, String newPassword, HttpServletRequest request, String token) {
-        String userId = (String) request.getAttribute(Constants.USER_ID);
+    public BaseResponse resetPassword(String password, String newPassword, String token) {
+        String userId = (String) redisUtil.get(token);
+        if (StringUtils.isBlank(userId)) {
+            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+        }
         System.out.println("userId : " + userId);
         return new BaseResponse();
     }
