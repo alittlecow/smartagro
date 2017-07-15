@@ -127,20 +127,30 @@ public class UserController {
         return userService.login(mobile);
     }
 
+    @ApiOperation(value = "token测试", notes = "token测试")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String")
+    })
+    @RequestMapping(value = "token", method = RequestMethod.POST)
+    public BaseResponse token(String token) {
+        String userId = (String) redisUtil.get(token);
+        Map map = new HashMap();
+        map.put("userId", userId);
+        return new BaseResponse(map);
+    }
 
-    @RequestMapping(value = "update")
+    @RequestMapping(value = "update", method = RequestMethod.POST)
     public BaseResponse update(UserDomain userDomain) {
         return userService.update(userDomain);
     }
 
-    @RequestMapping(value = "info")
+    @RequestMapping(value = "info", method = RequestMethod.POST)
     public BaseResponse<UserDomain> queryUserById(String id) {
         UserDomain user = userService.queryUserById("1");
         return new BaseResponse<>(user);
     }
 
-
-    @RequestMapping(value = "resetPassword")
+    @RequestMapping(value = "resetPassword", method = RequestMethod.POST)
     public BaseResponse resetPassword(String password, String newPassword) {
         return new BaseResponse();
     }
