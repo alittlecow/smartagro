@@ -6,6 +6,8 @@ package com.sywl.common.enums;
  * 常量类
  */
 public class Constants {
+    //用户id
+    public static final String USER_ID= "userId";
 
     //角色类型
     public enum Role {

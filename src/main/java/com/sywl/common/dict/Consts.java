@@ -13,4 +13,5 @@ public interface Consts {
     Byte DEVICE_USETIME = 2;//设备使用时间
     Byte DEVICE_USENUM = 1;//设备使用次数
     String ENCHASHMENT_TYPE = "TRANSFER" ;
+
 }
