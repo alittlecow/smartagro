@@ -4,6 +4,7 @@ import com.sywl.common.enums.Constants;
 import com.sywl.utils.UUIDUtil;
 import com.sywl.web.dao.GoodsMapper;
 import com.sywl.web.domain.GoodsDomain;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,10 @@ public class GoodsService {
 
     public int save(GoodsDomain goods) {
         return goodsMapper.save(goods);
+    }
+
+    public GoodsDomain queryGoodsById( String id){
+        return goodsMapper.queryGoodsById(id);
     }
 
 }

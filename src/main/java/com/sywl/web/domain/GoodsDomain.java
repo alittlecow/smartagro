@@ -11,8 +11,8 @@ public class GoodsDomain {
     private String id;
     private Byte type;
     private Date createTime;
-    private BigDecimal money;
-    private BigDecimal value;
+    private Double money;
+    private Integer value;
     private Byte status;
 
 
@@ -48,19 +48,19 @@ public class GoodsDomain {
         this.createTime = createTime;
     }
 
-    public BigDecimal getMoney() {
+    public Double getMoney() {
         return money;
     }
 
-    public void setMoney(BigDecimal money) {
+    public void setMoney(Double money) {
         this.money = money;
     }
 
-    public BigDecimal getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 }

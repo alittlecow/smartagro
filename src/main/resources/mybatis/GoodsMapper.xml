@@ -23,18 +23,17 @@
 
     <select id="queryGoodsById" parameterType="java.lang.String" resultType="com.sywl.web.domain.GoodsDomain">
         SELECT
-        t1.id,
-        t1.type,
-        t1.device_id AS deviceId,
-        t1.user_id AS userId,
-        t1.start_time AS startTime,
-        t1.end_time AS endTime,
-        t1.cost_money AS costMoney
+        t.id,
+        t.type,
+        t.`value`,
+        t.money,
+        t.create_time AS createTime,
+        t.`status`
         FROM
-        goods AS t1
+        goods AS t
         <where>
             <if test="id != null and id != ''">
-                t1.id = #{id}
+                AND t.id = #{id}
             </if>
         </where>
 

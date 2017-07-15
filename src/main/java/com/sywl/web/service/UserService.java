@@ -5,7 +5,9 @@ import com.sywl.support.BaseResponse;
 import com.sywl.utils.RedisUtil;
 import com.sywl.utils.TokenUtils;
 import com.sywl.utils.UUIDUtil;
+import com.sywl.web.dao.AccountInfoMapper;
 import com.sywl.web.dao.UserMapper;
+import com.sywl.web.domain.AccountInfoDomain;
 import com.sywl.web.domain.UserDomain;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
@@ -32,6 +34,9 @@ public class UserService {
     private UserMapper userMapper;
 
     @Autowired
+    private AccountInfoMapper accountInfoMapper;
+
+    @Autowired
     private RedisUtil redisUtil;
 
 
@@ -39,16 +44,21 @@ public class UserService {
         Map map = new HashMap();
         UserDomain user = userMapper.queryUserByMobile(mobile);
         if (user == null) {
+            Date nowTime = new Date();
             //用户不存在 注册用户
             user = new UserDomain();
             user.setId(UUIDUtil.getUUId());
-            user.setCreateTime(new Date());
+            user.setCreateTime(nowTime);
             user.setMobile(mobile);
             user.setRoleId(Constants.Role.ROLE_ORDINARY_USER.getValue());
             userMapper.save(user);
-        } else {
-            //用户存在 登陆
-            // TODO: 2017/7/15 登陆
+            //新建账户
+            AccountInfoDomain account = new AccountInfoDomain();
+            account.setBalance(new Double("0"));
+            account.setCreateTime(nowTime);
+            account.setUserId(user.getId());
+            account.setId(UUIDUtil.getUUId());
+            accountInfoMapper.save(account);
 
         }
         Date expiry = DateUtils.addDays(new Date(), 30);

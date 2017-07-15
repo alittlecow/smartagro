@@ -23,7 +23,8 @@
 
     </update>
 
-    <select id="queryAccountById" parameterType="java.lang.String" resultType="com.sywl.web.domain.AccountTransactionHistoryDomain">
+    <select id="queryAccountById" parameterType="java.lang.String"
+            resultType="com.sywl.web.domain.AccountTransactionHistoryDomain">
         SELECT
         t.id,
         t.user_id AS userId,
@@ -40,7 +41,8 @@
 
     </select>
 
-    <select id="queryAccountByUserId" parameterType="java.lang.String" resultType="com.sywl.web.domain.AccountTransactionHistoryDomain">
+    <select id="queryAccountByUserId" parameterType="java.lang.String"
+            resultType="com.sywl.web.domain.AccountTransactionHistoryDomain">
         SELECT
         t.id,
         t.user_id AS userId,
@@ -58,34 +60,34 @@
     </select>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <select id="queryAccountByCondition" parameterType="java.util.Map"
+            resultType="com.sywl.web.domain.AccountTransactionHistoryDomain">
+        SELECT
+        t.id,
+        t.account_id AS accountId,
+        t.before_adjust_money AS beforeAdjustMoney,
+        t.adjust_money AS adjustMoney,
+        t.after_adjust_money AS afterAdjustMoney,
+        t.adjust_type AS adjustType,
+        t.create_time AS createTime,
+        t.order_id AS orderId
+        FROM
+        account_transaction_history AS t
+        <where>
+            <if test="id != null and id != ''">
+                AND t.id=#{id}
+            </if>
+            <if test="accountId != null and accountId != ''">
+                AND t.account_id=#{accountId}
+            </if>
+            <if test="beginTime != null">
+                AND t.create_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != ''">
+                AND t.create_time <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
+    </select>
 
 
 </mapper>

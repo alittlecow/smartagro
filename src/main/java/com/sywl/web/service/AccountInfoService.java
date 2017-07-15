@@ -1,15 +1,13 @@
 package com.sywl.web.service;
 
 import com.sywl.common.enums.Constants;
+import com.sywl.exception.BusinessException;
 import com.sywl.support.BaseResponse;
 import com.sywl.utils.UUIDUtil;
 import com.sywl.web.dao.AccountInfoMapper;
 import com.sywl.web.dao.AccountTransactionHistoryMapper;
 import com.sywl.web.dao.RootAccountTransactionMapper;
-import com.sywl.web.domain.AccountInfoDomain;
-import com.sywl.web.domain.AccountTransactionHistoryDomain;
-import com.sywl.web.domain.OrderDomain;
-import com.sywl.web.domain.RootAccountTransactionHistoryDomain;
+import com.sywl.web.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,12 +43,16 @@ public class AccountInfoService {
      * 根据充值信息生成待支付订单
      *
      * @param userId
-     * @param money
      * @return 待支付订单号
      */
-    public String recharge(String userId, Double money, String goodsId) {
+    public String recharge(String userId, String goodsId) {
+
+        GoodsDomain goodsDomain = goodsService.queryGoodsById(goodsId);
+        if (goodsDomain == null)
+            throw new BusinessException("商品不存在");
+        Double goodsMoney = goodsDomain.getMoney();
         //生成待支付订单
-        OrderDomain orderDomain = orderService.buildOrder(userId, goodsId, money);
+        OrderDomain orderDomain = orderService.buildOrder(userId, goodsId, goodsMoney);
         return orderDomain.getId();
     }
 
