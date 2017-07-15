@@ -1,6 +1,8 @@
 package com.sywl.web.domain;
 
-import java.math.BigDecimal;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 /**
@@ -11,10 +13,12 @@ import java.util.Date;
 public class AccountInfoDomain {
     private String id;
     private String userId;
+    @JsonProperty("money")
     private Double balance;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date updateTime;
-
 
     public String getId() {
         return id;

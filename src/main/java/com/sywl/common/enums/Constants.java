@@ -6,6 +6,21 @@ package com.sywl.common.enums;
  * 常量类
  */
 public class Constants {
+
+    //角色类型
+    public enum Role {
+        ROLE_ROOT("1"), ROLE_DEALER("2"), ROLE_SHOP_KEEPER("3"), ROLE_IDCARD_USER("4"), ROLE_ORDINARY_USER("5");
+        private String value;
+
+        private Role(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
     public enum MenuType {
         /**
          * 目录

@@ -3,134 +3,95 @@ package com.sywl.web.domain;
 import java.util.Date;
 
 public class UserDomain {
-	
-	private String id;
-	
-	private String userName;
-	
-	private String password;
-	
-	private String role;
-	
-	private double sharingProportion;
 
-	private byte sex;
+    private String id;
+    private String userName;
+    private String password;
+    private String roleId;
+    private String realName;
+    private String sex;
+    private String mobile;
+    private String email;
+    private Date birthday;
+    private Date createTime;
 
-	private Date birthday;
+    public String getId() {
+        return id;
+    }
 
-	private String realName;
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	private String mobile;
+    public String getUserName() {
+        return userName;
+    }
 
-	private String email;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	private String address;
+    public String getPassword() {
+        return password;
+    }
 
-	private byte isWithdrawCash;
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	private double accountBalance;
+    public String getRoleId() {
+        return roleId;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getRealName() {
+        return realName;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getMobile() {
+        return mobile;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public double getSharingProportion() {
-		return sharingProportion;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setSharingProportion(double sharingProportion) {
-		this.sharingProportion = sharingProportion;
-	}
+    public Date getBirthday() {
+        return birthday;
+    }
 
-	public byte getSex() {
-		return sex;
-	}
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
-	public void setSex(byte sex) {
-		this.sex = sex;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
-	public String getRealName() {
-		return realName;
-	}
-
-	public void setRealName(String realName) {
-		this.realName = realName;
-	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public byte getIsWithdrawCash() {
-		return isWithdrawCash;
-	}
-
-	public void setIsWithdrawCash(byte isWithdrawCash) {
-		this.isWithdrawCash = isWithdrawCash;
-	}
-
-	public double getAccountBalance() {
-		return accountBalance;
-	}
-
-	public void setAccountBalance(double accountBalance) {
-		this.accountBalance = accountBalance;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

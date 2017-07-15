@@ -63,4 +63,15 @@ public class AccountInfoController {
     }
 
 
+    @ApiOperation(value = "账户信息查询", notes = "账户信息查询")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "userId", value = "用户ID", required = true, dataType = "String")
+
+    })
+    @RequestMapping(value = "queryUserAccount", method = RequestMethod.POST)
+    public BaseResponse queryUserAccount(String userId) {
+        AccountInfoDomain accountInfoDomain = accountInfoService.queryAccountByUserId(userId);
+        return new BaseResponse(accountInfoDomain);
+    }
+
 }
