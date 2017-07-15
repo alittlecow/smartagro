@@ -1,16 +1,22 @@
 package com.sywl.web.service;
 
 import cn.beecloud.BCPay;
+import cn.beecloud.BCUtil;
 import cn.beecloud.bean.BCTransferParameter;
+import com.sywl.common.dict.Consts;
 import com.sywl.exception.BusinessException;
 import com.sywl.support.BaseResponse;
+import com.sywl.web.dao.AccountEnchashmentMapper;
 import com.sywl.web.dao.AccountInfoMapper;
 import com.sywl.web.dao.GoodsMapper;
 import com.sywl.web.dao.OrderMapper;
+import com.sywl.web.domain.AccountEnchashmentDomain;
 import com.sywl.web.domain.AccountInfoDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 /**
  * Created by Administrator on 2017/7/15.
@@ -19,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class EnchashmentService {
     @Autowired
-    private OrderMapper orderMapper;
+    private AccountEnchashmentMapper accountEnchashmentMapper;
     @Autowired
     private AccountInfoMapper accountInfoMapper;
 
@@ -27,13 +33,29 @@ public class EnchashmentService {
         //TODO 根据账号信息校验用户账户资金是否充足，若不充足则返回错误金额不足
         checkAccountMoney(enchashmentParam.getTotalFee(),userId);
         //将提现订单存入提现表
-
+        enchashmentParam.setBillNo(saveAccountEnchashment(enchashmentParam,userId));
         try {
             BCPay.startBCTransfer(enchashmentParam);
         }catch (Exception e) {
             return new BaseResponse<>(BaseResponse.ERROR,e.getMessage());
         }
         return new BaseResponse();
+    }
+
+    private String saveAccountEnchashment(BCTransferParameter enchashmentParam, String userId) {
+        String billNo = BCUtil.generateRandomUUIDPure();
+        AccountEnchashmentDomain enchashment = new AccountEnchashmentDomain();
+        enchashment.setAccountName(enchashmentParam.getAccountName());
+        enchashment.setAccountNo(enchashmentParam.getAccountNo());
+        enchashment.setAccountType(enchashmentParam.getAccountType());
+        enchashment.setStatus(Consts.WAITED_ENCHASHMENT);
+        enchashment.setCreateAt(new Date());
+        enchashment.setBankFullName(enchashmentParam.getBankFullName());
+        enchashment.setCardType(enchashmentParam.getCardType());
+        enchashment.setTotalFee(enchashmentParam.getTotalFee());
+        enchashment.setUserId(userId);
+        enchashment.setId(billNo);
+        return billNo;
     }
 
     private void checkAccountMoney(Integer totalFee, String userId) {
