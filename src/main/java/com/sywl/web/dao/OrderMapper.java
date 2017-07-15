@@ -15,4 +15,6 @@ public interface OrderMapper {
     OrderDomain queryOrderById(@Param("id") String id);
 
     void update(OrderDomain orderDomain);
+
+    void update4CallBack(OrderDomain orderDomain);
 }

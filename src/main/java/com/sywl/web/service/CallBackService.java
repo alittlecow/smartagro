@@ -2,6 +2,11 @@ package com.sywl.web.service;
 
 import com.sywl.utils.BeeCloudUtils;
 import com.sywl.bean.PayNoticeParam;
+import com.sywl.web.dao.GoodsMapper;
+import com.sywl.web.dao.OrderMapper;
+import com.sywl.web.domain.GoodsDomain;
+import com.sywl.web.domain.OrderDomain;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,13 +16,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class CallBackService {
+    @Autowired
+    private OrderMapper orderMapper;
+    @Autowired
+    private GoodsMapper goodsMapper;
 
     public String payNotice(PayNoticeParam payNoticeParam){
         String signature = payNoticeParam.getSignature();
-        String transactionId = payNoticeParam.getTransactionId();
-        String transactionType = payNoticeParam.getTransactionType();
-        String channelType = payNoticeParam.getChannelType();
-        String transactionFee = payNoticeParam.getTransactionFee();
+        String transactionId = payNoticeParam.getTransaction_id();
+        String transactionType = payNoticeParam.getTransaction_type();
+        String channelType = payNoticeParam.getChannel_type();
+        Integer transactionFee = payNoticeParam.getTransaction_fee();
         String toSign = BeeCloudUtils.BEECLOUD_APP_ID + transactionId +
                 transactionType + channelType +
                 transactionFee;
@@ -27,9 +36,23 @@ public class CallBackService {
             // 此处需要验证购买的产品与订单金额是否匹配:
             // Webhook传入的消息里可以根据需求自定义，具体根据后续需求确定
             // 确认支付成功后的具体业务逻辑需要根据实际情况具体确认
+            // 验证成功即证明回调无误，若后续业务逻辑出现异常
+            // 则返回failed，beecloud将会在接下来的1小时内重复发起回调请求
+            handleCallBackOrder(transactionId);
             return "success";
-        } else { //验证失败
+        } else {
+            //验证失败
+            //这里的验证失败是指参数校验失败，若代码配置无误，则怀疑参数遭到篡改，返回failed，
+            //beecloud将会在接下来的1小时内重复发起回调请求，
             return "failed";
+        }
+    }
+
+    private void handleCallBackOrder(String transactionId) {
+        OrderDomain order = orderMapper.queryOrderById(transactionId);
+       GoodsDomain goodsDomain =  goodsMapper.queryOrderById(order.getGoodsId());
+        if(order.equals("")){
+
         }
     }
 }

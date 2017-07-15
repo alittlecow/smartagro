@@ -35,6 +35,17 @@
 
     </update>
 
+    <update id="update4CallBack" parameterType="com.sywl.web.domain.OrderDomain">
+        update `order`
+        <set>
+                pay_time = #{payTime},
+                pay_type = #{payType},
+                pay_status = #{payStatus},
+        </set>
+        WHERE id=#{id} AND pay_status = ${@com.sywl.common.dict.Consts@WAITED_PAY}
+
+    </update>
+
     <select id="queryOrderById" parameterType="java.lang.String" resultType="com.sywl.web.domain.OrderDomain">
         SELECT
         t.id,
