@@ -7,5 +7,9 @@ package com.sywl.common.dict;
  */
 //为什么不用ENUMS呢，因为看到ENUMS不开心
 public interface Consts {
-    Byte WAITED_PAY = 1;//订单待支付状态
+    Byte WAITED_PAY = 1;//订单待支付状态.
+    Byte IS_PAYED = 2;//订单待支付状态
+    Byte DEVICE_USETIME = 2;//设备使用时间
+    Byte DEVICE_USENUM = 1;//设备使用次数
+    String ENCHASHMENT_TYPE = "TRANSFER" ;
 }

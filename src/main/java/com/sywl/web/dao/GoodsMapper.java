@@ -11,5 +11,5 @@ import org.apache.ibatis.annotations.Param;
 public interface GoodsMapper {
 
     int save(GoodsDomain goods);
-    GoodsDomain queryOrderById(@Param("id") String id);
+    GoodsDomain queryGoodsById(@Param("id") String id);
 }

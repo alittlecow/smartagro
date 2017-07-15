@@ -1,5 +1,6 @@
 package com.sywl.web.service;
 
+import com.sywl.common.dict.Consts;
 import com.sywl.utils.BeeCloudUtils;
 import com.sywl.bean.PayNoticeParam;
 import com.sywl.web.dao.GoodsMapper;
@@ -9,6 +10,10 @@ import com.sywl.web.domain.OrderDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
+
+import static com.sywl.common.dict.Consts.*;
 
 /**
  * Created by Administrator on 2017/7/12.
@@ -38,7 +43,7 @@ public class CallBackService {
             // 确认支付成功后的具体业务逻辑需要根据实际情况具体确认
             // 验证成功即证明回调无误，若后续业务逻辑出现异常
             // 则返回failed，beecloud将会在接下来的1小时内重复发起回调请求
-            handleCallBackOrder(transactionId);
+            handleCallBackOrder(transactionId,payNoticeParam);
             return "success";
         } else {
             //验证失败
@@ -48,11 +53,20 @@ public class CallBackService {
         }
     }
 
-    private void handleCallBackOrder(String transactionId) {
-        OrderDomain order = orderMapper.queryOrderById(transactionId);
-       GoodsDomain goodsDomain =  goodsMapper.queryOrderById(order.getGoodsId());
-        if(order.equals("")){
-
+    private void handleCallBackOrder(String id, PayNoticeParam payNoticeParam) {
+        OrderDomain order = orderMapper.queryOrderById(id);
+        GoodsDomain goodsDomain =  goodsMapper.queryGoodsById(order.getGoodsId());
+        String transactionType = payNoticeParam.getTransaction_type();
+        if (ENCHASHMENT_TYPE.equals(transactionType))
+            //TODO 提现订单
+            return;
+        if(DEVICE_USETIME.equals(goodsDomain.getType()) || DEVICE_USENUM.equals(goodsDomain.getType())){
+            order.setPayStatus(IS_PAYED);
+            order.setPayType(payNoticeParam.getPayType());
+            order.setPayTime(new Date());
+            orderMapper.update4CallBack(order);
+            //TODO 设备购买回调成功后确认仅需要修改订单表么？
         }
+
     }
 }

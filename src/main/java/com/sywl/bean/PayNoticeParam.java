@@ -16,6 +16,7 @@ public class PayNoticeParam {
     private String sub_channel_type;
     private long timestamp;
 
+
     public Boolean getTrade_success() {
         return trade_success;
     }
@@ -105,5 +106,12 @@ public class PayNoticeParam {
                 ", channel_type='" + channel_type + '\'' +
                 ", transaction_fee='" + transaction_fee + '\'' +
                 '}';
+    }
+
+    public Byte getPayType() {
+        if ("WX".equals(this.getChannel_type())) return 1;
+        if ("ALI".equals(this.getChannel_type())) return 0;
+        if ("UN".equals(this.getChannel_type())) return 1;
+        return null;
     }
 }
