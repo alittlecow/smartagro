@@ -1,8 +1,10 @@
-$(function () {
+//@ sourceURL=js/app/inner_task_statistics.js
+$(
+    function () {
     $("#jqGrid").jqGrid({
         url: window.T.rootPath + '/device/queryListDevice',
         datatype: "json",
-         postData:'name=px',
+         //postData:'name=px',  //查询参数
         colModel: [
             {label: '设备ID', name: 'id', index: "id", width: 40, key: true, hidden:true},
             {label: '设备编号', name: 'code', width: 60},
@@ -76,12 +78,22 @@ var vm = new Vue({
     el: '#rrapp',
     data: {
         showList: true,
+        showAdd: false,
+        showUpdate: false,
         title: null,
         menu: {
             parentName: null,
             parentId: 0,
             type: 1,
             orderNum: 0
+        },
+        device: {
+            id: null,
+            code: null,
+            useStatus: null,
+            isBreakdown: null,
+            totalMoney: null,
+            totalTime:null
         }
     },
     methods: {
@@ -95,27 +107,32 @@ var vm = new Vue({
                 vm.menu.parentName = node.name;
             })
         },
-        add: function () {
+        add: function () {  //新增按钮事件
             vm.showList = false;
+            vm.showAdd = true;
+            vm.showUpdate = false;
             vm.title = "新增";
-            vm.menu = {parentName: null, parentId: 0, type: 1, orderNum: 0};
+            vm.menu = {code: null, parentId: 0, type: 1, orderNum: 0};
             vm.getMenu();
         },
-        update: function (event) {
+        update: function (event) {  //修改按钮事件
             var menuId = getSelectedRow();
             if (menuId == null) {
                 return;
             }
 
-            $.get("../sys/menu/info/" + menuId, function (r) {
+            $.get(window.T.rootPath + '/device/queryDeviceById/' + menuId, function (r) {
                 vm.showList = false;
+                vm.showAdd = false;
+                vm.showUpdate = true;
                 vm.title = "修改";
-                vm.menu = r.data;
+                //vm.menu = r.data;
+                vm.device = r.data;
 
                 vm.getMenu();
             });
         },
-        del: function (event) {
+        del: function (event) { //删除按钮事件
             var menuIds = getSelectedRows();
             if (menuIds == null) {
                 return;
@@ -124,7 +141,7 @@ var vm = new Vue({
             confirm('确定要删除选中的记录？', function () {
                 $.ajax({
                     type: "POST",
-                    url: "../sys/menu/delete",
+                    url: window.T.rootPath + '/device/deleteDevice',
                     contentType: "application/json",
                     data: JSON.stringify(menuIds),
                     success: function (r) {
@@ -140,24 +157,57 @@ var vm = new Vue({
                 });
             });
         },
-        saveOrUpdate: function (event) {
-            var url = vm.menu.menuId == null ?  window.T.rootPath + '/device/addDevice' :  window.T.rootPath + '/device/queryListDevice';
-            $.ajax({
-                type: "POST",
-                url: url,
-                contentType: "application/json",
-                data: JSON.stringify(vm.menu),
-                success: function (r) {
-                    if (r.result === 'success') {
-                        alert('操作成功', function (index) {
-                            vm.reload();
-                        });
-                    } else {
-                        alert(r.msg);
+        search: function (event) { //条件查询按钮事件
+                var searchParams = {};
+                $(".pageSearchElement :input").each(function () {
+                    if ($(this).val()) {
+                        //rules += '"' + $(this).attr("name") + '":"' + $(this).val() + '"';
+                        searchParams[$(this).attr("name")]=$(this).val();
                     }
+                })
+                //ParamJson = '{' + rules + '}';
+                var postData = $("#jqGrid").jqGrid("getGridParam", "postData");
+                $.extend(postData, searchParams);
+                $("#jqGrid").jqGrid("setGridParam", { search: true }).trigger("reloadGrid", [{ page: 1}]);  //重载JQGrid
+        },
+        saveOrUpdate: function (event) {    //新增或修改确定按钮事件
+            debugger;
+            if (vm.showAdd == true){
+                $.ajax({
+                    type: "POST",
+                    url: window.T.rootPath + '/device/addDevice',
+                    contentType: "application/json",
+                    data: JSON.stringify(vm.device),
+                    success: function (r) {
+                        if (r.result === 'success') {
+                            alert('操作成功', function (index) {
+                                vm.reload();
+                            });
+                        } else {
+                            alert(r.msg);
+                        }
 
-                }
-            });
+                    }
+                });
+            } else if (vm.showUpdate == true) {
+                $.ajax({
+                    type: "POST",
+                    url: window.T.rootPath + '/device/updateDevice',
+                    contentType: "application/json",
+                    data: JSON.stringify(vm.device),
+                    success: function (r) {
+                        if (r.result === 'success') {
+                            alert('操作成功', function (index) {
+                                vm.reload();
+                            });
+                        } else {
+                            alert(r.msg);
+                        }
+
+                    }
+                });
+            }
+
         },
         menuTree: function () {
             layer.open({

@@ -52,3 +52,9 @@ tbody > tr > th {font-weight: normal; }
 .form-horizontal{
 	width:550px;padding-top:20px;
 }
+
+.pageSearchElement {
+    display:inline-block;
+    margin-right: 10px;
+    padding: 6px 12px;
+}

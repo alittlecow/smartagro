@@ -22,6 +22,8 @@ public interface DeviceMapper {
 	int update(@Param("id")String id, @Param("code")String code, @Param("useStatus")Byte useStatus,
 					   @Param("isBreakdown")Byte isBreakdown, @Param("totalMoney")double totalMoney, @Param("totalTime")double totalTime);
 
+	int deleteDevice(@Param("ids")List<String> ids);
+
 	DeviceDomain queryDeviceById(@Param("id") String id);
 
 	DeviceBindDomain queryBoundedDeviceByDeviceId(@Param("deviceId") String deviceId);

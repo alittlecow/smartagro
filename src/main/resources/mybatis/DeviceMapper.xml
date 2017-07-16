@@ -26,7 +26,8 @@
   </resultMap>
 
   <select id="queryListDevice" resultMap="DeviceMap">
-    SELECT  * FROM device
+    SELECT * FROM device WHERE true
+    <if test="search_code!=null"> AND code LIKE #{search_code}</if>
   </select>
 
   <insert id="insert" parameterType="com.sywl.web.domain.DeviceDomain" useGeneratedKeys="true"
@@ -63,6 +64,14 @@
     </set>
     where id = #{id}
   </update>
+
+  <delete id="deleteDevice" parameterType="java.lang.String">
+    delete from device
+    where id in
+    <foreach item="item" index="index" collection="ids" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
 
   <select id="queryBoundedDeviceByDeviceId" resultMap="DeviceBindMap" parameterType="java.lang.String" >
     select
