@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人账户</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/plugins/jqgrid/ui.jqgrid-bootstrap.css">
+    <link rel="stylesheet" href="/public/plugins/ztree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <script src="/public/libs/jquery.min.js"></script>
+    <script src="/public/plugins/layer/layer.js"></script>
+    <script src="/public/libs/bootstrap.min.js"></script>
+    <script src="/public/libs/vue.min.js"></script>
+    <script src="/public/plugins/jqgrid/grid.locale-cn.js"></script>
+    <script src="/public/plugins/jqgrid/jquery.jqGrid.min.js"></script>
+    <script src="/public/plugins/ztree/jquery.ztree.all.min.js"></script>
+    <script src="/public/js/common.js"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <form class="form-inline" style="margin-bottom: 10px">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control " v-model="query.userId" id="userId" placeholder="用户ID...">
+                </div>
+            </div>
+            <button type="button" class="btn btn-default" @click="queryList">搜索</button>
+        </form>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+</div>
+
+<script src="/public/js/account/detail.js"></script>
+</body>
+</html>

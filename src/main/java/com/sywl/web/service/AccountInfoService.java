@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author pengxiao
@@ -66,6 +68,15 @@ public class AccountInfoService {
         return accountInfoMapper.queryAccountById(accountId);
     }
 
+
+    /**
+     * 账户列表
+     * @param params
+     * @return
+     */
+    public List<AccountInfoDomain> queryAccountByCondition(Map params) {
+        return accountInfoMapper.queryAccountByCondition(params);
+    }
 
     /**
      * 获取账户信息

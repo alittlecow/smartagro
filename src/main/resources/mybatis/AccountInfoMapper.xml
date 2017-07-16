@@ -18,10 +18,10 @@
     <update id="update" parameterType="com.sywl.web.domain.AccountInfoDomain">
         update `account_info`
         <set>
-            <if test="balance != null" >
+            <if test="balance != null">
                 balance = #{balance},
             </if>
-            <if test="updateTime != null" >
+            <if test="updateTime != null">
                 update_time = #{updateTime},
             </if>
         </set>
@@ -46,7 +46,8 @@
 
     </select>
 
-    <select id="queryAccountByUserId" parameterType="java.lang.String" resultType="com.sywl.web.domain.AccountInfoDomain">
+    <select id="queryAccountByUserId" parameterType="java.lang.String"
+            resultType="com.sywl.web.domain.AccountInfoDomain">
         SELECT
         t.id,
         t.user_id AS userId,
@@ -64,8 +65,8 @@
     </select>
 
 
-
-    <select id="queryAccountByCondition" parameterType="com.sywl.web.domain.AccountInfoDomain" resultType="com.sywl.web.domain.AccountInfoDomain">
+    <select id="queryAccountByCondition" parameterType="java.util.Map"
+            resultType="com.sywl.web.domain.AccountInfoDomain">
         SELECT
         t.id,
         t.user_id AS userId,
@@ -76,53 +77,23 @@
         account_info AS t
         <where>
             <if test="id != null and id != ''">
-                t.id=#{id}
+                AND t.id=#{id}
             </if>
             <if test="userId != null and userId != ''">
-                t.user_id=#{userId}
+                AND t.user_id=#{userId}
             </if>
             <if test="balance != null">
-                t.id=#{balance}
+                AND t.id=#{balance}
             </if>
             <if test="beginTime != null">
-                t.create_time=#{createTime}
+                AND t.update_time <![CDATA[ >= ]]> #{beginTime}
             </if>
             <if test="endTime != null">
-                t.update_time=#{updateTime}
+                AND t.update_time <![CDATA[ < ]]>  #{endTime}
             </if>
         </where>
 
     </select>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </mapper>

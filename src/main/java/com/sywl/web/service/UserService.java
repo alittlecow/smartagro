@@ -56,6 +56,7 @@ public class UserService {
             AccountInfoDomain account = new AccountInfoDomain();
             account.setBalance(new Double("0"));
             account.setCreateTime(nowTime);
+            account.setUpdateTime(nowTime);
             account.setUserId(user.getId());
             account.setId(UUIDUtil.getUUId());
             accountInfoMapper.save(account);
