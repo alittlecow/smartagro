@@ -22,6 +22,7 @@ public class RestExceptionHandler {
     @ResponseBody
     public BaseResponse BusinessExceptionHandler(BusinessException e) {
         logger.error(e.getMessage());
+        e.printStackTrace();
         return new BaseResponse(BaseResponse.ERROR, e.getErrorMsg());
     }
 
@@ -29,6 +30,7 @@ public class RestExceptionHandler {
     @ResponseBody
     public BaseResponse ExceptionHandler(Exception e) {
         logger.error(e.getMessage());
+        e.printStackTrace();
         return new BaseResponse(BaseResponse.ERROR, "服务异常");
     }
 

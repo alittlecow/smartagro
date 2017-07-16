@@ -3,16 +3,11 @@ package com.sywl.web.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sywl.annotation.Login;
+import com.sywl.common.enums.Constants;
 import com.sywl.support.BaseResponse;
 import com.sywl.utils.RedisUtil;
-import com.sywl.web.domain.AccountInfoDomain;
-import com.sywl.web.domain.AccountTransactionHistoryDomain;
-import com.sywl.web.domain.GoodsDomain;
-import com.sywl.web.domain.OrderDomain;
-import com.sywl.web.service.AccountInfoService;
-import com.sywl.web.service.AccountTransactionHistoryService;
-import com.sywl.web.service.GoodsService;
-import com.sywl.web.service.OrderService;
+import com.sywl.web.domain.*;
+import com.sywl.web.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -45,6 +40,9 @@ public class AccountInfoController {
 
     @Autowired
     private AccountInfoService accountInfoService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private AccountTransactionHistoryService accountTransactionHistoryService;
@@ -117,10 +115,18 @@ public class AccountInfoController {
         if (StringUtils.isBlank(userId)) {
             return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
         }
-        // TODO: 2017/7/16 quanxian
-//        String accountId = accountInfoService.queryAccountByUserId(userId).getId();
-//        params.put("accountId", accountId);
-        List<AccountTransactionHistoryDomain> historyDomainList =
+        UserDomain user = userService.queryUserById(userId);
+        if (user == null) {
+            return new BaseResponse(BaseResponse.ERROR, "用户不存在");
+        }
+        //非root用户只能查看自己的流水
+        if (!StringUtils.equals(user.getRoleId(), Constants.Role.ROLE_ROOT.getValue())) {
+            params.put("accountId", accountInfoService.queryAccountByUserId(userId).getId());
+        }
+        int pageNo = MapUtils.getInteger(params, "pageNo", 1);
+        int onePageNum = MapUtils.getInteger(params, "onePageNum", 10);
+        PageHelper.startPage(pageNo, onePageNum);
+        Page<AccountTransactionHistoryDomain> historyDomainList = (Page<AccountTransactionHistoryDomain>)
                 accountTransactionHistoryService.queryAccountByCondition(params);
         return new BaseResponse(historyDomainList);
     }
@@ -137,6 +143,7 @@ public class AccountInfoController {
     @RequestMapping(value = "list", method = RequestMethod.POST)
     @Login(needLogin = true)
     public BaseResponse list(@RequestParam Map params) {
+
         int pageNo = MapUtils.getInteger(params, "pageNo", 1);
         int onePageNum = MapUtils.getInteger(params, "onePageNum", 10);
         PageHelper.startPage(pageNo, onePageNum);

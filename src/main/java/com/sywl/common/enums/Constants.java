@@ -7,7 +7,30 @@ package com.sywl.common.enums;
  */
 public class Constants {
     //用户id
-    public static final String USER_ID= "userId";
+    public static final String USER_ID = "userId";
+
+    //有效
+    public static final String ENABLE = "1";
+    //失效
+    public static final String DISABLE = "0";
+
+    public enum BasicType {
+        //有效
+        ENABLE(new Byte("1")),
+        //失效
+        DISABLE(new Byte("0"));
+
+        private Byte value;
+
+        private BasicType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
+
 
     //角色类型
     public enum Role {
@@ -51,10 +74,8 @@ public class Constants {
     public enum GoodsType {
         //设备使用次数类型
         DEVICE_USE_COUNT(new Byte("1")),
-        //设备使用时间类型
-        DEVICE_USE_TIME(new Byte("2")),
         //账户充值类型
-        ACCOUNT_RECHARGE_TIME(new Byte("3"));
+        ACCOUNT_RECHARGE_TIME(new Byte("2"));
 
         private Byte value;
 

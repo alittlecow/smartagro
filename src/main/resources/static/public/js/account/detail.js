@@ -6,7 +6,7 @@ $(function () {
         postData: {"token": localStorage.token},
         colModel: [
             {label: '用户ID', name: 'userId', width: 100},
-            {label: '账户ID', name: 'accountId', width: 100},
+            {label: '账户ID', name: 'id', width: 100},
             {label: '账户余额', name: 'money', width: 30},
             {label: '创建时间', name: 'createTime', sortable: false, width: 70},
             {label: '更新时间', name: 'updateTime', width: 70},
