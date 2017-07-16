@@ -80,10 +80,10 @@
             <if test="accountId != null and accountId != ''">
                 AND t.account_id=#{accountId}
             </if>
-            <if test="beginTime != null">
+            <if test="beginTime != null and beginTime != '' ">
                 AND t.create_time <![CDATA[ >= ]]> #{beginTime}
             </if>
-            <if test="endTime != ''">
+            <if test="endTime != null and endTime != ''">
                 AND t.create_time <![CDATA[ < ]]> #{endTime}
             </if>
         </where>

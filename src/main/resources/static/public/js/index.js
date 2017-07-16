@@ -1,5 +1,5 @@
 $(function () {
-    localStorage.token = 'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKZXJzZXktU2VjdXJpdHktQmFzaWMiLCJzdWIiOiIxMzc3NjU0MDE0OSIsImF1ZCI6InVzZXIiLCJleHAiOjE1MDI3NTE3ODYsImlhdCI6MTUwMDE1OTc4NiwianRpIjoiMSJ9.53EHXIoWXisiNJTnqTDC6wAynhPWt4ImnxacgdQxuDY';
+    localStorage.token = 'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKZXJzZXktU2VjdXJpdHktQmFzaWMiLCJzdWIiOiIxMzc3NjU0MDE0OSIsImF1ZCI6InVzZXIiLCJleHAiOjE1MDI3Njc0NzQsImlhdCI6MTUwMDE3NTQ3NCwianRpIjoiMSJ9.n2z08k5k4BEdeAiThxBYRPymcYcKNW3NZrUI5fdvn14';
 });
 
 //生成菜单

@@ -1,15 +1,40 @@
 $(function () {
+
+//初始化日期控件
+    $('.form_date').datetimepicker({
+        // language: 'zh',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
     $("#jqGrid").jqGrid({
-        url: '/account/list',
+        url: '/account/queryUserAccountHistory',
         datatype: "json",
         mtype: 'POST',
         postData: {"token": localStorage.token},
         colModel: [
-            {label: '用户ID', name: 'userId', width: 100},
             {label: '账户ID', name: 'accountId', width: 100},
-            {label: '账户余额', name: 'money', width: 30},
-            {label: '创建时间', name: 'createTime', sortable: false, width: 70},
-            {label: '更新时间', name: 'updateTime', width: 70},
+            {label: '调整金额', name: 'adjustMoney', width: 50},
+            {label: '调整前金额', name: 'beforeAdjustMoney', width: 50},
+            {label: '调整后金额', name: 'afterAdjustMoney', width: 50},
+            {
+                label: '调整类型', name: 'adjustType', width: 50, formatter: function (value, options, row) {
+                if (value === 0) {
+                    return '<span">用户充值</span>';
+                }
+                if (value === 1) {
+                    return '<span">用户消费</span>';
+                }
+                if (value === 2) {
+                    return '<span">分销商结算</span>';
+                }
+            }
+            },
+            {label: '生成时间', name: 'createTime', sortable: false, width: 70}
         ],
         viewrecords: true,
         height: 385,
@@ -44,38 +69,41 @@ var vm = new Vue({
     data: {
         showList: true,
         title: null,
-        query: {
-            userId: null
+        queryParams: {
+            accountId: "",
+            beginTime: "",
+            endTime: ""
         }
     },
     methods: {
         queryList: function (event) {
             var data = {
                 "token": localStorage.token,
-                "userId": vm.query.userId
+                "accountId": vm.queryParams.accountId,
+                "beginTime": $("#beginTime").val(),
+                "endTime": $("#endTime").val()
             };
             $("#jqGrid").jqGrid('setGridParam', {
-                url: '/account/list',
                 postData: data,
             }).trigger('reloadGrid');
         },
         update: function (event) {
-            var accountIds = getSelectedRow();
-            if (accountIds == null) {
+            var ids = getSelectedRow();
+            if (ids == null) {
                 return;
             }
             $.ajax({
                 type: "POST",
                 url: "/account/queryAccountById",
                 contentType: "application/json",
-                data: JSON.stringify(accountIds),
+                data: JSON.stringify(ids),
                 success: function () {
                 }
             });
         },
         del: function (event) {
-            var menuIds = getSelectedRows();
-            if (menuIds == null) {
+            var ids = getSelectedRows();
+            if (ids == null) {
                 return;
             }
             confirm('确定要删除选中的记录？', function () {
@@ -83,7 +111,7 @@ var vm = new Vue({
                     type: "POST",
                     url: "../sys/menu/delete",
                     contentType: "application/json",
-                    data: JSON.stringify(menuIds),
+                    data: JSON.stringify(ids),
                     success: function (r) {
                     }
                 });

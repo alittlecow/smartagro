@@ -117,8 +117,9 @@ public class AccountInfoController {
         if (StringUtils.isBlank(userId)) {
             return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
         }
-        String accountId = accountInfoService.queryAccountByUserId(userId).getId();
-        params.put("accountId", accountId);
+        // TODO: 2017/7/16 quanxian
+//        String accountId = accountInfoService.queryAccountByUserId(userId).getId();
+//        params.put("accountId", accountId);
         List<AccountTransactionHistoryDomain> historyDomainList =
                 accountTransactionHistoryService.queryAccountByCondition(params);
         return new BaseResponse(historyDomainList);
