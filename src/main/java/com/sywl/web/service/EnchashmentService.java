@@ -30,7 +30,7 @@ public class EnchashmentService {
     private AccountInfoMapper accountInfoMapper;
 
     public BaseResponse enchashment(BCTransferParameter enchashmentParam, String userId) {
-        //TODO 根据账号信息校验用户账户资金是否充足，若不充足则返回错误金额不足
+        // 根据账号信息校验用户账户资金是否充足，若不充足则返回错误金额不足
         checkAccountMoney(enchashmentParam.getTotalFee(),userId);
         //将提现订单存入提现表
         enchashmentParam.setBillNo(saveAccountEnchashment(enchashmentParam,userId));
@@ -55,6 +55,7 @@ public class EnchashmentService {
         enchashment.setTotalFee(enchashmentParam.getTotalFee());
         enchashment.setUserId(userId);
         enchashment.setId(billNo);
+        accountEnchashmentMapper.save(enchashment);
         return billNo;
     }
 
