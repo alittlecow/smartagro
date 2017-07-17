@@ -10,9 +10,7 @@ public class UserDomain {
 	
 	private String password;
 	
-	private String role;
-	
-	private double sharingProportion;
+	private String roleId;
 
 	private byte sex;
 
@@ -24,11 +22,7 @@ public class UserDomain {
 
 	private String email;
 
-	private String address;
-
-	private byte isWithdrawCash;
-
-	private double accountBalance;
+	private Date create_time;
 
 	public String getId() {
 		return id;
@@ -54,20 +48,12 @@ public class UserDomain {
 		this.password = password;
 	}
 
-	public String getRole() {
-		return role;
+	public String getRoleId() {
+		return roleId;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public double getSharingProportion() {
-		return sharingProportion;
-	}
-
-	public void setSharingProportion(double sharingProportion) {
-		this.sharingProportion = sharingProportion;
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
 	}
 
 	public byte getSex() {
@@ -110,27 +96,11 @@ public class UserDomain {
 		this.email = email;
 	}
 
-	public String getAddress() {
-		return address;
+	public Date getCreate_time() {
+		return create_time;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public byte getIsWithdrawCash() {
-		return isWithdrawCash;
-	}
-
-	public void setIsWithdrawCash(byte isWithdrawCash) {
-		this.isWithdrawCash = isWithdrawCash;
-	}
-
-	public double getAccountBalance() {
-		return accountBalance;
-	}
-
-	public void setAccountBalance(double accountBalance) {
-		this.accountBalance = accountBalance;
+	public void setCreate_time(Date create_time) {
+		this.create_time = create_time;
 	}
 }

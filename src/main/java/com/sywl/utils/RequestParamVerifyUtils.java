@@ -1,5 +1,7 @@
 package com.sywl.utils;
 
+import com.sywl.common.enums.Constants;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +30,7 @@ public class RequestParamVerifyUtils {
 
     //校验日期格式
     public static boolean isDateFormated (String dateStr) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT_STR);
         try {
             format.parse(dateStr);
         } catch (ParseException e) {
@@ -39,7 +41,7 @@ public class RequestParamVerifyUtils {
 
     //校验日期时间格式
     public static boolean isDateTimeFormated (String dateStr) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat(Constants.DATETIME_FORMAT_STR);
         try {
             format.parse(dateStr);
         } catch (ParseException e) {

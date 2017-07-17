@@ -16,6 +16,8 @@ public interface UserMapper {
 
 	UserDomain queryUserByName(@Param("userName") String userName);
 
+	UserDomain queryUserByMobile(@Param("mobile") String mobile);
+
 	UserDomain queryUserById(@Param("id") String id);
 
 	int updateUserById(@Param("userId")String userId, @Param("userName")String userName, @Param("password")String password,

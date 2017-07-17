@@ -21,6 +21,13 @@
     where user_name = #{userName}
   </select>
 
+  <select id="queryUserByMobile" resultMap="UserMap" parameterType="java.lang.String" >
+    select
+    *
+    from user
+    where mobile = #{mobile}
+  </select>
+
   <select id="queryUserById" resultMap="UserMap" parameterType="java.lang.String" >
     select
     *

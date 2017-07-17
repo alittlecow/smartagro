@@ -28,6 +28,10 @@ public class UserService {
 		return userMapper.queryUserByName(userName);
 	};
 
+	public UserDomain queryUserByMobile(String mobile){
+		return userMapper.queryUserByMobile(mobile);
+	};
+
 	public UserDomain queryUserById(String id){
 		return userMapper.queryUserById(id);
 	};
