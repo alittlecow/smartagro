@@ -113,34 +113,50 @@ public class AccountInfoService {
         order.setPayTime(nowTime);
         orderService.update(order);
         //账户扣钱
-        account.setBalance(newBalance);
-        account.setUpdateTime(nowTime);
-        accountInfoMapper.update(account);
-        //记录账户历史
-        AccountTransactionHistoryDomain accountTransactionHistoryDomain = new AccountTransactionHistoryDomain();
-        accountTransactionHistoryDomain.setId(UUIDUtil.getUUId());
-        accountTransactionHistoryDomain.setAccountId(account.getId());
-        accountTransactionHistoryDomain.setAdjustMoney(orderMoney);
-        accountTransactionHistoryDomain.setCreateTime(nowTime);
-        accountTransactionHistoryDomain.setAdjustType(Constants.AccountAdjustType.USER_RECHARGE.getValue());
-        accountTransactionHistoryDomain.setBeforeAdjustMoney(oldBalance);
-        accountTransactionHistoryDomain.setAfterAdjustMoney(newBalance);
-        accountTransactionHistoryDomain.setAdjustMoney(-orderMoney);
-        accountTransactionHistoryDomain.setOrderId(orderId);
-        accountTransactionHistoryMapper.save(accountTransactionHistoryDomain);
-        //记录总账历史
-        RootAccountTransactionHistoryDomain rootAccountTransactionHistoryDomain = new RootAccountTransactionHistoryDomain();
-        rootAccountTransactionHistoryDomain.setId(UUIDUtil.getUUId());
-        rootAccountTransactionHistoryDomain.setAdjustMoney(orderMoney);
-        rootAccountTransactionHistoryDomain.setCreateTime(nowTime);
-        rootAccountTransactionHistoryDomain.setAdjustType(Constants.AccountAdjustType.USER_RECHARGE.getValue());
-        rootAccountTransactionHistoryDomain.setAdjustMoney(orderMoney);
-        rootAccountTransactionHistoryDomain.setOrderId(orderId);
-        rootAccountTransactionMapper.save(rootAccountTransactionHistoryDomain);
+        accountMoneyChangeRec(orderId, orderMoney, account, oldBalance, newBalance, nowTime);
 
         return new BaseResponse();
 
 
+    }
+    // 通用方法 记录 账户资金变动
+    private void accountMoneyChangeRec(String orderId, Double adjustMoney, AccountInfoDomain account, Double oldBalance, Double newBalance, Date nowTime) {
+        //记录本账户余额变动
+        updateSelfAccount(account, newBalance, nowTime);
+        //记录本账户历史
+        accountTransactionHistoryRec(orderId, adjustMoney, account, oldBalance, newBalance, nowTime);
+        //记录总公司账户变动
+        rootAccountTransactionHistoryRec(orderId, adjustMoney, nowTime);
+    }
+
+    private void rootAccountTransactionHistoryRec(String orderId, Double adjustMoney, Date nowTime) {
+        RootAccountTransactionHistoryDomain rootAccountTransactionHistoryDomain = new RootAccountTransactionHistoryDomain();
+        rootAccountTransactionHistoryDomain.setId(UUIDUtil.getUUId());
+        rootAccountTransactionHistoryDomain.setAdjustMoney(adjustMoney);
+        rootAccountTransactionHistoryDomain.setCreateTime(nowTime);
+        rootAccountTransactionHistoryDomain.setAdjustType(Constants.AccountAdjustType.USER_RECHARGE.getValue());
+        rootAccountTransactionHistoryDomain.setAdjustMoney(adjustMoney);
+        rootAccountTransactionHistoryDomain.setOrderId(orderId);
+        rootAccountTransactionMapper.save(rootAccountTransactionHistoryDomain);
+    }
+
+    private void accountTransactionHistoryRec(String orderId, Double adjustMoney, AccountInfoDomain account, Double oldBalance, Double newBalance, Date nowTime) {
+        AccountTransactionHistoryDomain accountTransactionHistoryDomain = new AccountTransactionHistoryDomain();
+        accountTransactionHistoryDomain.setId(UUIDUtil.getUUId());
+        accountTransactionHistoryDomain.setAccountId(account.getId());
+        accountTransactionHistoryDomain.setAdjustMoney(-adjustMoney);
+        accountTransactionHistoryDomain.setCreateTime(nowTime);
+        accountTransactionHistoryDomain.setAdjustType(Constants.AccountAdjustType.USER_RECHARGE.getValue());
+        accountTransactionHistoryDomain.setBeforeAdjustMoney(oldBalance);
+        accountTransactionHistoryDomain.setAfterAdjustMoney(newBalance);
+        accountTransactionHistoryDomain.setOrderId(orderId);
+        accountTransactionHistoryMapper.save(accountTransactionHistoryDomain);
+    }
+
+    private void updateSelfAccount(AccountInfoDomain account, Double newBalance, Date nowTime) {
+        account.setBalance(newBalance);
+        account.setUpdateTime(nowTime);
+        accountInfoMapper.update(account);
     }
 
 }

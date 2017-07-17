@@ -1,6 +1,5 @@
 package com.sywl.web.service;
 
-import com.sywl.common.dict.Consts;
 import com.sywl.utils.BeeCloudUtils;
 import com.sywl.bean.PayNoticeParam;
 import com.sywl.web.dao.GoodsMapper;
@@ -57,16 +56,53 @@ public class CallBackService {
         OrderDomain order = orderMapper.queryOrderById(id);
         GoodsDomain goodsDomain =  goodsMapper.queryGoodsById(order.getGoodsId());
         String transactionType = payNoticeParam.getTransaction_type();
+        //交易成功即修改订单状态为已支付状态
+        changeOrderStatus(payNoticeParam, order);
+
+
         if (ENCHASHMENT_TYPE.equals(transactionType))
+            //若订单为提现订单
             //TODO 提现订单
             return;
-        if(DEVICE_USETIME.equals(goodsDomain.getType()) || DEVICE_USENUM.equals(goodsDomain.getType())){
-            order.setPayStatus(IS_PAYED);
-            order.setPayType(payNoticeParam.getPayType());
-            order.setPayTime(new Date());
-            orderMapper.update4CallBack(order);
-            //TODO 设备购买回调成功后确认仅需要修改订单表么？
+        Byte goodsType = goodsDomain.getType();
+
+
+        if(DEVICE_USE_ORDER.equals(goodsType) || ID_CARD_RECHARGE.equals(goodsType)){
+            //若订单为设备使用订单或id卡充值订单
+            //TODO 业务逻辑 修改设备信息等操作
+            //记录账户分成
+            orderFeeRecord(payNoticeParam);
         }
 
+        if(ACCOUNT_RECHARGE.equals(goodsType)){
+            //个人账户充值记录
+            accountRechargeRec(payNoticeParam);
+         }
+
+    }
+
+    /*修改个人账户，记录个人账户流水*/
+    private void accountRechargeRec(PayNoticeParam payNoticeParam) {
+
+    }
+
+    /*
+    账户分成 由两个部分组成（是否还包含 公司分成 存疑）
+    1门店分成 2经销商分成
+    根据订单金额以及提成比例 分别修改对应账户的账户余额
+    同时记录账户余额变化流水
+    */
+    private void orderFeeRecord(PayNoticeParam payNoticeParam) {
+        //1 门店分成
+        String orderId = payNoticeParam.getTransaction_id();
+
+        //2 经销商分成
+    }
+
+    private void changeOrderStatus(PayNoticeParam payNoticeParam, OrderDomain order) {
+        order.setPayStatus(IS_PAYED);
+        order.setPayType(payNoticeParam.getPayType());
+        order.setPayTime(new Date());
+        orderMapper.update4CallBack(order);
     }
 }
