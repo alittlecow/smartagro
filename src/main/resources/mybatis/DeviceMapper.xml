@@ -26,8 +26,12 @@
   </resultMap>
 
   <select id="queryListDevice" resultMap="DeviceMap">
-    SELECT * FROM device WHERE true
-    <if test="search_code!=null"> AND code LIKE #{search_code}</if>
+    SELECT * FROM device
+    <where>
+      <if test="search_code != null">
+        code like CONCAT('%',#{search_code,jdbcType=VARCHAR},'%')
+      </if>
+    </where>
   </select>
 
   <insert id="insert" parameterType="com.sywl.web.domain.DeviceDomain" useGeneratedKeys="true"

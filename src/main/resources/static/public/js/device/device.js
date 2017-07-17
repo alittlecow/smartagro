@@ -94,6 +94,9 @@ var vm = new Vue({
             isBreakdown: null,
             totalMoney: null,
             totalTime:null
+        },
+        queryParam:{
+            code:null
         }
     },
     methods: {
@@ -158,17 +161,13 @@ var vm = new Vue({
             });
         },
         search: function (event) { //条件查询按钮事件
-                var searchParams = {};
-                $(".pageSearchElement :input").each(function () {
-                    if ($(this).val()) {
-                        //rules += '"' + $(this).attr("name") + '":"' + $(this).val() + '"';
-                        searchParams[$(this).attr("name")]=$(this).val();
-                    }
-                })
-                //ParamJson = '{' + rules + '}';
-                var postData = $("#jqGrid").jqGrid("getGridParam", "postData");
-                $.extend(postData, searchParams);
-                $("#jqGrid").jqGrid("setGridParam", { search: true }).trigger("reloadGrid", [{ page: 1}]);  //重载JQGrid
+                var searchParams = {
+                    "search_code": vm.queryParam.code
+                };
+
+                $("#jqGrid").jqGrid('setGridParam', {
+                    postData: searchParams,
+                }).trigger('reloadGrid');
         },
         saveOrUpdate: function (event) {    //新增或修改确定按钮事件
             debugger;
