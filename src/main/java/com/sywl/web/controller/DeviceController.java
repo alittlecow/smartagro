@@ -3,6 +3,7 @@ package com.sywl.web.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sywl.support.BaseResponse;
+import com.sywl.utils.DomainUtils;
 import com.sywl.utils.RequestParamVerifyUtils;
 import com.sywl.utils.UUIDUtil;
 import com.sywl.web.domain.DeviceBindDomain;
@@ -13,14 +14,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.collections.ListUtils;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017/7/13.
@@ -50,82 +51,104 @@ public class DeviceController {
         return new BaseResponse(menuList);
     }
 
-    @ApiOperation(value="新增设备", notes="新增设备")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType="query",name = "code", value = "设备编号", required = true, dataType = "String")
-    })
-    @RequestMapping(value = "/addDevice", method = RequestMethod.POST)
-    public @ResponseBody Map<String, Object> addDevice(@RequestParam(value = "code",required = true) String code) {
-        Map<String,Object> map = new HashMap<String,Object>();
-
-        //非空校验
-        if(RequestParamVerifyUtils.isEmpty(code)){
-            map.put("result", "error");
-            map.put("message", "设备编号不能为空");
-            return map;
-        }
-        String id = UUIDUtil.getUUId();
-        DeviceDomain deviceDomain = new DeviceDomain();
-        deviceDomain.setId(id);
-        deviceDomain.setCode(code);
-        deviceService.insert(deviceDomain);
-
-        map.put("result", "success");
-        map.put("message", "新增成功");
-        //map.put("token", jwtString);
-        //redisUtil.set(jwtString, id);
-        return map;
-    }
-
-    @ApiOperation(value="修改设备", notes="修改设备")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType="query",name = "id", value = "设备id", required = true, dataType = "String"),
-            @ApiImplicitParam(paramType="query",name = "code", value = "设备code", required = false, dataType = "String"),
-            @ApiImplicitParam(paramType="query",name = "useStatus", value = "使用状态", required = false, dataType = "String"),
-            @ApiImplicitParam(paramType="query",name = "isBreakdown", value = "是否故障", required = false, dataType = "String")
-    })
-    @RequestMapping(value = "/updateDevice", method = RequestMethod.POST)
-    public @ResponseBody Map<String, Object> updateDevice(@RequestParam(value = "id",required = true) String id,
-                                                          @RequestParam(value = "code",required = false) String code,
-                                                          @RequestParam(value = "useStatus",required = false) String useStatus,
-                                                          @RequestParam(value = "isBreakdown",required = false) String isBreakdown,
-                                                              @RequestParam(value = "totalMoney",required = false) String totalMoney,
-                                                          @RequestParam(value = "totalTime",required = false) String totalTime) {
+    @ApiOperation(value="查询设备", notes="根据id查询设备详细信息")
+    @ApiImplicitParam(name = "id", value = "设备id", required = true, dataType = "String")
+    @RequestMapping(value="/queryDeviceById/{id}", method=RequestMethod.GET)
+    public @ResponseBody Map<String, Object> queryDeviceById(@PathVariable String id) {
         Map<String,Object> map = new HashMap<String,Object>();
 
         //非空校验
         if(RequestParamVerifyUtils.isEmpty(id)){
             map.put("result", "error");
-            map.put("message", "设备id不能为空");
+            map.put("message", "请求参数不能为空");
             return map;
         }
 
-        DeviceDomain deviceDomain = deviceService.queryDeviceById(id);
-        if (deviceDomain == null) {
+        DeviceDomain device = deviceService.queryDeviceById(id);
+
+        map.put("result", "success");
+        map.put("message", "新增成功");
+        map.put("data", device);
+
+        return map;
+    }
+
+    @ApiOperation(value="新增设备", notes="新增设备")
+    @ApiImplicitParam(name = "device", value = "设备详细实体user", required = true, dataType = "DeviceDomain")
+    @RequestMapping(value = "/addDevice", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> addDevice(@RequestBody DeviceDomain deviceDomain) {
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        //非空校验
+        if(deviceDomain == null){
+            map.put("result", "error");
+            map.put("message", "请求参数不能为空");
+            return map;
+        }
+
+        deviceService.insert(deviceDomain);
+
+        map.put("result", "success");
+        map.put("message", "新增成功");
+
+        return map;
+    }
+
+    @ApiOperation(value="修改设备", notes="修改设备")
+    @ApiImplicitParam(name = "device", value = "设备详细实体user", required = true, dataType = "DeviceDomain")
+    @RequestMapping(value = "/updateDevice", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> updateDevice(@RequestBody DeviceDomain requestDeviceDomain) {
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        //非空校验
+        if(requestDeviceDomain == null ){
+            map.put("result", "error");
+            map.put("message", "修改失败，请求参数不能为空");
+            return map;
+        }
+
+        //查询对应设备是否存在
+        DeviceDomain dbDeviceDomain = deviceService.queryDeviceById(requestDeviceDomain.getId());
+        if (dbDeviceDomain == null) {
             map.put("result", "error");
             map.put("message", "修改失败，设备不存在");
             return map;
         }
 
-        if (!(code==null) && !code.equals("")) {
-            deviceDomain.setCode(code);
+        //将需要更新的属性更新到从数据库查出来的实体中,返回需要更新到数据库的新实体
+        DeviceDomain newDeviceDomain = null;
+        try {
+            newDeviceDomain = (DeviceDomain) DomainUtils.updateField(requestDeviceDomain, dbDeviceDomain);
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | NoSuchFieldException e) {
+            map.put("result", "error");
+            map.put("message", "修改失败，请求参数转换异常");
         }
-        if (!(useStatus==null) && !useStatus.equals("")) {
-            deviceDomain.setUseStatus(Byte.parseByte(useStatus));
-        }
-        if (!(isBreakdown==null) && !isBreakdown.equals("")) {
-            deviceDomain.setIsBreakdown(Byte.parseByte(isBreakdown));
-        }
-        if (!(totalMoney==null) && !totalMoney.equals("")) {
-            deviceDomain.setTotalMoney(Double.parseDouble(totalMoney));
-        }
-        if (!(totalTime==null) && !totalTime.equals("")) {
-            deviceDomain.setTotalTime(Long.parseLong(totalTime));
-        }
-        deviceService.update(deviceDomain);
+
+
+        deviceService.update(newDeviceDomain);
 
         map.put("result", "success");
         map.put("message", "修改成功");
+        return map;
+    }
+
+    @ApiOperation(value="删除设备", notes="根据id删除设备")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name = "ids", value = "设备id", required = true, dataType = "String[]")
+    })
+    @RequestMapping(value = "/deleteDevice", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> deleteDevice(@RequestBody String[] ids) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        //String userId = (String) redisUtil.get(token);
+        if (ids == null) {
+            map.put("result", "error");
+            map.put("message", "请求参数不能为空");
+        }
+
+        deviceService.deleteDevice(Arrays.asList(ids));
+        map.put("result", "success");
+        map.put("message", "删除成功");
+
         return map;
     }
 

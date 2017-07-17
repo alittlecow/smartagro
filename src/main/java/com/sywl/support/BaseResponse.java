@@ -8,6 +8,9 @@ import org.apache.commons.lang3.ClassUtils;
  * @version 1.0.0
  */
 public class BaseResponse<T> {
+
+    public static String ERROR = "error";
+
     private String result = "success";
     private String message = "";
     private long totalRecordNum; //总记录数
@@ -27,6 +30,11 @@ public class BaseResponse<T> {
 
 
     public BaseResponse() {
+    }
+
+    public BaseResponse(String result, String message) {
+        this.result = result;
+        this.message = message;
     }
 
     public String getResult() {

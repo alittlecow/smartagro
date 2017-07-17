@@ -40,14 +40,8 @@ public class UserServiceTest {
 
     @Test
     public void test2(){
-        GoodsDomain goodsDomain = new GoodsDomain();
-        goodsDomain.setId(UUIDUtil.getUUId());
-        goodsDomain.setDeviceId(UUIDUtil.getUUId());
-        goodsDomain.setUserId(UUIDUtil.getUUId());
-        goodsDomain.setType(new Byte("1"));
-        goodsDomain.setCostMoney(new BigDecimal("100"));
-        goodsDomain.setStartTime(DateUtils.addHours(new Date(),-1));
-        goodsDomain.setEndTime(new Date());
-        goodsService.save(goodsDomain);
+//        GoodsDomain goodsDomain = new GoodsDomain();
+//
+//        goodsService.save(goodsDomain);
     }
 }

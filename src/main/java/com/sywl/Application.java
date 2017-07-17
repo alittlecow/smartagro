@@ -26,7 +26,7 @@ public class Application {
 
 		application.mqttutils = this.mqttutils;
 
-		initBeeCloud();
+//		initBeeCloud();
 
 	}
 

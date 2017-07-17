@@ -3,104 +3,95 @@ package com.sywl.web.domain;
 import java.util.Date;
 
 public class UserDomain {
-	
-	private String id;
-	
-	private String userName;
-	
-	private String password;
-	
-	private String roleId;
 
-	private byte sex;
+    private String id;
+    private String userName;
+    private String password;
+    private String roleId;
+    private String realName;
+    private String sex;
+    private String mobile;
+    private String email;
+    private Date birthday;
+    private Date createTime;
 
-	private Date birthday;
+    public String getId() {
+        return id;
+    }
 
-	private String realName;
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	private String mobile;
+    public String getUserName() {
+        return userName;
+    }
 
-	private String email;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	private Date create_time;
+    public String getPassword() {
+        return password;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getRoleId() {
+        return roleId;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public String getRealName() {
+        return realName;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public String getRoleId() {
-		return roleId;
-	}
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
-	}
+    public String getMobile() {
+        return mobile;
+    }
 
-	public byte getSex() {
-		return sex;
-	}
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
-	public void setSex(byte sex) {
-		this.sex = sex;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Date getBirthday() {
-		return birthday;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+    public Date getBirthday() {
+        return birthday;
+    }
 
-	public String getRealName() {
-		return realName;
-	}
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
-	public void setRealName(String realName) {
-		this.realName = realName;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Date getCreate_time() {
-		return create_time;
-	}
-
-	public void setCreate_time(Date create_time) {
-		this.create_time = create_time;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

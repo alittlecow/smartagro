@@ -12,19 +12,15 @@ import java.util.Map;
 
 public interface UserMapper {
 
-	int insert(UserDomain userDomain);
+    int save(UserDomain userDomain);
 
-	UserDomain queryUserByName(@Param("userName") String userName);
+    UserDomain queryUserByMobile(@Param("mobile") String mobile);
 
-	UserDomain queryUserByMobile(@Param("mobile") String mobile);
+    UserDomain queryUserById(@Param("id") String id);
 
-	UserDomain queryUserById(@Param("id") String id);
+    int update(UserDomain userDomain);
 
-	int updateUserById(@Param("userId")String userId, @Param("userName")String userName, @Param("password")String password,
-					   @Param("role")String role, @Param("realName")String realName, @Param("sex")Byte sex,
-					   @Param("birthday")Date birthday, @Param("mobile")String mobile, @Param("email")String email,
-					   @Param("accountBalance")double accountBalance);
+    List<UserDomain> selectAllUser();
 
-	List<UserDomain> selectAllUser();
 
 }

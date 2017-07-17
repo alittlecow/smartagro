@@ -1,83 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sywl.web.dao.UserMapper" >
-  <resultMap id="UserMap" type="com.sywl.web.domain.UserDomain" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="role" property="role" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="TINYINT" />
-    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
-    <result column="real_name" property="realName" jdbcType="VARCHAR" />
-    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="account_balance" property="accountBalance" jdbcType="DOUBLE" />
-  </resultMap>
+<mapper namespace="com.sywl.web.dao.UserMapper">
+    <resultMap id="UserMap" type="com.sywl.web.domain.UserDomain">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="role_id" property="roleId" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="TINYINT"/>
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
+        <result column="real_name" property="realName" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="account_balance" property="accountBalance" jdbcType="DOUBLE"/>
+    </resultMap>
 
-  <select id="queryUserByName" resultMap="UserMap" parameterType="java.lang.String" >
-    select
-    *
-    from user
-    where user_name = #{userName}
-  </select>
-
-  <select id="queryUserByMobile" resultMap="UserMap" parameterType="java.lang.String" >
+    <select id="queryUserByMobile" resultMap="UserMap" parameterType="java.lang.String">
     select
     *
     from user
     where mobile = #{mobile}
   </select>
 
-  <select id="queryUserById" resultMap="UserMap" parameterType="java.lang.String" >
+    <select id="queryUserById" resultMap="UserMap" parameterType="java.lang.String">
     select
     *
-    from user
+    from `user`
     where id = #{id}
   </select>
 
-  <insert id="insert" parameterType="com.sywl.web.domain.UserDomain" useGeneratedKeys="true"
-          keyProperty="id">
-    insert into user (id, user_name, password, role, real_name,sex, birthday, mobile, email)
-    values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR},
-      #{realName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{birthday,jdbcType=TIMESTAMP}, #{mobile,jdbcType=VARCHAR},
-      #{email,jdbcType=VARCHAR})
+    <insert id="save" parameterType="com.sywl.web.domain.UserDomain" useGeneratedKeys="true"
+            keyProperty="id">
+    insert into `user` (id, user_name, password, role_id, real_name,sex, mobile, email, birthday,create_time)
+    values (#{id},#{userName},#{password},#{roleId},#{realName},#{sex},#{mobile},#{email},#{birthday},#{createTime})
+
   </insert>
 
-  <select id="selectAllUser" resultMap="UserMap">
+    <select id="selectAllUser" resultMap="UserMap">
     SELECT  * FROM user
   </select>
 
-  <update id="update" parameterType="java.lang.String" >
-    update user
-    <set >
-      <if test="userName != null" >
-        user_name = #{userName},
-      </if>
-      <if test="password != null" >
-        password = #{password},
-      </if>
-      <if test="role != null" >
-        role = #{role},
-      </if>
-      <if test="realName != null" >
-        real_name = #{realName},
-      </if>
-      <if test="sex != null" >
-        sex = #{sex},
-      </if>
-      <if test="birthday != null" >
-        birthday = #{birthday},
-      </if>
-      <if test="mobile != null" >
-        mobile = #{mobile},
-      </if>
-      <if test="email != null" >
-        email = #{email},
-      </if>
-      <if test="accountBalance != null" >
-        account_balance = #{accountBalance},
-      </if>
-    </set>
-    where id = #{userId}
-  </update>
+    <update id="update" parameterType="com.sywl.web.domain.UserDomain">
+        update `user`
+        <set>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="role != null">
+                role = #{role},
+            </if>
+            <if test="realName != null">
+                real_name = #{realName},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

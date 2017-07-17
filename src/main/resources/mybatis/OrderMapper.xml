@@ -4,23 +4,66 @@
 
 
     <insert id="save" parameterType="com.sywl.web.domain.OrderDomain">
-        INSERT INTO goods (
+        INSERT INTO `order` (
             id,
-            type,
-            device_id,
             user_id,
-            start_time,
-            end_time,
-            cost_money
+            create_time,
+            pay_time,
+            pay_type,
+            goods_id,
+            order_money,
+            pay_status
         )
         VALUES
-            (#{id},#{type},#{deviceId},#{userId},#{startTime},#{endTime},#{costMoney})
+            (#{id},#{userId},#{createTime},#{payTime},#{payType},#{goodsId},#{orderMoney},#{payStatus})
     </insert>
 
     <update id="update" parameterType="com.sywl.web.domain.OrderDomain">
-
+        update `order`
+        <set>
+        <if test="payTime != null" >
+            pay_time = #{payTime},
+        </if>
+        <if test="payType != null" >
+            pay_type = #{payType},
+        </if>
+        <if test="payStatus != null" >
+            pay_status = #{payStatus},
+        </if>
+        </set>
+        WHERE id=#{id}
 
     </update>
 
+    <update id="update4CallBack" parameterType="com.sywl.web.domain.OrderDomain">
+        update `order`
+        <set>
+                pay_time = #{payTime},
+                pay_type = #{payType},
+                pay_status = #{payStatus},
+        </set>
+        WHERE id=#{id} AND pay_status = ${@com.sywl.common.dict.Consts@WAITED_PAY}
+
+    </update>
+
+    <select id="queryOrderById" parameterType="java.lang.String" resultType="com.sywl.web.domain.OrderDomain">
+        SELECT
+        t.id,
+        t.user_id AS userId,
+        t.create_time AS createTime,
+        t.pay_time AS payTime,
+        t.pay_type AS payType,
+        t.goods_id AS goodsId,
+        t.order_money AS orderMoney,
+        t.pay_status AS payStatus
+        FROM
+        `order` AS t
+        <where>
+            <if test="id != null and id != ''">
+                t.id=#{id}
+            </if>
+        </where>
+
+    </select>
 
 </mapper>

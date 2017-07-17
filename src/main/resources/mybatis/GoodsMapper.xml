@@ -6,39 +6,107 @@
     <insert id="save" parameterType="com.sywl.web.domain.GoodsDomain">
         INSERT INTO goods (
             id,
-            type,
-            device_id,
-            user_id,
-            start_time,
-            end_time,
-            cost_money
+            `type`,
+            `name`,
+            `value`,
+            money,
+            create_time,
+            `status`
         )
         VALUES
-            (#{id},#{type},#{deviceId},#{userId},#{startTime},#{endTime},#{costMoney})
+            (#{id},#{type},#{name},#{value},#{money},#{createTime},#{status})
     </insert>
 
     <update id="update" parameterType="com.sywl.web.domain.GoodsDomain">
-
+        update `goods`
+        <set>
+            <if test="type != null">
+                `type` = #{type},
+            </if>
+            <if test="name != null">
+                `name` = #{name},
+            </if>
+            <if test="money != null">
+                money = #{money},
+            </if>
+            <if test="value != null">
+                `value` = #{value},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        WHERE id=#{id}
 
     </update>
 
     <select id="queryGoodsById" parameterType="java.lang.String" resultType="com.sywl.web.domain.GoodsDomain">
         SELECT
-        t1.id,
-        t1.type,
-        t1.device_id AS deviceId,
-        t1.user_id AS userId,
-        t1.start_time AS startTime,
-        t1.end_time AS endTime,
-        t1.cost_money AS costMoney
+        t.id,
+        t.type,
+        t.name,
+        t.`value`,
+        t.money,
+        t.create_time AS createTime,
+        t.`status`
         FROM
-        goods AS t1
+        goods AS t
         <where>
             <if test="id != null and id != ''">
-                t1.id = #{id}
+                AND t.id = #{id}
             </if>
         </where>
 
     </select>
+
+    <select id="queryGoodsByCondition" parameterType="java.util.Map" resultType="com.sywl.web.domain.GoodsDomain">
+        SELECT
+        t.id,
+        t.type,
+        t.name,
+        t.`value`,
+        t.money,
+        t.create_time AS createTime,
+        t.`status`
+        FROM
+        goods AS t
+        <where>
+            t.`status` = 1
+            <if test="id != null and id != ''">
+                AND t.id = #{id}
+            </if>
+            <if test="type != null and type != '' ">
+                type = #{type}
+            </if>
+            <if test="name != null and name != '' ">
+                type = #{name}
+            </if>
+            <if test="status != null and status != '' ">
+                status = #{status}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND t.create_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND t.create_time <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
+        ORDER BY t.type ASC ,t.create_time DESC
+    </select>
+
+
+    <update id="deleteBatch" parameterType="java.util.List">
+        update `goods`
+        <set>
+            status = 0,
+        </set>
+        <where>
+            id in
+            <foreach item="id" collection="list" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </where>
+
+    </update>
 
 </mapper>

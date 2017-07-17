@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>账户流水</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/plugins/jqgrid/ui.jqgrid-bootstrap.css">
+    <link rel="stylesheet" href="/public/plugins/ztree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <form class="form-inline" style="margin-bottom: 10px">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control " v-model="queryParams.accountId" id="userId"
+                           placeholder="账户ID...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group date form_date col-md-5" placeholder="选择日期..."
+                     data-date-format="yyyy-mm-dd"
+                     data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="8" type="text" id="beginTime" readonly style="width: 100px">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group date form_date col-md-5" placeholder="选择日期..."
+                     data-date-format="yyyy-mm-dd"
+                     data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="8" type="text" id="endTime" readonly style="width: 100px">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
+            <button type="button" class="btn btn-default" @click="queryList">搜索</button>
+        </form>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+</div>
+<script src="/public/libs/jquery.min.js"></script>
+<script src="/public/plugins/layer/layer.js"></script>
+<script src="/public/libs/bootstrap.min.js"></script>
+<script src="/public/libs/vue.min.js"></script>
+<script src="/public/plugins/jqgrid/grid.locale-cn.js"></script>
+<script src="/public/plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script src="/public/plugins/ztree/jquery.ztree.all.min.js"></script>
+<script src="/public/js/common.js"></script>
+<script src="/public/libs/bootstrap-datetimepicker.min.js"></script>
+
+<script src="/public/js/account/accountHistory.js"></script>
+</body>
+</html>
