@@ -1,20 +1,25 @@
 package com.sywl.web.controller;
 
-import com.sywl.common.enums.BooleanEnum;
+import com.sywl.annotation.Login;
 import com.sywl.common.enums.Constants;
-import com.sywl.common.enums.RoleEnum;
 import com.sywl.support.BaseResponse;
-import com.sywl.utils.*;
+import com.sywl.utils.RedisUtil;
+import com.sywl.utils.SMSUtils;
 import com.sywl.web.domain.UserDomain;
 import com.sywl.web.service.UseRuleService;
 import com.sywl.web.service.UserService;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -144,14 +149,20 @@ public class UserController {
         return userService.update(userDomain);
     }
 
-    @RequestMapping(value = "info", method = RequestMethod.POST)
+    @RequestMapping(value = "info", method = {RequestMethod.POST, RequestMethod.GET})
     public BaseResponse<UserDomain> queryUserById(String id) {
-        UserDomain user = userService.queryUserById("1");
+        UserDomain user = userService.queryUserById(id);
         return new BaseResponse<>(user);
     }
 
+    @Login(needLogin = true)
     @RequestMapping(value = "resetPassword", method = RequestMethod.POST)
-    public BaseResponse resetPassword(String password, String newPassword) {
+    public BaseResponse resetPassword(String password, String newPassword, String token) {
+        String userId = (String) redisUtil.get(token);
+        if (StringUtils.isBlank(userId)) {
+            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+        }
+        System.out.println("userId : " + userId);
         return new BaseResponse();
     }
 

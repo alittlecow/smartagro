@@ -1,0 +1,434 @@
+2017-07-12 07:07:37,513 [main] INFO  [com.UserServiceTest] - Starting UserServiceTest on LAPTOP-M484PB5F with PID 9100 (started by pengxiao in D:\sywl\smartagro)
+2017-07-12 07:07:37,517 [main] INFO  [com.UserServiceTest] - No active profile set, falling back to default profiles: default
+2017-07-12 07:07:38,264 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-12 07:07:41,943 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-12 07:07:42,437 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 07:07:42,919 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 07:07:45,104 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-12 07:07:46,793 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-12 07:07:46,842 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-12 07:07:46,920 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-12 07:07:47,617 [main] INFO  [com.UserServiceTest] - Started UserServiceTest in 11.466 seconds (JVM running for 13.4)
+2017-07-12 07:10:14,721 [main] INFO  [com.UserServiceTest] - Starting UserServiceTest on LAPTOP-M484PB5F with PID 18492 (started by pengxiao in D:\sywl\smartagro)
+2017-07-12 07:10:14,727 [main] INFO  [com.UserServiceTest] - No active profile set, falling back to default profiles: default
+2017-07-12 07:10:15,373 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-12 07:10:18,781 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-12 07:10:19,250 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 07:10:19,692 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 07:10:21,321 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-12 07:10:23,073 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-12 07:10:23,146 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-12 07:10:23,214 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-12 07:10:23,945 [main] INFO  [com.UserServiceTest] - Started UserServiceTest in 10.357 seconds (JVM running for 11.896)
+2017-07-12 07:13:01,954 [main] INFO  [com.UserServiceTest] - Starting UserServiceTest on LAPTOP-M484PB5F with PID 22152 (started by pengxiao in D:\sywl\smartagro)
+2017-07-12 07:13:01,963 [main] INFO  [com.UserServiceTest] - No active profile set, falling back to default profiles: default
+2017-07-12 07:13:02,772 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-12 07:13:06,590 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-12 07:13:07,085 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 07:13:07,548 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 07:13:09,493 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-12 07:13:11,416 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-12 07:13:11,461 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-12 07:13:11,533 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-12 07:13:12,289 [main] INFO  [com.UserServiceTest] - Started UserServiceTest in 11.806 seconds (JVM running for 13.321)
+2017-07-12 23:55:07,533 [main] INFO  [com.UserServiceTest] - Starting UserServiceTest on LAPTOP-M484PB5F with PID 14112 (started by pengxiao in D:\sywl\smartagro)
+2017-07-12 23:55:07,538 [main] INFO  [com.UserServiceTest] - No active profile set, falling back to default profiles: default
+2017-07-12 23:55:08,181 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-12 23:55:12,069 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-12 23:55:13,310 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 23:55:14,052 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 23:55:16,072 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-12 23:55:17,759 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-12 23:55:17,805 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-12 23:55:17,892 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-12 23:55:18,744 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-12 23:55:18,747 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-12 23:55:18,751 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-12 23:55:18,753 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-12 23:55:18,756 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-12 23:55:18,758 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-12 23:55:18,761 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-12 23:55:18,763 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-12 23:55:19,128 [main] INFO  [com.UserServiceTest] - Started UserServiceTest in 12.898 seconds (JVM running for 16.047)
+2017-07-12 23:55:21,749 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-12 23:55:58,724 [main] INFO  [com.UserServiceTest] - Starting UserServiceTest on LAPTOP-M484PB5F with PID 6560 (started by pengxiao in D:\sywl\smartagro)
+2017-07-12 23:55:58,725 [main] INFO  [com.UserServiceTest] - No active profile set, falling back to default profiles: default
+2017-07-12 23:55:59,653 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-12 23:56:03,935 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-12 23:56:04,449 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 23:56:04,879 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-12 23:56:06,867 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-12 23:56:08,241 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-12 23:56:08,281 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-12 23:56:08,365 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-12 23:56:08,971 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-12 23:56:08,980 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-12 23:56:08,986 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-12 23:56:08,990 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-12 23:56:08,996 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-12 23:56:09,000 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-12 23:56:09,003 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-12 23:56:09,011 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-12 23:56:09,367 [main] INFO  [com.UserServiceTest] - Started UserServiceTest in 11.716 seconds (JVM running for 13.779)
+2017-07-12 23:56:10,664 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 10:32:42,273 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 1536 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 10:32:42,292 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 10:32:43,128 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 10:32:45,510 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 10:32:46,071 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 10:32:46,505 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 10:32:47,817 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 10:32:48,929 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 10:32:48,955 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 10:32:48,992 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 10:32:49,313 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 10:32:49,315 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 10:32:49,317 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 10:32:49,319 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 10:32:49,321 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 10:32:49,322 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 10:32:49,324 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 10:32:49,326 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 10:32:49,447 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 10:32:49,552 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 8.372 seconds (JVM running for 9.635)
+2017-07-13 10:32:52,429 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 14:23:00,314 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 7832 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 14:23:00,338 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 14:23:00,746 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 14:23:03,177 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 14:23:03,655 [main] WARN  [com.sywl.config.MybatisConfiguration] - Could not confiure mybatis session factory
+2017-07-13 14:28:50,000 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 14:28:50,230 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 9944 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 14:28:50,230 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 14:28:52,721 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 14:28:53,083 [main] WARN  [com.sywl.config.MybatisConfiguration] - Could not confiure mybatis session factory
+2017-07-13 14:38:14,294 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 14:38:14,468 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 9536 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 14:38:14,468 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 14:38:16,704 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 14:38:17,222 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 14:38:17,621 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 14:38:18,888 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 14:38:19,994 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 14:38:20,084 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 14:38:20,133 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 14:38:20,744 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 14:38:20,745 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 14:38:20,747 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 14:38:20,748 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 14:38:20,750 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 14:38:20,752 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 14:38:20,753 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 14:38:20,755 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 14:38:20,831 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 14:38:20,915 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 7.143 seconds (JVM running for 7.98)
+2017-07-13 14:38:24,340 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 15:03:08,546 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 5940 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 15:03:08,547 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 15:03:08,648 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 15:03:10,918 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 15:03:11,216 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:03:11,457 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 15:03:11,475 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:03:12,529 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 15:03:13,537 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 15:03:13,562 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 15:03:13,599 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 15:03:13,897 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 15:03:13,899 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 15:03:13,900 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 15:03:13,902 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 15:03:13,903 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 15:03:13,905 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 15:03:13,906 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 15:03:13,908 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 15:03:13,991 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 15:03:14,151 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.06 seconds (JVM running for 6.873)
+2017-07-13 15:03:16,548 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 15:15:35,946 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 3960 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 15:15:35,947 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 15:15:36,384 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 15:15:38,531 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 15:15:39,051 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:15:39,391 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 15:15:39,410 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:15:40,982 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 15:15:42,113 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 15:15:42,144 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 15:15:42,184 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 15:15:42,699 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 15:15:42,700 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 15:15:42,701 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 15:15:42,703 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 15:15:42,704 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 15:15:42,707 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 15:15:42,709 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 15:15:42,711 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 15:15:42,821 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 15:15:43,145 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 7.722 seconds (JVM running for 8.75)
+2017-07-13 15:15:45,910 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 15:35:31,266 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 6680 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 15:35:31,267 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 15:35:31,368 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 15:35:33,513 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 15:35:33,831 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:35:34,130 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 15:35:34,156 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:35:35,288 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 15:35:36,196 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 15:35:36,239 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 15:35:36,281 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 15:35:36,772 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 15:35:36,774 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 15:35:36,775 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 15:35:36,777 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 15:35:36,778 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 15:35:36,779 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 15:35:36,782 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 15:35:36,784 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 15:35:36,880 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 15:35:36,996 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.168 seconds (JVM running for 7.089)
+2017-07-13 15:35:39,458 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 15:51:41,026 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 5720 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 15:51:41,026 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 15:51:41,141 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 15:51:43,332 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 15:51:43,652 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:51:43,980 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 15:51:44,004 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 15:51:45,169 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 15:51:46,179 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 15:51:46,203 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 15:51:46,245 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 15:51:46,686 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 15:51:46,688 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 15:51:46,689 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 15:51:46,691 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 15:51:46,693 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 15:51:46,694 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 15:51:46,696 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 15:51:46,697 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 15:51:46,806 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 15:51:46,845 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: registerUsingPOST_1
+2017-07-13 15:51:46,922 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.325 seconds (JVM running for 7.017)
+2017-07-13 15:51:49,397 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 16:36:56,435 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 2160 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 16:36:56,436 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 16:36:56,614 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 16:36:58,759 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 16:36:59,154 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 16:36:59,471 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 16:36:59,497 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 16:37:00,720 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 16:37:01,792 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 16:37:01,816 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 16:37:01,855 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 16:37:02,255 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 16:37:02,257 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 16:37:02,259 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 16:37:02,260 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 16:37:02,262 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 16:37:02,263 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 16:37:02,265 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 16:37:02,267 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 16:37:02,375 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 16:37:02,481 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.472 seconds (JVM running for 7.151)
+2017-07-13 16:37:04,885 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 16:43:58,816 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 16:43:58,907 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 6832 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 16:43:58,908 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 16:44:00,923 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 16:44:01,254 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 16:44:01,576 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 16:44:01,603 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 16:44:02,820 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 16:44:03,763 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 16:44:03,787 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 16:44:03,861 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 16:44:04,322 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 16:44:04,324 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 16:44:04,325 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 16:44:04,326 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 16:44:04,328 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 16:44:04,329 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 16:44:04,330 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 16:44:04,332 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 16:44:04,426 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 16:44:04,545 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.564 seconds (JVM running for 7.885)
+2017-07-13 16:44:06,851 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 17:26:25,701 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 6912 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 17:26:25,701 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 17:26:25,927 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 17:26:28,111 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 17:26:28,466 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 17:26:28,753 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 17:26:28,777 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 17:26:29,962 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 17:26:30,990 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 17:26:31,012 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 17:26:31,054 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 17:26:31,393 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 17:26:31,395 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 17:26:31,396 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 17:26:31,397 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 17:26:31,399 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 17:26:31,400 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 17:26:31,402 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 17:26:31,403 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 17:26:31,484 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 17:26:31,579 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.307 seconds (JVM running for 7.039)
+2017-07-13 17:26:33,961 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 17:52:24,425 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 7028 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 17:52:24,426 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 17:52:24,568 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 17:52:26,679 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 17:52:27,028 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 17:52:27,327 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 17:52:27,355 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 17:52:28,567 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 17:52:29,520 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 17:52:29,544 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 17:52:29,620 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 17:52:30,036 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 17:52:30,037 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 17:52:30,039 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 17:52:30,040 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 17:52:30,043 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 17:52:30,045 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 17:52:30,046 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 17:52:30,048 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 17:52:30,148 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 17:52:30,265 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.252 seconds (JVM running for 6.954)
+2017-07-13 17:52:32,653 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 18:11:46,274 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on 产品二部-张留建 with PID 7460 (started by Administrator in F:\sywl\smartagro)
+2017-07-13 18:11:46,275 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 18:11:46,446 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 18:11:48,469 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 18:11:48,767 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 18:11:49,094 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 18:11:49,133 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 18:11:50,489 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 18:11:51,396 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 18:11:51,420 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 18:11:51,457 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 18:11:51,960 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 18:11:51,962 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 18:11:51,964 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 18:11:51,966 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 18:11:51,968 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 18:11:51,970 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 18:11:51,971 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 18:11:51,973 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 18:11:52,117 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 18:11:52,222 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.363 seconds (JVM running for 7.108)
+2017-07-13 18:11:54,913 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 19:45:17,861 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on I2NFV0RYRLMVWML with PID 7172 (started by Administrator in C:\Users\Administrator\Desktop\project\smartagro)
+2017-07-13 19:45:17,862 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 19:45:18,198 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 19:45:20,539 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 19:45:21,135 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 19:45:21,619 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 19:45:21,649 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 19:45:23,275 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 19:45:24,676 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 19:45:24,708 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 19:45:24,762 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 19:45:25,322 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 19:45:25,325 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 19:45:25,328 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 19:45:25,330 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 19:45:25,333 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 19:45:25,335 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 19:45:25,338 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 19:45:25,340 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 19:45:25,483 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 19:45:25,651 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 8.17 seconds (JVM running for 9.709)
+2017-07-13 19:45:30,144 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 19:46:10,175 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on I2NFV0RYRLMVWML with PID 8904 (started by Administrator in C:\Users\Administrator\Desktop\project\smartagro)
+2017-07-13 19:46:10,176 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 19:46:10,418 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 19:46:12,827 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 19:46:13,331 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 19:46:13,834 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 19:46:13,885 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 19:46:15,325 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 19:46:16,528 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 19:46:16,558 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 19:46:16,607 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 19:46:17,151 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 19:46:17,154 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 19:46:17,157 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 19:46:17,160 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 19:46:17,162 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 19:46:17,165 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 19:46:17,168 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 19:46:17,171 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 19:46:17,311 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 19:46:17,460 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 7.681 seconds (JVM running for 8.481)
+2017-07-13 19:46:19,547 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 20:04:03,565 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on I2NFV0RYRLMVWML with PID 12124 (started by Administrator in C:\Users\Administrator\Desktop\project\smartagro)
+2017-07-13 20:04:03,566 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 20:04:03,852 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 20:04:06,257 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 20:04:06,745 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 20:04:07,607 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 20:04:07,658 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 20:04:09,131 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 20:04:11,776 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 20:04:11,827 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 20:04:11,917 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 20:04:12,692 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 20:04:12,695 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 20:04:12,697 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 20:04:12,700 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 20:04:12,702 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 20:04:12,704 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 20:04:12,707 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 20:04:12,716 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 20:04:12,876 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 20:04:13,056 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 9.85 seconds (JVM running for 10.588)
+2017-07-13 20:04:15,271 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 20:45:46,699 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on I2NFV0RYRLMVWML with PID 9624 (started by Administrator in C:\Users\Administrator\Desktop\project\smartagro)
+2017-07-13 20:45:46,700 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 20:45:47,052 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 20:45:49,155 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 20:45:49,570 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 20:45:49,936 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 20:45:49,962 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 20:45:51,323 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 20:45:52,451 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 20:45:52,473 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 20:45:52,527 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 20:45:53,037 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 20:45:53,039 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 20:45:53,040 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 20:45:53,042 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 20:45:53,044 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 20:45:53,047 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 20:45:53,048 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 20:45:53,050 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 20:45:53,174 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 20:45:53,329 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 7.262 seconds (JVM running for 7.986)
+2017-07-13 20:45:55,515 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed
+2017-07-13 20:52:28,806 [main] INFO  [com.pageHelperTest] - Starting pageHelperTest on I2NFV0RYRLMVWML with PID 5336 (started by Administrator in C:\Users\Administrator\Desktop\project\smartagro)
+2017-07-13 20:52:28,808 [main] INFO  [com.pageHelperTest] - No active profile set, falling back to default profiles: default
+2017-07-13 20:52:29,058 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.3.4.Final
+2017-07-13 20:52:31,073 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2017-07-13 20:52:31,461 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 20:52:31,798 [main] INFO  [com.sywl.utils.BeeCloudUtils] - BeeCloud init success app_id = ce7e9291-1d25-4941-b926-367604b4ff8c
+2017-07-13 20:52:31,829 [main] WARN  [org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator] - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-07-13 20:52:33,182 [main] INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2017-07-13 20:52:34,299 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Context refreshed
+2017-07-13 20:52:34,326 [main] INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] - Found 1 custom documentation plugin(s)
+2017-07-13 20:52:34,374 [main] INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] - Scanning for api listing references
+2017-07-13 20:52:34,929 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingGET_1
+2017-07-13 20:52:34,932 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingHEAD_1
+2017-07-13 20:52:34,934 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPOST_1
+2017-07-13 20:52:34,937 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPUT_1
+2017-07-13 20:52:34,940 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingPATCH_1
+2017-07-13 20:52:34,942 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingDELETE_1
+2017-07-13 20:52:34,945 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingOPTIONS_1
+2017-07-13 20:52:34,948 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: userUsingTRACE_1
+2017-07-13 20:52:35,096 [main] INFO  [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator] - Generating unique operation named: rechargeUsingPOST_1
+2017-07-13 20:52:35,247 [main] INFO  [com.pageHelperTest] - Started pageHelperTest in 6.798 seconds (JVM running for 7.52)
+2017-07-13 20:52:37,479 [Thread-4] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} closed

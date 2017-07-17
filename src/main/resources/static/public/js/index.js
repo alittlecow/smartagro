@@ -1,3 +1,7 @@
+$(function () {
+    localStorage.token = 'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKZXJzZXktU2VjdXJpdHktQmFzaWMiLCJzdWIiOiIxMzc3NjU0MDE0OSIsImF1ZCI6InVzZXIiLCJleHAiOjE1MDI3Njc0NzQsImlhdCI6MTUwMDE3NTQ3NCwianRpIjoiMSJ9.n2z08k5k4BEdeAiThxBYRPymcYcKNW3NZrUI5fdvn14';
+});
+
 //生成菜单
 var menuItem = Vue.extend({
     name: 'menu-item',

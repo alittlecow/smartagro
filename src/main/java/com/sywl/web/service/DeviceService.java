@@ -1,5 +1,6 @@
 package com.sywl.web.service;
 
+import com.sywl.utils.UUIDUtil;
 import com.sywl.web.dao.DeviceMapper;
 import com.sywl.web.domain.DeviceBindDomain;
 import com.sywl.web.domain.DeviceDataHistoryDomain;
@@ -28,6 +29,8 @@ public class DeviceService {
 	}
 
 	public int insert(DeviceDomain deviceDomain){
+		String id = UUIDUtil.getUUId();
+		deviceDomain.setId(id);
 		return deviceMapper.insert(deviceDomain);
 	};
 
@@ -35,6 +38,11 @@ public class DeviceService {
 		return deviceMapper.update(deviceDomain.getId(),deviceDomain.getCode(),deviceDomain.getUseStatus(),
 				deviceDomain.getIsBreakdown(),deviceDomain.getTotalMoney(),deviceDomain.getTotalTime());
 	};
+
+	public int deleteDevice(List<String> ids){
+		deviceMapper.deleteDevice(ids);
+		return 0;
+	}
 
 	public DeviceDomain queryDeviceById(String id){
 		return deviceMapper.queryDeviceById(id);

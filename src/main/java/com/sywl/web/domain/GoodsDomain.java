@@ -1,5 +1,7 @@
 package com.sywl.web.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -10,11 +12,21 @@ import java.util.Date;
 public class GoodsDomain {
     private String id;
     private Byte type;
+    private String name;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date createTime;
-    private BigDecimal money;
-    private BigDecimal value;
+    private Double money;
+    private Integer value;
     private Byte status;
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Byte getStatus() {
         return status;
@@ -48,19 +60,19 @@ public class GoodsDomain {
         this.createTime = createTime;
     }
 
-    public BigDecimal getMoney() {
+    public Double getMoney() {
         return money;
     }
 
-    public void setMoney(BigDecimal money) {
+    public void setMoney(Double money) {
         this.money = money;
     }
 
-    public BigDecimal getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 }

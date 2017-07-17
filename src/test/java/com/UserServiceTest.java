@@ -40,8 +40,8 @@ public class UserServiceTest {
 
     @Test
     public void test2(){
-        GoodsDomain goodsDomain = new GoodsDomain();
-
-        goodsService.save(goodsDomain);
+//        GoodsDomain goodsDomain = new GoodsDomain();
+//
+//        goodsService.save(goodsDomain);
     }
 }
