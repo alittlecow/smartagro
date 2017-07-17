@@ -4,6 +4,7 @@ import cn.beecloud.BCPay;
 import cn.beecloud.BCUtil;
 import cn.beecloud.bean.BCTransferParameter;
 import com.sywl.common.dict.Consts;
+import com.sywl.common.enums.Constants;
 import com.sywl.exception.BusinessException;
 import com.sywl.support.BaseResponse;
 import com.sywl.web.dao.AccountEnchashmentMapper;
@@ -37,7 +38,7 @@ public class EnchashmentService {
         try {
             BCPay.startBCTransfer(enchashmentParam);
         }catch (Exception e) {
-            return new BaseResponse<>(BaseResponse.ERROR,e.getMessage());
+            return new BaseResponse<>(Constants.ERROR,e.getMessage());
         }
         return new BaseResponse();
     }
