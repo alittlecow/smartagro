@@ -34,9 +34,6 @@ public class DeviceController {
     @Autowired
     DeviceService deviceService;
 
-    /**
-     * 查询所有设备
-     */
     @ApiOperation(value="查询所有设备", notes="根据条件查询所有设备")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "params", value = "请求参数", required = true, dataType = "Map")

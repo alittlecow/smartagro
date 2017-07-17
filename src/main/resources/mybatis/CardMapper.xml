@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.CardMapper">
+    <resultMap id="CardMap" type="com.sywl.web.domain.CardDomain">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="count" property="count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="queryCardById" resultMap="CardMap" parameterType="java.lang.String">
+        select * from card where id = #{id}
+    </select>
+
+    <select id="queryListCard" resultMap="CardMap">
+        SELECT * FROM card
+        <where>
+            <if test="search_code != null">
+                code like CONCAT('%',#{search_code,jdbcType=VARCHAR},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

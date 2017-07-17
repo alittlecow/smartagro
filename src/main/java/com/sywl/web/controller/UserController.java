@@ -4,7 +4,9 @@ import com.sywl.annotation.Login;
 import com.sywl.common.enums.Constants;
 import com.sywl.support.BaseResponse;
 import com.sywl.utils.RedisUtil;
+import com.sywl.utils.RequestParamVerifyUtils;
 import com.sywl.utils.SMSUtils;
+import com.sywl.web.domain.AccountInfoDomain;
 import com.sywl.web.domain.UserDomain;
 import com.sywl.web.service.UseRuleService;
 import com.sywl.web.service.UserService;
@@ -127,7 +129,7 @@ public class UserController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public BaseResponse login(String mobile, String verifyCode) {
         if (!SMSUtils.isValid(mobile, verifyCode)) {
-            return new BaseResponse(BaseResponse.ERROR, "验证码错误");
+            return new BaseResponse(Constants.ERROR, "验证码错误");
         }
         return userService.login(mobile);
     }
@@ -149,7 +151,7 @@ public class UserController {
         return userService.update(userDomain);
     }
 
-    @RequestMapping(value = "info", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "queryUserById", method = {RequestMethod.POST, RequestMethod.GET})
     public BaseResponse<UserDomain> queryUserById(String id) {
         UserDomain user = userService.queryUserById(id);
         return new BaseResponse<>(user);
@@ -157,13 +159,18 @@ public class UserController {
 
     @Login(needLogin = true)
     @RequestMapping(value = "resetPassword", method = RequestMethod.POST)
-    public BaseResponse resetPassword(String password, String newPassword, String token) {
+    public BaseResponse resetPassword(String token,String newPassword) {
         String userId = (String) redisUtil.get(token);
         if (StringUtils.isBlank(userId)) {
-            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+            return new BaseResponse(Constants.ERROR, "登录失效,请重新登陆");
         }
-        System.out.println("userId : " + userId);
-        return new BaseResponse();
+        if (!RequestParamVerifyUtils.regexMatches(Constants.PASSWORD_REGEX, newPassword)) {
+           return new BaseResponse(Constants.ERROR, "修改失败，密码格式错误");
+        }
+        UserDomain dbUser = userService.queryUserById(userId);
+        dbUser.setPassword(newPassword);
+        userService.update(dbUser);
+        return new BaseResponse(Constants.SUCCESS, "密码修改成功");
     }
 
 }

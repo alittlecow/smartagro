@@ -5,7 +5,7 @@ package com.sywl.common.dict;
  *
  * 保存常量的接口
  */
-//为什么不用ENUMS呢，因为看到ENUMS不开心
+//为什么不用ENUMS呢，因为看到ENUMS不开心------------食屎啦你！！！！！！
 public interface Consts {
     Byte WAITED_PAY = 1;//订单待支付状态.
     Byte WAITED_ENCHASHMENT = 0;//待提现订单

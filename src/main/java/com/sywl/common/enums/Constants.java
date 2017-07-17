@@ -30,6 +30,15 @@ public class Constants {
     //失效
     public static final String DISABLE = "0";
 
+    public static final String SUCCESS = "success";
+
+    public static final String ERROR = "error";
+
+
+
+
+
+    //枚举
     public enum BasicType {
         //有效
         ENABLE(new Byte("1")),

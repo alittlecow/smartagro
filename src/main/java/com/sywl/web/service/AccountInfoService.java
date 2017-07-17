@@ -93,18 +93,18 @@ public class AccountInfoService {
     public BaseResponse pay(String orderId, String userId) {
         OrderDomain order = orderService.queryOrderById(orderId);
         if (order == null)
-            return new BaseResponse(BaseResponse.ERROR, "订单不存在!");
+            return new BaseResponse(Constants.ERROR, "订单不存在!");
         if (Constants.PayStatus.SUCCESS.getValue().compareTo(order.getPayStatus()) == 0)
-            return new BaseResponse(BaseResponse.ERROR, "订单已经支付！");
+            return new BaseResponse(Constants.ERROR, "订单已经支付！");
         Double orderMoney = order.getOrderMoney();
         AccountInfoDomain account = accountInfoMapper.queryAccountByUserId(userId);
         if (account == null)
-            return new BaseResponse(BaseResponse.ERROR, "用户账户不存在!");
+            return new BaseResponse(Constants.ERROR, "用户账户不存在!");
 
         Double oldBalance = account.getBalance();
         Double newBalance = oldBalance - orderMoney;
         if (newBalance < 0)
-            return new BaseResponse(BaseResponse.ERROR, "账户余额不足!");
+            return new BaseResponse(Constants.ERROR, "账户余额不足!");
 
         Date nowTime = new Date();
         //订单支付成功

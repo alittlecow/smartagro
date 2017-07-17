@@ -8,10 +8,7 @@ import org.apache.commons.lang3.ClassUtils;
  * @version 1.0.0
  */
 public class BaseResponse<T> {
-
-    public static String ERROR = "error";
-
-    private String result = "success";
+    private String result = "";
     private String message = "";
     private long totalRecordNum; //总记录数
     private int pages;//总页数

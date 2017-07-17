@@ -1,5 +1,6 @@
 package com.sywl.exception;
 
+import com.sywl.common.enums.Constants;
 import com.sywl.support.BaseResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public class RestExceptionHandler {
     public BaseResponse BusinessExceptionHandler(BusinessException e) {
         logger.error(e.getMessage());
         e.printStackTrace();
-        return new BaseResponse(BaseResponse.ERROR, e.getErrorMsg());
+        return new BaseResponse(Constants.ERROR, e.getErrorMsg());
     }
 
     @ExceptionHandler(Exception.class)
@@ -31,7 +32,7 @@ public class RestExceptionHandler {
     public BaseResponse ExceptionHandler(Exception e) {
         logger.error(e.getMessage());
         e.printStackTrace();
-        return new BaseResponse(BaseResponse.ERROR, "服务异常");
+        return new BaseResponse(Constants.ERROR, "服务异常");
     }
 
 }

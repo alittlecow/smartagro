@@ -87,7 +87,7 @@ public class UserService {
 
     public BaseResponse update(UserDomain userDomain) {
         if (userDomain == null || userDomain.getId() == null)
-            return new BaseResponse(BaseResponse.ERROR, "用户不存在");
+            return new BaseResponse(Constants.ERROR, "用户不存在");
         userMapper.update(userDomain);
         return new BaseResponse();
     }

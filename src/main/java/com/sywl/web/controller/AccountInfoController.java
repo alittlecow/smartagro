@@ -59,7 +59,7 @@ public class AccountInfoController {
     public BaseResponse recharge(String token, String goodsId) {
         String userId = (String) redisUtil.get(token);
         if (StringUtils.isBlank(userId)) {
-            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+            return new BaseResponse(Constants.ERROR, "登录失效,请重新登陆");
         }
         String orderId = accountInfoService.recharge(userId, goodsId);
         Map map = new HashMap();
@@ -77,7 +77,7 @@ public class AccountInfoController {
     public BaseResponse pay(String orderId, String token) {
         String userId = (String) redisUtil.get(token);
         if (StringUtils.isBlank(userId)) {
-            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+            return new BaseResponse(Constants.ERROR, "登录失效,请重新登陆");
         }
         return accountInfoService.pay(orderId, userId);
     }
@@ -92,7 +92,7 @@ public class AccountInfoController {
     public BaseResponse queryUserAccount(String token) {
         String userId = (String) redisUtil.get(token);
         if (StringUtils.isBlank(userId)) {
-            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+            return new BaseResponse(Constants.ERROR, "登录失效,请重新登陆");
         }
         AccountInfoDomain accountInfoDomain = accountInfoService.queryAccountByUserId(userId);
         return new BaseResponse(accountInfoDomain);
@@ -113,11 +113,11 @@ public class AccountInfoController {
         String token = MapUtils.getString(params, "token");
         String userId = (String) redisUtil.get(token);
         if (StringUtils.isBlank(userId)) {
-            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+            return new BaseResponse(Constants.ERROR, "登录失效,请重新登陆");
         }
         UserDomain user = userService.queryUserById(userId);
         if (user == null) {
-            return new BaseResponse(BaseResponse.ERROR, "用户不存在");
+            return new BaseResponse(Constants.ERROR, "用户不存在");
         }
         //非root用户只能查看自己的流水
         if (!StringUtils.equals(user.getRoleId(), Constants.Role.ROLE_ROOT.getValue())) {
@@ -161,7 +161,7 @@ public class AccountInfoController {
     public BaseResponse queryUserAccount(String token, String id) {
         String userId = (String) redisUtil.get(token);
         if (StringUtils.isBlank(userId)) {
-            return new BaseResponse(BaseResponse.ERROR, "登录失效,请重新登陆");
+            return new BaseResponse(Constants.ERROR, "登录失效,请重新登陆");
         }
         AccountInfoDomain accountInfoDomain = accountInfoService.queryAccountById(id);
         return new BaseResponse(accountInfoDomain);
