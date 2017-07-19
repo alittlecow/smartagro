@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.UserBankCardMapper">
+
+
+    <select id="queryBankCardById" resultType="com.sywl.web.domain.UserBankCardDomain" parameterType="java.lang.String">
+        select id,status,user_id AS userId ,
+        bank_full_name AS bankFullName,
+        card_type AS cardType,
+        account_type AS accountType,
+        account_No AS accountNo,
+        account_Name AS accountName
+        from user_bank_card where id = #{id}
+    </select>
+
+    <select id="queryBankCardByUserId" resultType="com.sywl.web.domain.UserBankCardDomain" parameterType="java.lang.String">
+        select id,status,user_id AS userId ,
+        bank_full_name AS bankFullName,
+        card_type AS cardType,
+        account_type AS accountType,
+        account_No AS accountNo,
+        account_Name AS accountName
+        from user_bank_card where user_id = #{userId}
+    </select>
+
+    <insert id="save" parameterType="com.sywl.web.domain.UserBankCardDomain" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into `user_bank_card` (id,status,user_id,bank_full_name,card_type,account_type,account_No,account_Name)
+        values (#{id},#{status},#{userId},#{bankFullName},#{cardType},#{accountType},#{accountNo},#{accountName})
+
+    </insert>
+
+    <update id="update" parameterType="com.sywl.web.domain.UserBankCardDomain">
+        update `user`
+        <set>
+
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="bankFullName != null">
+                bank_full_name = #{bankFullName},
+            </if>
+            <if test="cardType != null">
+                card_type = #{cardType},
+            </if>
+            <if test="accountType != null">
+                account_type = #{accountType},
+            </if>
+            <if test="accountNo != null">
+                account_No = #{accountNo},
+            </if>
+            <if test="accountName != null">
+                account_Name = #{accountName},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+
+</mapper>

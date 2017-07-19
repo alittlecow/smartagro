@@ -20,6 +20,7 @@ public class BeeCloudUtils {
 
     public static void initBeeCloud(){
         // TODO: 2017/7/13  暂时没有开通对应的支付渠道,无法获取appSecret 和 MasterSecret
+        // 仅能用于测试环境
         BeeCloud.registerApp(BeeCloudUtils.BEECLOUD_APP_ID,BeeCloudUtils.BEECLOUD_TEST_SECRET, null,null);
         BeeCloud.setSandbox(true);
         log.info("BeeCloud init success app_id = {}",BCCache.getAppID());
