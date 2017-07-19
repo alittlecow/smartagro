@@ -63,6 +63,25 @@ public class EnchashmentController {
         Page<UserBankCardDomain> menuList = (Page<UserBankCardDomain>) enchashmentService.queryBankCardList(userId);
         return new BaseResponse(menuList);
     }
+
+    /**
+     * 更新银行卡
+     */
+    @ApiOperation(value="更新银行卡", notes="更新银行卡")
+    @ApiImplicitParam(name = "bankCard", value = "银行卡实体类", dataType = "UserBankCardDomain")
+    @RequestMapping(value = "/updateBankCard",method = RequestMethod.POST)
+    public BaseResponse updateBankCard(@RequestParam UserBankCardDomain bankCard) {
+        enchashmentService.updateBankCard(bankCard);
+        return new BaseResponse();
+    }
+
+    @ApiOperation(value="新增银行卡", notes="更新银行卡")
+    @ApiImplicitParam(name = "bankCard", value = "银行卡实体类", dataType = "UserBankCardDomain")
+    @RequestMapping(value = "/createBankCard",method = RequestMethod.POST)
+    public BaseResponse createBankCard(@RequestParam UserBankCardDomain bankCard,String userId) {
+        enchashmentService.createBankCard(bankCard,userId);
+        return new BaseResponse();
+    }
 }
 
 

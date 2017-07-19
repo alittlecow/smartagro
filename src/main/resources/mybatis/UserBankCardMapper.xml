@@ -33,7 +33,6 @@
     <update id="update" parameterType="com.sywl.web.domain.UserBankCardDomain">
         update `user`
         <set>
-
             <if test="status != null">
                 status = #{status},
             </if>
