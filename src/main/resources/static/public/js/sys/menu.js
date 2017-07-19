@@ -2,7 +2,7 @@ $(function () {
     $("#jqGrid").jqGrid({
         url: '../sys/menu/list',
         datatype: "json",
-         postData:'name=px',
+         //postData:'name=px',
         colModel: [
             {label: '菜单ID', name: 'menuId', index: "menu_id", width: 40, key: true},
             {label: '菜单名称', name: 'name', width: 60},

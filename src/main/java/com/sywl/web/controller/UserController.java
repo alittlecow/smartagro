@@ -153,7 +153,7 @@ public class UserController {
 
     @RequestMapping(value = "queryUserById", method = {RequestMethod.POST, RequestMethod.GET})
     public BaseResponse<UserDomain> queryUserById(String id) {
-        UserDomain user = userService.queryUserById(id);
+        UserDomain user = userService.queryUserById("1");
         return new BaseResponse<>(user);
     }
 

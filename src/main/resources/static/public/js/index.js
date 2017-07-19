@@ -51,7 +51,7 @@ var vm = new Vue({
             });
         },
         getUser: function () {
-            $.getJSON("user/info", function (r) {
+            $.getJSON("user/queryUserById", function (r) {
                 vm.user = r.data;
             });
         },
@@ -88,7 +88,7 @@ var vm = new Vue({
     },
     created: function () {
         this.getMenuList();
-        this.getUser();
+        //this.getUser();
     },
     updated: function () {
         //路由

@@ -4,7 +4,7 @@ $(
     $("#jqGrid").jqGrid({
         url: window.T.rootPath + '/device/queryListDevice',
         datatype: "json",
-         //postData:'name=px',  //查询参数
+         //posDtata:'name=px',  //查询参数
         colModel: [
             {label: '设备ID', name: 'id', index: "id", width: 40, key: true, hidden:true},
             {label: '设备编号', name: 'code', width: 60},
