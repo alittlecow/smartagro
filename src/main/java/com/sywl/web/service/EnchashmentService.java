@@ -72,21 +72,5 @@ public class EnchashmentService {
         }
     }
 
-    public List<UserBankCardDomain> queryBankCardList(String userId) {
-        return bankCardMapper.queryBankCardByUserId(userId);
-    }
 
-    public int updateBankCard(UserBankCardDomain bankCard) {
-       return bankCardMapper.update(bankCard);
-    }
-
-    public int save(UserBankCardDomain bankCard) {
-        return bankCardMapper.update(bankCard);
-    }
-
-    public void createBankCard(UserBankCardDomain bankCard, String userId) {
-        bankCard.setId(UUID.randomUUID().toString().replace("-",""));
-        bankCard.setUserId(userId);
-        bankCardMapper.save(bankCard);
-    }
 }
