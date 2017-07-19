@@ -240,6 +240,25 @@ public class Constants {
         }
     }
 
+
+    public enum ApplyCardStatus{
+        //提交申请
+        INIT(new Byte("0")),
+        //1审批失败
+        APPLY_FAIL(new Byte("1")),
+        //审批成功
+        APPLY_SUCCESS(new Byte("2"));
+
+        private Byte value;
+
+        private ApplyCardStatus(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
     public static void main(String[] args) {
         Byte b1 = new Byte("20");
         Byte b2 = new Byte("20");

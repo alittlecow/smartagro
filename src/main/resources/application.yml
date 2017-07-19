@@ -6,11 +6,11 @@ server:
 # DATASOURCE
 jdbc:
     dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-    url: jdbc:mysql://119.23.248.130:3306/smartagro?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
-    databaseName: smartagro
+    url: jdbc:mysql://139.196.89.184:3306/smartago?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    databaseName: smartgo
     serverName: 119.23.248.130
-    username: mysql
-    password: mysql
+    username: root
+    password: root
     cachePrepStmts: true
     prepStmtsSize: 250
     prepStmtsCacheSqlLimit: 2048

@@ -2,18 +2,15 @@ package com.sywl.web.service;
 
 import com.sywl.common.enums.Constants;
 import com.sywl.exception.BusinessException;
-import com.sywl.utils.SywlStringUtils;
+import com.sywl.utils.CommonUtils;
 import com.sywl.utils.UUIDUtil;
 import com.sywl.web.dao.GoodsMapper;
 import com.sywl.web.domain.GoodsDomain;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +28,7 @@ public class GoodsService {
     private GoodsMapper goodsMapper;
 
     public int save(String type, String name, String value, String money) {
-        if (!SywlStringUtils.checkAll(type, name, value, money)) {
+        if (!CommonUtils.hasEmptyString(type, name, value, money)) {
             throw new BusinessException("商品信息不完整");
         }
         GoodsDomain goods = new GoodsDomain();

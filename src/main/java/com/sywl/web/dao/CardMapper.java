@@ -12,7 +12,9 @@ import java.util.Map;
  */
 public interface CardMapper {
 
+    void save(CardDomain cardDomain);
+
     CardDomain queryCardById(@Param("id") String id);
 
-    List<CardDomain> queryListCard(Map<String, Object> map);
+    List<CardDomain> queryCardByCondition(Map<String, Object> params);
 }

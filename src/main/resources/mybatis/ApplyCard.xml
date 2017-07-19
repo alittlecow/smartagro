@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sywl.web.dao.ApplyCardMapper">
+
+
+    <insert id="save" parameterType="com.sywl.web.domain.ApplyCardDomain">
+        INSERT INTO apply_card (
+            id,
+            contact_name,
+            contact_phone,
+            contact_address,
+            id_card,
+            apply_time,
+            update_time,
+            `status`
+        )
+        VALUES
+            (   #{id},
+                #{contactName},
+                #{contactPhone},
+                #{contactAddress},
+                #{idCard},
+                #{applyTime},
+                #{updateTime},
+               #{status}
+            )
+    </insert>
+
+    <update id="update" parameterType="com.sywl.web.domain.ApplyCardDomain">
+        update `apply_card`
+        <set>
+            <if test="contactName != null and contactName != ''">
+                `contact_name` = #{contactName},
+            </if>
+            <if test="name != contactPhone and contactPhone != '' ">
+                `contact_phone` = #{contactPhone},
+            </if>
+            <if test="contactAddress != null and contactAddress != '' ">
+                contact_address = #{contactAddress},
+            </if>
+            <if test="idCard != null and idCard != ''">
+                `id_card` = #{idCard},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+        </set>
+        WHERE id=#{id}
+
+    </update>
+
+    <select id="queryById" parameterType="java.lang.String" resultType="com.sywl.web.domain.ApplyCardDomain">
+        SELECT
+        t.id,
+        t.contact_name AS contactName,
+        t.contact_phone AS contactPhone ,
+        t.contact_address AS contactAddress ,
+        t.id_card AS idCard,
+        t.apply_time AS applyTime,
+        t.update_time AS updateTime,
+        t.`status`
+        FROM
+        apply_card AS t
+        <where>
+            <if test="id != null and id != ''">
+                AND t.id = #{id}
+            </if>
+        </where>
+
+    </select>
+
+    <select id="queryByCondition" parameterType="java.util.Map" resultType="com.sywl.web.domain.ApplyCardDomain">
+        SELECT
+        t.id,
+        t.contact_name AS contactName,
+        t.contact_phone AS contactPhone ,
+        t.contact_address AS contactAddress ,
+        t.id_card AS idCard,
+        t.apply_time AS applyTime,
+        t.update_time AS updateTime,
+        t.`status`
+        FROM
+        apply_card AS t
+        <where>
+            <if test="contactName != null and contactName != ''">
+                `contact_name` = #{contactName},
+            </if>
+            <if test="name != contactPhone and contactPhone != '' ">
+                `contact_phone` = #{contactPhone},
+            </if>
+            <if test="contactAddress != null and contactAddress != '' ">
+                contact_address = #{contactAddress},
+            </if>
+            <if test="idCard != null and idCard != ''">
+                `id_card` = #{idCard},
+            </if>
+            <if test="beginTime != null">
+                update_time <![CDATA[ >= ]]> #{beginTime},
+            </if>
+            <if test="endTime != null">
+                update_time = <![CDATA[ < ]]> #{endTime},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+        </where>
+        ORDER BY t.apply_time DESC
+    </select>
+
+
+</mapper>
